@@ -3,8 +3,8 @@ This is an updated version of the bug tracking app where I have moved over to ne
 
 ## UI update
 
-<img src="bt-nav.png" width="500" height="500">
-<img src="bt-ui.png" width="500" height="500">
+<img src="bt-nav.png" height="500">
+<img src="bt-ui.png" height="500">
 
 ## Working on
 - Posting bugs and users
