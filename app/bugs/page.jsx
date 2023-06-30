@@ -9,6 +9,7 @@ async function test()
     return cat
 }
 
+
 export default async function page() {
   let data = await test()
   return (
@@ -20,6 +21,7 @@ export default async function page() {
         <BugCard post={post} />
       ))
     }
+    
       </div>
       </main>
   )
