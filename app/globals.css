@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 *,
 *::after,
 *::before {
@@ -11,20 +13,38 @@ img {
   width: 100%;
 }
 
+body {
+  font-family: 'Itim', cursive;
+}
+
+
+:root {
+  --UI-main-dark: #1155ca;
+  --Nav-link-bg: #10449c;
+  --UI-main: #1368fb;
+  --action: #54A14D;
+  --delete: #8d0801;
+  --BG-main: #1E3050;
+  --shadow: #0b1424;
+  --bug-high: #ef233c;
+  --bug-med: #ffd100;
+  --bug-low: #70e000;
+}
+
 
 header {
-  border-radius: 0 0 10px 10px;
-  background-color: pink;
+  background-color: var(--UI-main);
   padding: 1rem 0.5rem;
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 main {
-  background-color: grey;
   min-height: 100vh;
   display: flex;
   position: relative;
+  background-color: var(--BG-main);
 }
 
 .logo {
@@ -62,9 +82,9 @@ main {
 
 .mobile-nav {
   position: fixed;
+  color: white;
   width: 60%;
-  padding: 1rem 0;
-  background-color: lime;
+  background-color: var(--UI-main-dark);
   z-index: 10;
   border-radius: 0 10px 10px 0;
   height: 100vh;
@@ -92,18 +112,22 @@ main {
 }
 
 .mobile-nav ul li {
-  width: 100%;
+  width: 96%;
+  border-radius: 0 10px 10px 0;
   padding: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
-  border-bottom: 3px solid white;
+  background-color: var(--Nav-link-bg);
 }
 
 .mobile-nav-close-box {
-  padding: 1rem 1rem;
+  padding: 1.5rem 1rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: #1E3050;
+  margin-bottom: 1rem;
+  border-radius: 0 10px 0 0;
 }
 
 .mobile-nav-close {
@@ -159,6 +183,9 @@ main {
   background-color: blueviolet;
 }
 
+
+
+
 .card-container {
   flex-basis: 100%;
   display: flex;
@@ -168,16 +195,10 @@ main {
 }
 
 .card {
-  padding: 2rem 1rem;
   background-color: #efefef;
   border-radius: 10px;
-}
-
-.card-importance {
-  height: 5px;
-  width: 100%;
-  border-radius: 20px;
-  background-color: red;
+  height: 300px;
+  box-shadow: -2px 5px 10px var(--shadow);
 }
 
 .burger-box {
@@ -191,4 +212,116 @@ main {
   width: 30px;
   height: 30px;
   background-color: transparent;
+}
+
+
+.bug-card-header {
+  padding-block: 1rem 0;
+}
+
+.bug-importance {
+  height: 12px;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 50px;
+}
+
+.bug-low {
+  background-color: var(--bug-low);
+}
+
+.bug-med {
+  background-color: var(--bug-med);
+}
+
+.bug-high {
+  background-color: var(--bug-high);
+}
+
+
+.bug-card-header-inner {
+  padding: 0.6rem;
+  border-radius: 0 0 0 0;
+  background-color: white;
+  text-align: center;
+  border-bottom: 1px solid black;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bug-card-main {
+  padding: 0.4rem 1rem;
+}
+
+.bug-card-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+}
+
+
+.bug-card-text img {
+  flex-basis: 10%;
+}
+
+
+.flex-badge {
+  display: flex;
+  gap: 1rem;
+  margin-block: 1rem 1.4rem;
+}
+
+.project-badge {
+  background-color: var(--UI-main);
+  color: white;
+  display: inline-block;
+  border-radius: 50px;
+  display: flex;
+  width: 120px;
+  padding: 0.6rem 0.6rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.project-badge img {
+  flex-basis: 20%;
+
+}
+
+.project-badge p {
+  flex-basis: 70%;
+  max-width: 15ch;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.bug-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+}
+
+.bug-card-buttons button {
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+  background-color: var(--action);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100px;
+}
+
+.bug-card-buttons button img {
+  flex-basis: 10%;
+}
+
+#delete-button {
+  background-color: var(--delete);
 }

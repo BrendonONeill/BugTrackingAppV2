@@ -15,7 +15,7 @@ function Header() {
       </div>
       <div className="logo-box">
       <img className="logo" src=
-      {"/bug.png"} width="20" height="20"></img><h1>Bug Tracker</h1>
+      {"/logo.png"} width="20" height="20"></img><h1>Bug Tracker</h1>
       </div>
       <div className="login-box">
       <img className="login-box-img" src={"/user.svg"}></img>
