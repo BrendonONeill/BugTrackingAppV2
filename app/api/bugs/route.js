@@ -1,14 +1,20 @@
-import clientPromise from "@/lib/mongo/index";
-import Bug from "@/models/bugSchema"
-import User from "@/models/userSchema"
+import clientPromise from "../../../lib/mongo/index";
+import {NextResponse} from 'next/server'
+import Bug from "../../../models/bugSchema"
+import User from "../../../models/userSchema"
 
-export async function POST(req,res)
-{
+export async function GET(){
+  try{
   await clientPromise();
-  const user = await User.findById("649abfcc0a1699ba345df267");
-  const body = await req.json()
-  body.bugUserId = user
-  body.bugPrivate = true
+  const bugs = await Bug.find().where().populate("bugUserId");
+  console.log("db was called on all bugs")
+  return NextResponse.json(bugs)
+  }
+  catch(error)
+  {
+    console.log(error)
+  }
+};
 
-  await Bug.create(body);
-}
+
+

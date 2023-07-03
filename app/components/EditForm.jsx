@@ -1,11 +1,10 @@
 "use client"
-import {useRouter} from 'next/navigation'
+import { useRouter } from "next/navigation";
 import { useState } from "react"
 
-function Form() {
+function EditForm({data, id}) {
   const router = useRouter()
-  const [test, setTest] = useState(true)
-  const [formData, setFormData] = useState({ bugName: '', bugDes: '', bugCode: '', bugProject: '', bugImportance: ''});
+  const [formData, setFormData] = useState({ bugName: data.bugName, bugDes: data.bugDes, bugCode: data.bugCode, bugProject: data.bugProject, bugImportance: data.bugImportance, bugPrivate: data.bugPrivate});
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -13,13 +12,17 @@ function Form() {
 
   const cat = async (e) => {
     e.preventDefault()
-    console.log(formData)
-    await fetch('/api/bugs/create', {
-        method: 'POST',
-        body: JSON.stringify(formData),
+    const body = {
+        formData,
+        bugId: id
+    }
+    await fetch('/api/bugs/update', {
+        method: 'PUT',
+        body: JSON.stringify(body),
       });
     router.replace("/bugs")
   }
+
   return (
     <div>
         <form onSubmit={cat}>
@@ -43,6 +46,10 @@ function Form() {
                 Importance
                 <input type="text" id='bugName' name='bugImportance'  value={formData.bugImportance} onChange={handleChange} />
             </label>
+            <label htmlFor="">
+                Private
+                <input type="text" id='bugName' name='bugPrivate'  value={formData.bugPrivate} onChange={handleChange} />
+            </label>
             <input type="submit" value="Submit" />
             <input type="reset" value="Reset" />
         </form>
@@ -50,4 +57,4 @@ function Form() {
   )
 }
 
-export default Form
+export default EditForm

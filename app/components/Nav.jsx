@@ -35,7 +35,7 @@ function Nav() {
             </li>
         </ul>
     </nav>
-    <div className={mobileNav ? "mobile-nav-bg mn-bg" : "mobile-nav-bg mn-bg-trans"}></div>
+    <div onClick={navbarMove} className={mobileNav ? "mobile-nav-bg mn-bg" : "mobile-nav-bg mn-bg-trans"}></div>
     </>
   )
 }
