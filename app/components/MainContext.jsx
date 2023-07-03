@@ -6,6 +6,7 @@ const MainContext = createContext({});
 export function MainProvider({children})
 {
     const [mobileNav, setMobileNav] = useState(true);
+    const [data, setData] = useState([])
 
     const navbarMove = () =>
     {
@@ -13,7 +14,7 @@ export function MainProvider({children})
     }
 
     return(
-        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove}}>
+        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, data, setData}}>
             {children}
         </MainContext.Provider>
     )
