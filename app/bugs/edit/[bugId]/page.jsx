@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 import EditForm from "@/app/components/EditForm"
+import Nav from '@/app/components/Nav';
 
 function page() {
     let {data} = useContext(MainContext)
@@ -21,11 +22,14 @@ function page() {
     test()
    },[])
   return (
-    <div>
+    <main>
+    <Nav />
+    <div className='form-bg-container'>
         {editBug !== null ?
         <EditForm data={editBug} id={pathName.bugId} /> : null
         }
     </div>
+    </main>
   )
 }
 

@@ -326,9 +326,30 @@ main {
   background-color: var(--delete);
 }
 
-input {
-  background-color: #70e000;
+.form-container {
+  background-color: #efefef;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  min-width: 100%;
+}
+
+.form-input {
+  padding: 1rem;
   border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.form-label {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.form-bg-container {
+  padding: 1rem;
 }

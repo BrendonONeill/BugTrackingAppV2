@@ -6,7 +6,7 @@ import User from "../../../models/userSchema"
 export async function GET(){
   try{
   await clientPromise();
-  const bugs = await Bug.find().where().populate("bugUserId");
+  const bugs = await Bug.find().populate("bugUserId");
   console.log("db was called on all bugs")
   return NextResponse.json(bugs)
   }
