@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import { useRouter} from 'next/navigation';
 export default function bugCard({post}) {
   const { push } = useRouter();
@@ -22,6 +21,8 @@ export default function bugCard({post}) {
     if(e.target.id === 'expand-bug-button')
     {
       console.log("Expand " + post._id)
+      push(`/bugs/${post._id}`)
+     
     }
   }
   return (

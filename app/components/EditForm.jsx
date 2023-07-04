@@ -25,30 +25,30 @@ function EditForm({data, id}) {
 
   return (
     <div>
-        <form onSubmit={cat}>
-            <label htmlFor="bugName">
+        <form className="form-container" onSubmit={cat}>
+            <label className="form-label" htmlFor="bugName">
                 Bug Name
-                <input type="text" id='bugName' name='bugName'  value={formData.bugName} onChange={handleChange}  />
+                <input className="form-input" type="text" id='bugName' name='bugName'  value={formData.bugName} onChange={handleChange}  />
             </label>
-            <label htmlFor="">
+            <label className="form-label" htmlFor="">
                 Description
-                <input type="text" id='bugName' name='bugDes'  value={formData.bugDes} onChange={handleChange} />
+                <textarea className="form-input" type="text" name="bugDes" id="bugDes" cols="30" rows="10" value={formData.bugDes} onChange={handleChange}></textarea>
             </label>
-            <label htmlFor="">
+            <label className="form-label" htmlFor="">
                 Code 
-                <input type="text" id='bugName' name='bugCode'  value={formData.bugCode} onChange={handleChange}  />
+                <input className="form-input" type="text" id='bugName' name='bugCode'  value={formData.bugCode} onChange={handleChange}  />
             </label>
-            <label htmlFor="">
+            <label className="form-label" htmlFor="">
                 Project name
-                <input type="text" id='bugName' name='bugProject'  value={formData.bugProject} onChange={handleChange} />
+                <input className="form-input" type="text" id='bugName' name='bugProject'  value={formData.bugProject} onChange={handleChange} />
             </label>
-            <label htmlFor="">
+            <label className="form-label" htmlFor="">
                 Importance
-                <input type="text" id='bugName' name='bugImportance'  value={formData.bugImportance} onChange={handleChange} />
+                <input className="form-input" type="text" id='bugName' name='bugImportance'  value={formData.bugImportance} onChange={handleChange} />
             </label>
-            <label htmlFor="">
+            <label className="form-label" htmlFor="">
                 Private
-                <input type="text" id='bugName' name='bugPrivate'  value={formData.bugPrivate} onChange={handleChange} />
+                <input className="form-input" type="text" id='bugName' name='bugPrivate'  value={formData.bugPrivate} onChange={handleChange} />
             </label>
             <input type="submit" value="Submit" />
             <input type="reset" value="Reset" />

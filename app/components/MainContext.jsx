@@ -1,5 +1,5 @@
 'use client'
-import {createContext, useState} from 'react';
+import {createContext, useState, useEffect} from 'react';
 
 const MainContext = createContext({});
 
@@ -7,6 +7,12 @@ export function MainProvider({children})
 {
     const [mobileNav, setMobileNav] = useState(true);
     const [data, setData] = useState([])
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        fetch("/api/bugs", {method: "GET", cache: 'no-store'}).then(res => res.json()).then(data => {setData(data)}).catch(error => console.log(error))
+        fetch("/api/users", {method: "GET", cache: 'no-store'}).then(res => res.json()).then(data => {setUsers(data)}).catch(error => console.log(error))
+    },[])
 
     const navbarMove = () =>
     {
@@ -14,7 +20,7 @@ export function MainProvider({children})
     }
 
     return(
-        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, data, setData}}>
+        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, data, setData, users, setUsers}}>
             {children}
         </MainContext.Provider>
     )

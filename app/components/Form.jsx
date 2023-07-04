@@ -4,7 +4,6 @@ import { useState } from "react"
 
 function Form() {
   const router = useRouter()
-  const [test, setTest] = useState(true)
   const [formData, setFormData] = useState({ bugName: '', bugDes: '', bugCode: '', bugProject: '', bugImportance: ''});
 
   const handleChange = (e) => {
