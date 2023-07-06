@@ -10,4 +10,11 @@ This is an updated version of the bug tracking app where I have moved over to ne
 - Posting bugs and users
 - Viewing bugs and users
 - Understanding the flow of server side and client side rendering
-- Designing new UI 
+- Designing new UI
+
+## Researching
+- Middleware
+- Filtering cards with cleaner code
+- Auth
+- Comments on others cards
+- Best way to deal with soft delete
