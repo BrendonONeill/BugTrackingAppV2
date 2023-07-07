@@ -9,6 +9,7 @@ This is an updated version of the bug tracking app where I have moved over to ne
 ## Working on
 - Posting bugs and users
 - Viewing bugs and users
+- Update middleware with JWT and cookies
 - Understanding the flow of server side and client side rendering
 - Designing new UI
 
