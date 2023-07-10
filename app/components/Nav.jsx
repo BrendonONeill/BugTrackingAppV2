@@ -1,5 +1,5 @@
 'use client'
-
+import Link from 'next/link'
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 
@@ -16,22 +16,22 @@ function Nav() {
         </div>
         <ul>
             <li>
-                Profile
+            <Link className='nav-link' href={{pathname: '/users/profile'}} replace>Profile</Link>
             </li>
             <li>
-                View Users
+            <Link className='nav-link' href={{pathname: '/users'}} replace>View Users</Link>
             </li>
             <li>
-                Create Users
+            <Link className='nav-link' href={{pathname: '/users/create'}} replace>Create Users</Link>
             </li>
             <li>
-                View Bugs
+            <Link className='nav-link' as='/bugs' href='/bugs' >View Bugs</Link>
             </li>
             <li>
-                Create Bugs
+            <Link className='nav-link' href={{pathname: '/bugs/create'}} replace>Create Bugs</Link>
             </li>
             <li>
-                Logout
+            <Link className='nav-link' href={{pathname: ''}} >Logout</Link>
             </li>
         </ul>
     </nav>

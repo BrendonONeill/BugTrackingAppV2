@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 import UserFormEdit from '@/app/components/UserFormEdit'
+import Nav from '@/app/components/Nav';
 
 function page() {
     let {users} = useContext(MainContext)
@@ -23,6 +24,7 @@ function page() {
 
  return (
     <main>
+        <Nav />
         {editUser !== null ?
         <UserFormEdit user={editUser} id={pathName.userId}  /> : null}
     </main>

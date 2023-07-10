@@ -40,6 +40,15 @@ header {
   color: white;
 }
 
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 0 10px 10px 0;
+
+}
+
 main {
   min-height: 100vh;
   display: flex;
@@ -114,7 +123,7 @@ main {
 .mobile-nav ul li {
   width: 96%;
   border-radius: 0 10px 10px 0;
-  padding: 1rem;
+  padding: 0.2rem;
   font-size: 1.5rem;
   font-weight: bold;
   background-color: var(--Nav-link-bg);
