@@ -5,7 +5,7 @@ const MainContext = createContext({});
 
 export function MainProvider({children})
 {
-    const [mobileNav, setMobileNav] = useState(true);
+    const [mobileNav, setMobileNav] = useState(false);
     const [data, setData] = useState([])
     const [users, setUsers] = useState([])
 
