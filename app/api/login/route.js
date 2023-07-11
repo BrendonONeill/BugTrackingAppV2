@@ -20,7 +20,7 @@ export async function POST(req,res)
   }
   const token = await createCookieToken(user)
   cookies().set({name: 'USER', value: token, httpOnly: true, secure: true, maxAge: 20 * 5000})
-  return NextResponse.json({status: 201})
+  return NextResponse.json({message: 'ok'},{status: 201})
   }
   catch(err)
   {

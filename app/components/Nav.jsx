@@ -4,7 +4,7 @@ import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 
 function Nav() {
-    let {mobileNav, navbarMove} = useContext(MainContext)
+    let {mobileNav, navbarMove, LoginUser} = useContext(MainContext)
     
     
   return (
@@ -24,6 +24,7 @@ function Nav() {
             <li>
             <Link className='nav-link' href={{pathname: '/users/create'}} replace>Create Users</Link>
             </li>
+            
             <li>
             <Link className='nav-link' as='/bugs' href='/bugs' >View Bugs</Link>
             </li>

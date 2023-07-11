@@ -1,9 +1,12 @@
 "use client"
 import {useRouter} from 'next/navigation'
 import { useState } from "react";
+import { useContext } from "react";
+import MainContext from "@/app/components/MainContext";
 
 function LoginForm() {
   const router = useRouter()
+  let {setLoggedIn} = useContext(MainContext)
     const [loginData, setLoginData] = useState({ email: "", password: ""});
 
 
@@ -21,21 +24,22 @@ function LoginForm() {
       });
     if(g.status === 201)
     {
+      setLoggedIn(true)
       router.replace("/bugs")
     }
     
   }
   return (
-    <form onSubmit={checkLogin}>
-            <label htmlFor="">
+    <form className='login-form' onSubmit={checkLogin}>
+            <label className='login-label' htmlFor="">
                 Email
-                <input type="text" name="email" value={loginData.email} onChange={handleChange} />
+                <input className='login-input' type="text" name="email" value={loginData.email} onChange={handleChange}  />
             </label>
-            <label htmlFor="">
+            <label className='login-label' htmlFor="">
                 Password
-                <input type="password" name="password" value={loginData.password} onChange={handleChange} />
+                <input className='login-input' type="password" name="password" value={loginData.password} onChange={handleChange} />
             </label>
-            <input type="submit" value="Login" />
+            <input className='login-button' type="submit" value="Login" />
     </form>
   )
 }
