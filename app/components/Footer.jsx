@@ -1,9 +1,9 @@
 function Footer() {
   return (
-    <div>
+    <footer>
       <p>Bug Tracking</p>
       <p>Brendon O'Neill 2023</p>
-    </div>
+    </footer>
   )
 }
 

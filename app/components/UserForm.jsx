@@ -22,7 +22,6 @@ function UserForm() {
   }
 
   return (
-    <div>
     <form className="form-container" onSubmit={cat}>
         <label className="form-label" htmlFor="bugName">
             First Name:
@@ -55,7 +54,6 @@ function UserForm() {
         <input type="submit" value="Submit" />
         <input type="reset" value="Reset" />
     </form>
-  </div>
   )
 }
 

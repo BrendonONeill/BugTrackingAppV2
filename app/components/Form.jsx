@@ -20,32 +20,30 @@ function Form() {
     router.replace("/bugs")
   }
   return (
-    <div>
-        <form onSubmit={cat}>
-            <label htmlFor="bugName">
+        <form className='create-bug-form'  onSubmit={cat}>
+            <label className='login-label' htmlFor="bugName">
                 Bug Name
-                <input type="text" id='bugName' name='bugName'  value={formData.bugName} onChange={handleChange}  />
+                <input className='login-input' type="text" id='bugName' name='bugName'  value={formData.bugName} onChange={handleChange}  />
             </label>
-            <label htmlFor="">
+            <label className='login-label' htmlFor="">
                 Description
-                <input type="text" id='bugName' name='bugDes'  value={formData.bugDes} onChange={handleChange} />
+                <input className='login-input' type="text" id='bugName' name='bugDes'  value={formData.bugDes} onChange={handleChange} />
             </label>
-            <label htmlFor="">
+            <label className='login-label' htmlFor="">
                 Code 
-                <input type="text" id='bugName' name='bugCode'  value={formData.bugCode} onChange={handleChange}  />
+                <input className='login-input' type="text" id='bugName' name='bugCode'  value={formData.bugCode} onChange={handleChange}  />
             </label>
-            <label htmlFor="">
+            <label className='login-label' htmlFor="">
                 Project name
-                <input type="text" id='bugName' name='bugProject'  value={formData.bugProject} onChange={handleChange} />
+                <input className='login-input' type="text" id='bugName' name='bugProject'  value={formData.bugProject} onChange={handleChange} />
             </label>
-            <label htmlFor="">
+            <label className='login-label' htmlFor="">
                 Importance
-                <input type="text" id='bugName' name='bugImportance'  value={formData.bugImportance} onChange={handleChange} />
+                <input className='login-input' type="text" id='bugName' name='bugImportance'  value={formData.bugImportance} onChange={handleChange} />
             </label>
-            <input type="submit" value="Submit" />
-            <input type="reset" value="Reset" />
+            <input className='login-button' type="submit" value="Submit" />
+            <input className='login-button' type="reset" value="Reset" />
         </form>
-</div>
   )
 }
 

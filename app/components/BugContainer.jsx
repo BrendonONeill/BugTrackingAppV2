@@ -9,7 +9,6 @@ function BugContainer() {
     
   return (
     <div className="card-container">
-        <h1>Testing</h1>
       {
       data.length > 0 ?
       data.map((post, index) => (
