@@ -5,7 +5,7 @@ export default function bugCard({post}) {
   
   async function cardClicked(e, post)
   {
-    if(e.target.id === 'delete-bug-button')
+    if(e.target.classList.contains('delete-bug-button'))
     {
       console.log("delete " + post._id)
       await fetch('/api/bugs/delete', {
@@ -13,12 +13,12 @@ export default function bugCard({post}) {
         body: JSON.stringify(post._id),
       });
     }
-    if(e.target.id === 'edit-bug-button')
+    if(e.target.classList.contains('edit-bug-button'))
     {
       console.log("Edit " + post._id)
       push(`/bugs/edit/${post._id}`)
     }
-    if(e.target.id === 'expand-bug-button')
+    if(e.target.classList.contains('expand-bug-button'))
     {
       console.log("Expand " + post._id)
       push(`/bugs/${post._id}`)
@@ -54,9 +54,9 @@ export default function bugCard({post}) {
           <p>{post.dateBugCreated.slice(0,10)}</p>
           </div>
           <div className="bug-card-buttons">
-            <button id="expand-bug-button"><img src="down.svg" width={15} height={15} alt="" />  Expand</button>
-            <button id="edit-bug-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
-            <button id="delete-bug-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
+            <button className="expand-bug-button card-button"><img src="down.svg" width={15} height={15} alt="" />  Expand</button>
+            <button className="card-button edit-bug-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
+            <button className="delete-bug-button card-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
           </div>
           </div>
         </div>
