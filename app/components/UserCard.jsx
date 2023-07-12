@@ -5,7 +5,7 @@ function UserCard({user}) {
 
     async function cardClicked(e, user)
   {
-    if(e.target.id === 'delete-bug-button')
+    if(e.target.classList.contains('delete-user-button'))
     {
       console.log("delete " + user._id)
       await fetch('/api/users/delete', {
@@ -13,20 +13,28 @@ function UserCard({user}) {
         body: JSON.stringify(user._id),
       });
     }
-    if(e.target.id === 'edit-bug-button')
+    if(e.target.classList.contains('edit-user-button'))
     {
       console.log("Edit " + user._id)
       push(`/users/edit/${user._id}`)
     }
   }
   return (
-    <div onClick={(e) => cardClicked(e,user)}>
-        <h1>{user.fname}</h1>
-        <h2>{user.email}</h2>
-        
-        <div className="bug-card-buttons">
-            <button id="edit-bug-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
-            <button id="delete-bug-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
+    <div className='user-card' onClick={(e) => cardClicked(e,user)}>
+        <div className='user-card-header'>
+        <h2>{user.fname} {user.lname}</h2>
+        </div>
+        <div className='user-card-main'>
+          <div className='user-card-email'>
+          <p>{user.email}</p>
+          </div>
+        <p><strong>Role: </strong> {user.title}</p>
+        <p><strong>Access Level: </strong> {user.role}</p>
+        <p><strong>Account Created: </strong> {user.dateCreated.slice(0,10)}</p>
+        </div>
+        <div className="user-card-buttons">
+            <button className="edit-user-button card-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
+            <button className="delete-user-button card-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
           </div>
     </div>
   )

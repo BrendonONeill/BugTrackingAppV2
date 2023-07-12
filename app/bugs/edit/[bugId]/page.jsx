@@ -24,11 +24,9 @@ function page() {
   return (
     <main>
     <Nav />
-    <div className='form-bg-container'>
         {editBug !== null ?
         <EditForm data={editBug} id={pathName.bugId} /> : null
         }
-    </div>
     </main>
   )
 }

@@ -33,7 +33,7 @@ function UserForm() {
         </label>
         <label className="form-label" htmlFor="">
             Email:
-            <input className="form-input" type="text" id='bugName' name='email'  value={formData.email} onChange={handleChange}  />
+            <input className="form-input" type="email" id='bugName' name='email'  value={formData.email} onChange={handleChange}  />
         </label>
         <label className="form-label" htmlFor="">
             Password:
@@ -45,14 +45,19 @@ function UserForm() {
         </label>
         <label className="form-label" htmlFor="">
             Role:
-            <input className="form-input" type="text" id='bugName' name='role'  value={formData.role} onChange={handleChange} />
+            <select className="form-input" type="text" id='bugName' name='role'  value={formData.role} onChange={handleChange} >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
         </label>
         <label className="form-label" htmlFor="">
             Title:
             <input className="form-input" type="text" id='bugName' name='title'  value={formData.title} onChange={handleChange} />
         </label>
-        <input type="submit" value="Submit" />
-        <input type="reset" value="Reset" />
+        <div className='form-buttons'>
+            <input className='form-button' type="submit" value="Submit" />
+            <input className='form-button' type="reset" value="Reset" />
+        </div>
     </form>
   )
 }

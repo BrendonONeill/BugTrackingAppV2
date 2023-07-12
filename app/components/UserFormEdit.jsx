@@ -23,7 +23,6 @@ function UserFormEdit({user, id}) {
       router.replace("/users")
     }
   return (
-    <div>
     <form className="form-container" onSubmit={cat}>
         <label className="form-label" htmlFor="bugName">
             First Name:
@@ -45,10 +44,11 @@ function UserFormEdit({user, id}) {
             Title:
             <input className="form-input" type="text" id='bugName' name='title'  value={formData.title} onChange={handleChange} />
         </label>
-        <input type="submit" value="Submit" />
-        <input type="reset" value="Reset" />
+        <div className='form-buttons'>
+            <input className='form-button' type="submit" value="Submit" />
+            <input className='form-button' type="reset" value="Reset" />
+        </div>
     </form>
-  </div>
   )
 }
 
