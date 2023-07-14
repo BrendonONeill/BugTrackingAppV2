@@ -3,8 +3,7 @@ import UserCard from "../components/UserCard"
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 
-function UserContainer() {
-    const {users, setUsers} = useContext(MainContext)
+function UserContainer({users}) {
 
   return (
     <div className="card-container">

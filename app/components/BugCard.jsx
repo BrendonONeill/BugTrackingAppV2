@@ -1,7 +1,11 @@
 "use client"
 import { useRouter} from 'next/navigation';
+import { useContext } from "react";
+import MainContext from "@/app/components/MainContext";
+
 export default function bugCard({post}) {
   const { push } = useRouter();
+  const {LoginUser} = useContext(MainContext)
   
   async function cardClicked(e, post)
   {
@@ -55,8 +59,12 @@ export default function bugCard({post}) {
           </div>
           <div className="bug-card-buttons">
             <button className="expand-bug-button card-button"><img src="down.svg" width={15} height={15} alt="" />  Expand</button>
-            <button className="card-button edit-bug-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
-            <button className="delete-bug-button card-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
+            { post.bugUserId?._id === LoginUser?._id ?
+            <>
+              <button className="card-button edit-bug-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
+              <button className="delete-bug-button card-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
+            </> : null
+            }
           </div>
           </div>
         </div>
