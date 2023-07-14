@@ -7,17 +7,14 @@ import UserFormEdit from '@/app/components/UserFormEdit'
 import Nav from '@/app/components/Nav';
 
 function page() {
-    let {users} = useContext(MainContext)
     const pathName = useParams()
     const [editUser, setEditUser] = useState(null)
  
     useEffect(() => {
-     console.log("use effect")
      function test()
      {
-         console.log("use effect function")
-         let test = users.filter(user => user._id === pathName.userId)
-         setEditUser(test[0])
+        fetch(`/api/users/collectuser?q=${pathName.userId}`, {method: "GET"}).then(res => res.json()).then(data => {
+        setEditUser(data.user)}).catch(error => console.log(error))
      }
      test()
     },[])

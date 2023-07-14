@@ -1,22 +1,20 @@
 "use client"
 import BugCard from "@/app/components/bugCard"
-import { useEffect, useState } from "react"
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 import BugLoading from "./BugLoading";
 
-function BugContainer() {
-    let {data, setData} = useContext(MainContext)
-    
+function BugContainer({data}) {
+
+  const {LoginUser} = useContext(MainContext)
   return (
     <div className="card-container">
       {
-      data.length > 0 ?
+      data && LoginUser ?
       data.map((post, index) => (
-        <BugCard post={post} key={post._id} test={post._id} />
+        <BugCard post={post} index={index} key={post._id} test={post._id} />
       )) :<> <BugLoading /> <BugLoading /> <BugLoading /> </>
     }
-    
       </div>
   )
 }
