@@ -7,10 +7,10 @@ This is an updated version of the bug tracking app where I have moved over to ne
 <img src="bt-ui.png" height="500">
 
 ## Working on
-- Posting bugs and users
-- Viewing bugs and users
-- Update middleware with JWT and cookies
-- Understanding the flow of server side and client side rendering
+- Calling to API with logged in users id
+- Filtering and sorting bugs and users
+- Fixing UI bugs with client side
+- Cleaning up code and using best pratice methods
 - Designing new UI
 
 ## Researching
