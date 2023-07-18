@@ -5,7 +5,7 @@ import { useState } from "react"
 function UserForm() {
 
   const router = useRouter()
-  const [formData, setFormData] = useState({ fname: "", lname: "", email: "", password: "", passwordConfirm: "", role: "", title: ""});
+  const [formData, setFormData] = useState({ fname: "", lname: "", email: "", password: "", passwordConfirm: "", role: "User", title: ""});
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -45,9 +45,9 @@ function UserForm() {
         </label>
         <label className="form-label" htmlFor="">
             Role:
-            <select className="form-input" type="text" id='bugName' name='role'  value={formData.role} onChange={handleChange} >
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
+            <select className="form-input" id='bugName' name='role' onChange={handleChange} >
+              <option selected value="User">User</option>
+              <option value="Admin">Admin</option>
             </select>
         </label>
         <label className="form-label" htmlFor="">

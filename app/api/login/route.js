@@ -19,8 +19,17 @@ export async function POST(req,res)
     throw new Error("Email or Password not valid");
   }
   const token = await createCookieToken(user)
-  cookies().set({name: 'USER', value: token, httpOnly: true, secure: true, maxAge: 20 * 5000})
-  return NextResponse.json({message: 'ok'},{status: 201})
+  cookies().set({name: 'user', value: token, httpOnly: true, secure: true, maxAge: 20 * 5000})
+  const loggedInUser =
+  {
+    "_id": user._id,
+    "fname": user.fname,
+    "lname": user.lname,
+    "email": user.email,
+    "role": user.role,
+    "title": user.title,
+  }
+  return NextResponse.json(loggedInUser,{status: 201})
   }
   catch(err)
   {

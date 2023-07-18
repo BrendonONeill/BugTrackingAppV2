@@ -1,9 +1,12 @@
 "use client"
+import { useContext } from "react";
+import MainContext from "@/app/components/MainContext";
 import {useRouter} from 'next/navigation'
 import { useState } from "react"
 
 function Form() {
   const router = useRouter()
+  const {LoginUser} = useContext(MainContext)
   const [formData, setFormData] = useState({ bugName: '', bugDes: '', bugCode: '', bugProject: '', bugImportance: 'low', bugPrivate: false});
 
   const handleChange = (e) => {
@@ -12,10 +15,15 @@ function Form() {
 
   const sumbitForm = async (e) => {
     e.preventDefault()
-    console.log(formData)
+
+    const body =
+    {
+      formData,
+      user: LoginUser._id
+    }
     await fetch('/api/bugs/create', {
         method: 'POST',
-        body: JSON.stringify(formData),
+        body: JSON.stringify(body),
       });
     router.replace("/bugs")
   }

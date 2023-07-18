@@ -6,7 +6,7 @@ import { verifyAuthJWT  } from "@/lib/auth/auth";
 
 export async function GET(req, res){
   try{
-  const jwt = req.cookies.get('USER').value
+  const jwt = req.cookies.get('user').value
   if(jwt)
   {
     await clientPromise();
