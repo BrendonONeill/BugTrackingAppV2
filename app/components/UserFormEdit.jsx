@@ -38,7 +38,10 @@ function UserFormEdit({user, id}) {
         </label>
         <label className="form-label" htmlFor="">
             Role:
-            <input className="form-input" type="text" id='bugName' name='role'  value={formData.role} onChange={handleChange} />
+            <select className="form-input" id='bugName' name='role' onChange={handleChange} >
+              <option selected value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
         </label>
         <label className="form-label" htmlFor="">
             Title:

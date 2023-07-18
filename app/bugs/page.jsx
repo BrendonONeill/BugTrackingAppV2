@@ -1,22 +1,19 @@
 import Nav from "@/app/components/Nav"
 import BugContainer from "../components/BugContainer"
 import { Suspense } from "react"
+import BugFilter from "../components/BugFilter"
+import BugInfo from "../components/BugInfo"
 
-
-async function fetchBugs()
-{
-  const res = await fetch("http://localhost:3000/api/bugs", {method: "GET", cache: 'no-store'})
-  const bugs = res.json()
-  return bugs
-}
 export default async function page() {
-  const data = await fetchBugs()
+ 
   return (
     <main>
       <Nav />
+      <BugFilter />
+      <BugInfo />
       <Suspense fallback={<h1>Loading...</h1>}>
-      <BugContainer data={data} />
+      <BugContainer />
       </Suspense>
-      </main>
+    </main>
   )
 }

@@ -1,13 +1,10 @@
 "use client"
 import {useRouter} from 'next/navigation'
 import { useState } from "react";
-import { useContext } from "react";
-import MainContext from "@/app/components/MainContext";
 
 function LoginForm() {
   const router = useRouter()
-  let {setLoggedIn} = useContext(MainContext)
-    const [loginData, setLoginData] = useState({ email: "", password: ""});
+  const [loginData, setLoginData] = useState({ email: "", password: ""});
 
 
     const handleChange = (e) => {
@@ -24,7 +21,6 @@ function LoginForm() {
       });
     if(g.status === 201)
     {
-      setLoggedIn(true)
       router.replace("/bugs")
     }
     

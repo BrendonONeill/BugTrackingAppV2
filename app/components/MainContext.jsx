@@ -8,6 +8,8 @@ export function MainProvider({children})
     const [mobileNav, setMobileNav] = useState(false);
     const [LoginUser, setLoginUser] = useState(null)
     const [loggedIn, setLoggedIn] = useState(false)
+    const [bugs, setBugs] = useState([])
+    const [bugCards, setBugCards] = useState([])
 
     useEffect(() => {
         
@@ -16,13 +18,21 @@ export function MainProvider({children})
        
     },[])
 
+    useEffect(() => {
+        setBugCards(bugs)
+    },[bugs])
+
+    useEffect(() => {
+        console.log("test")
+    },[bugCards])
+
     const navbarMove = () =>
     {
         setMobileNav(!mobileNav)
     }
 
     return(
-        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn}}>
+        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn, bugs, setBugs, bugCards, setBugCards}}>
             {children}
         </MainContext.Provider>
     )
