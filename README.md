@@ -13,6 +13,8 @@ This is an updated version of the bug tracking app where I have moved over to ne
 - Cleaning up code and using best pratice methods
 - Designing new UI
 
+- Cookie in use warning
+
 ## Researching
 - Middleware
 - Filtering cards with cleaner code
