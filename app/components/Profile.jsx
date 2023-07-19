@@ -1,20 +1,29 @@
 "use client"
+import code from '@/public/code.svg'
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 
 function Profile() {
     let {LoginUser} = useContext(MainContext)
   return (
+    <main>
     <div className='profile-container'>
-        <img src="code.svg" width={50} height={50} alt="" />
+      <div className='profile-image-container'>
+        <img src="../user.svg" width={50} height={50} alt="" />
+      </div>
         {LoginUser !== null ?
-        <>
-        <h1>{LoginUser.fname} {LoginUser.lname}</h1>
-        <p>{LoginUser.email}</p>
-        <p>{LoginUser.role}</p>
-        <p>{LoginUser.title}</p>
-        <p>{LoginUser.dateCreated.slice(0,10)}</p></> : null}
+        <div className='profile-text'>
+        <div className='profile-name'>
+        <h2>{LoginUser.fname} {LoginUser.lname}</h2>
+        </div>
+        <p><strong>Email: </strong>{LoginUser.email}</p>
+        <div className='profile-badges-container'>
+        <p className='profile-badge'>{LoginUser.role}</p>
+        <p className='profile-badge'>{LoginUser.title}</p>
+        </div>
+        <p><strong>Account Created: </strong>{LoginUser.dateCreated.slice(0,10)}</p></div> : null}
     </div>
+    </main>
   )
 }
 

@@ -54,7 +54,17 @@ footer {
   color: white;
   padding: 1rem;
   border-radius: 0 10px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
 
+
+}
+
+.nav-link img {
+  width: 20px;
+  height: 20px;
 }
 
 main {
@@ -601,4 +611,109 @@ main {
 
 .red {
   background-color: var(--bug-high);
+}
+
+/* Profile */
+
+.profile-container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: -2px 5px 10px var(--shadow);
+}
+
+.profile-image-container {
+  background-color: var(--UI-main-dark);
+  height: 100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.profile-image-container img {
+  padding: 0.5rem;
+  background-color: var(--UI-main);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.profile-text {
+  padding: 1rem;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.profile-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--UI-main-dark);
+}
+
+.profile-badges-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.profile-badge {
+  display: inline-block;
+  border: 2px solid var(--UI-main);
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+
+/* test */
+
+.bug-expanded-info {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: -2px 5px 10px var(--shadow);
+
+}
+
+.bug-expanded-info h2 {
+  padding: 2rem;
+  background-color: var(--UI-main);
+  text-align: center;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 1rem;
+}
+
+.bug-expanded-info-section {
+  border-top: 3px solid var(--UI-main);
+  border-bottom: 1px solid var(--UI-main-dark);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bug-expanded-info-label {
+  background-color: var(--UI-main);
+  color: white;
+  border-radius: 5px 5px 0 0;
+  padding: 0.2rem;
+  text-align: center;
+  border-bottom: none;
+  width: 100px;
+}
+
+
+.back-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 0.5rem 1.2rem;
+  padding: 0.2rem;
+  border: 2px solid var(--UI-main);
 }

@@ -5,6 +5,7 @@ import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 import UserFormEdit from '@/app/components/UserFormEdit'
 import Nav from '@/app/components/Nav';
+import Link from 'next/link';
 
 function page() {
     const pathName = useParams()
@@ -22,6 +23,7 @@ function page() {
  return (
     <main>
         <Nav />
+        <Link className='back-link' href={{pathname: '/users'}} ><img width={30} height={30} src="../../back.svg" alt="back arrow" /></Link>
         {editUser !== null ?
         <UserFormEdit user={editUser} id={pathName.userId}  /> : null}
     </main>

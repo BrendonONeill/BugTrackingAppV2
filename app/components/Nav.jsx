@@ -8,7 +8,7 @@ import UserNav from './UserNav';
 function Nav() {
   let {LoginUser} = useContext(MainContext)
   return (
-    LoginUser?.role === "Admin" ? 
+    LoginUser?.role === "Admin" || LoginUser?.role === "Super-Admin"? 
     <AdminNav /> : <UserNav />
   )
 }
