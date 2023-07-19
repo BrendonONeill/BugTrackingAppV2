@@ -16,6 +16,7 @@ export default function bugCard({post}) {
         method: 'POST',
         body: JSON.stringify(post._id),
       });
+      push('../bugs')
     }
     if(e.target.classList.contains('edit-bug-button'))
     {

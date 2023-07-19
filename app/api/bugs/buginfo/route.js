@@ -8,7 +8,7 @@ export async function GET(req){
   const {searchParams} = new URL(req.url)
   const bugId = searchParams.get('q')
   await clientPromise();
-  const bug = await Bug.findById(bugId).select("-bugUserId");
+  const bug = await Bug.findById(bugId).populate('bugUserId');
   console.log(bug)
   return NextResponse.json({bug})
   }

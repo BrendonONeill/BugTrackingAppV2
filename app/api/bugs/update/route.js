@@ -8,8 +8,10 @@ export async function PUT(req,res)
 {
 
     try {
+        const token = req.cookies.get("user")
+        let accessGranted = await verifyAuthJWT(token.value)
         await clientPromise();
-        const user = await User.findById("649abfcc0a1699ba345df267");
+        const user = await User.findById(accessGranted.user);
         const container = await req.json()
         const body = container.formData
         body.bugUserId = user
