@@ -10,7 +10,9 @@ This is an updated version of the bug tracking app where I have moved over to ne
 - Calling to API with logged in users id
 - Filtering and sorting bugs and users
 - Fixing UI bugs with client side
-- Cleaning up code and using best pratice methods
+- Cleaning up code and using best
+- updating Auth with Next Auth.
+- pratice methods
 - Designing new UI
 
 - Cookie in use warning
