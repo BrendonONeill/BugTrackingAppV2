@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import EditForm from "@/app/components/EditForm"
 import Nav from '@/app/components/Nav';
 import Link from 'next/link';
+import NonMobileAdminNav from "@/app/components/NonMobileAdminNav"
 
 function page() {
    const pathName = useParams()
@@ -20,10 +21,16 @@ function page() {
   return (
     <main>
     <Nav />
-    <Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../../back.svg" alt="back arrow" /></Link>
+    <div className="grid-container">
+    <NonMobileAdminNav />
+    <div className="main-content-container">
+    
     {editBug !== null ?
-        <EditForm data={editBug} id={pathName.bugId} /> : null
-    }    
+        <><Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../../back.svg" alt="back arrow" /></Link>
+        <EditForm data={editBug} id={pathName.bugId} /> </> : null
+    }
+    </div>
+    </div>    
     </main>
   )
 }

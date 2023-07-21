@@ -1,6 +1,7 @@
 import Nav from "@/app/components/Nav"
 import UserContainer from "../components/UserContainer"
 import { Suspense } from "react"
+import NonMobileAdminNav from "../components/NonMobileAdminNav"
 
 
 async function fetchBugs()
@@ -15,9 +16,14 @@ export default async function page() {
   return (
     <main>
       <Nav />
+      <div className="grid-container">
+      <NonMobileAdminNav />
+      <div className="main-content-container">
       <Suspense fallback={<h1>Loading...</h1>}>
       <UserContainer users={data} />
       </Suspense>
+      </div>
+      </div>
     </main>
   )
 }

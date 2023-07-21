@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
 
 *,
 *::after,
@@ -14,14 +15,14 @@ img {
 }
 
 body {
-  font-family: 'Itim', cursive;
+  font-family: 'Sawarabi Gothic', sans-serif;
 }
 
 
 :root {
-  --UI-main-dark: #1155ca;
-  --Nav-link-bg: #10449c;
-  --UI-main: #1368fb;
+  --UI-main-dark: #006494;
+  --Nav-link-bg: #0582ca;
+  --UI-main: #0582ca;
   --action: #54A14D;
   --delete: #8d0801;
   --BG-main: #1E3050;
@@ -69,7 +70,6 @@ footer {
 
 main {
   min-height: 100vh;
-  padding: 2rem 0.2rem;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -171,7 +171,7 @@ main {
 }
 
 .mobile-nav-bg {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -181,7 +181,7 @@ main {
 }
 
 .mn-bg {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .mn-bg-trans {
@@ -213,15 +213,22 @@ main {
   background-color: blueviolet;
 }
 
-
+.main-content-container {
+  padding: 2rem 0.2rem;
+}
 
 
 .card-container {
   flex-basis: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
   display: flex;
   flex-flow: column;
   gap: 0.5rem;
   padding: 1rem;
+  width: 380px;
+  height: 600px;
+  overflow-y: scroll;
 }
 
 .card {
@@ -279,6 +286,13 @@ main {
   margin: 0 auto;
 }
 
+.bug-card-header-inner h2 {
+  max-width: 35ch;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .bug-card-main {
   padding: 0.4rem 1rem;
 }
@@ -301,7 +315,7 @@ main {
 .flex-badge {
   display: flex;
   gap: 1rem;
-  margin-block: 1rem 1.4rem;
+  margin-block: 1rem 1.2rem;
 }
 
 .project-badge {
@@ -331,7 +345,6 @@ main {
 .bug-card-buttons {
   display: flex;
   justify-content: space-between;
-  padding-block: 1rem;
 }
 
 .bug-card-buttons button {
@@ -550,7 +563,9 @@ main {
   border-radius: 5px 5px 0 0;
   border-bottom: 5px solid var(--UI-main-dark);
   padding: 1rem;
+  margin: 0 auto;
   margin-inline: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -710,10 +725,110 @@ main {
 
 
 .back-link {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 5px;
-  margin: 0.5rem 1.2rem;
-  padding: 0.2rem;
-  border: 2px solid var(--UI-main);
+  margin: 0.5rem 2.2rem;
+}
+
+.back-link img {
+  width: 30px;
+  height: 30px;
+}
+
+.non-mobile-nav {
+  display: none;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .card-container {
+    width: 480px;
+    height: 950px;
+  }
+
+  .bug-filter {
+    width: 550px;
+
+  }
+
+  .bug-info-box {
+    width: 550px;
+    margin: 0 auto;
+  }
+
+
+}
+
+
+@media only screen and (min-width: 950px) {
+  .burger-box {
+    display: none;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  header {
+    padding: 1.5rem 5rem;
+  }
+
+  .card-container {
+    height: 750px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .non-mobile-nav {
+    display: block;
+    padding-top: 5rem;
+    background-color: var(--UI-main-dark);
+    grid-column: 1/2;
+  }
+
+  .non-mobile-nav ul {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    width: 95%;
+  }
+
+  .non-mobile-nav li {
+    background-color: var(--UI-main);
+    border-radius: 0 5px 5px 0;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .main-content-container {
+    grid-column: 3/4;
+  }
+}
+
+
+@media only screen and (min-width: 2300px) {
+
+  .grid-container {
+    grid-template-columns: 400px 1fr 1fr 1fr;
+  }
+
+  .card-container {
+    height: 1400px;
+  }
+
+  .non-mobile-nav li {
+    font-size: 2rem;
+  }
+
+  .non-mobile-nav li img {
+    height: 30px;
+    width: 30px;
+  }
 }

@@ -57,7 +57,7 @@ function BugFilter() {
     
   return (
     <form onSubmit={test} className="bug-filter">
-        <label htmlFor="filter"><p>Filter</p>
+        <label className="filter-text" htmlFor="filter"><p>Filter</p>
             <select className="bug-filter-select" name="filter" id="filter" value={filterForm.filter} onChange={handleChange}>
                 <option value="none">None</option>
                 <option value="user">User</option>

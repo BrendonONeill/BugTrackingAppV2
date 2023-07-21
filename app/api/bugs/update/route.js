@@ -15,7 +15,7 @@ export async function PUT(req,res)
         const container = await req.json()
         const body = container.formData
         body.bugUserId = user
-        await Bug.findByIdAndUpdate(container.bugId,body);
+        await Bug.findByIdAndUpdate(container.bugId.body);
         return redirect("/bugs")
       } catch (err) {
        console.log("ouch")

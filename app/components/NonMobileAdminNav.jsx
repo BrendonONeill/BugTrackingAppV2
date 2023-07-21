@@ -4,7 +4,7 @@ import { useRouter} from 'next/navigation';
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 
-function AdminNav() {
+function NonMobileAdminNav() {
     let {mobileNav, navbarMove, LoginUser} = useContext(MainContext)
     const { push } = useRouter();
 
@@ -19,11 +19,7 @@ function AdminNav() {
     
   return (
     <>
-    <nav className={mobileNav? "mobile-nav mn-open" : "mobile-nav mn-close"}>
-        
-        <div className="mobile-nav-close-box">
-            <button className="mobile-nav-close" onClick={navbarMove}>x</button>
-        </div>
+    <nav className="non-mobile-nav">
         <ul>
             <li>
             <Link className='nav-link' href={{pathname: '/users/profile'}} replace> <img src="/nav-user.svg" width={20} height={20} alt="" /> Profile</Link>
@@ -51,4 +47,4 @@ function AdminNav() {
   )
 }
 
-export default AdminNav
+export default NonMobileAdminNav
