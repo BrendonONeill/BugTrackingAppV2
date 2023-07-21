@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation';
 import Nav from '@/app/components/Nav';
 import Link from 'next/link';
+import BugExpandInfo from '@/app/components/BugExpandInfo';
+import NonMobileAdminNav from "@/app/components/NonMobileAdminNav"
 
 function page() {
     const pathName = useParams()
@@ -18,44 +20,18 @@ function page() {
     },[])
   return (
     <main>
-      <Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../back.svg" alt="back arrow" /></Link>
       {infoBug !== null ?
       <>
         <Nav />
-        <div className='bug-expanded-info'>
-        <h2>{infoBug.bugName}</h2>
-
-        <p className='bug-expanded-info-label'>Created By</p>
-        <div className='bug-expanded-info-section'>
-        <p>{infoBug.bugUserId?.fname} {infoBug.bugUserId?.lname}</p>
+        <div className="grid-container">
+        <NonMobileAdminNav />
+        <div className="main-content-container">
+        <Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../back.svg" alt="back arrow" /></Link>
+        <BugExpandInfo infoBug={infoBug} />
+        </div>
         </div>
 
-        <p className='bug-expanded-info-label'>Description</p>
-        <div className='bug-expanded-info-section'>
-        <p>{infoBug.bugDes}</p>
-        </div>
-
-        <p className='bug-expanded-info-label'>Code</p>
-        <div className='bug-expanded-info-section'>
-        <p>{infoBug.bugCode}</p>
-        </div>
-
-        <p className='bug-expanded-info-label'>Project</p>
-        <div className='bug-expanded-info-section'>
-        <p>{infoBug.bugProject}</p>
-        </div>
-
-        <p className='bug-expanded-info-label'>Importance</p>
-        <div className='bug-expanded-info-section'>
-        <p>{infoBug.bugImportance}</p>
-        </div>
-      
-
-        <p className='bug-expanded-info-label'>Date Created</p>
-        <div className='bug-expanded-info-section'>
-        <p>{infoBug.dateBugCreated.slice(0,10)}</p>
-        </div>
-        </div></>: null
+      </> : null
         }
     </main>
     

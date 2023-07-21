@@ -8,10 +8,11 @@ function Profile() {
   return (
     <main>
     <div className='profile-container'>
-      <div className='profile-image-container'>
+      
+        {LoginUser !== null ?
+        <><div className='profile-image-container'>
         <img src="../user.svg" width={50} height={50} alt="" />
       </div>
-        {LoginUser !== null ?
         <div className='profile-text'>
         <div className='profile-name'>
         <h2>{LoginUser.fname} {LoginUser.lname}</h2>
@@ -21,7 +22,7 @@ function Profile() {
         <p className='profile-badge'>{LoginUser.role}</p>
         <p className='profile-badge'>{LoginUser.title}</p>
         </div>
-        <p><strong>Account Created: </strong>{LoginUser.dateCreated.slice(0,10)}</p></div> : null}
+        <p><strong>Account Created: </strong>{LoginUser.dateCreated.slice(0,10)}</p></div></> : null}
     </div>
     </main>
   )
