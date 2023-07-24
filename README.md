@@ -10,6 +10,9 @@ This UI will change as I clean up the app and it goes live.
 ### Old UI in EJS
 <img src="old-bug-1.png" height="500"> <img src="old-bug-2.png" height="500">
 
+## Needs updating
+I have put together the session calls for getting the users information from db with jwt to protect the users id, need to implement into main files and clean up how it works around the app. 
+
 
 ## Working on
 - Calling to API with logged in users id
