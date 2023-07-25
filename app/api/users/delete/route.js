@@ -4,13 +4,16 @@ import User from "@/models/userSchema"
 
 export async function POST(req,res)
 {
-
-    try {
+    try
+    {
         await clientPromise();
         const body = await req.json()
         await User.findByIdAndDelete(body);
-      } catch (err) {
+        return NextResponse.json({message: "bug deleted", status: 201})
+    } 
+    catch(err)
+    {
         err.message = "This page doesn't exist";
         next(err);
-      }
+    }
 }

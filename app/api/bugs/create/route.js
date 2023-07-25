@@ -11,5 +11,5 @@ export async function POST(req,res)
   body.formData.bugUserId = user
   await Bug.create(body.formData);
   console.log("bug was created")
-  return NextResponse.json({message: "Bug was created"}, {status: 201})
+  return NextResponse.json({message: "Bug was created" , status: 201})
 }

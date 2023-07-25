@@ -4,12 +4,12 @@ import {NextResponse} from 'next/server'
 
 export async function GET(){
   try{
-  await clientPromise();
-  const users = await User.find().select(' _id -password');
-  return NextResponse.json(users)
+      await clientPromise();
+      const users = await User.find().select(' _id -password');
+      return NextResponse.json(users)
   }
   catch(error)
   {
-    console.log(error)
+      console.log(error)
   }
 };
