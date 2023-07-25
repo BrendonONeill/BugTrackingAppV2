@@ -8,5 +8,5 @@ export async function POST(req,res)
   await clientPromise();
   const body = await req.json()
   await User.create(body);
-  return NextResponse.json({message: "User was created"}, {status: 201})
+  return NextResponse.json({message: "User was created", status: 201})
 }

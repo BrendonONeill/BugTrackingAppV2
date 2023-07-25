@@ -3,7 +3,7 @@ import code from '@/public/code.svg'
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
 
-function Profile() {
+export default function Profile() {
     let {LoginUser} = useContext(MainContext)
   return (
     <main>
@@ -27,5 +27,3 @@ function Profile() {
     </main>
   )
 }
-
-export default Profile

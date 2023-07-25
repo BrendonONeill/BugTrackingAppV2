@@ -10,8 +10,8 @@ try {
     console.log("no Cookies found under that name")
     return NextResponse.rewrite(new URL('/login', request.url))
   }
-  const token = request.cookies.get('user').value
-  let accessGranted = await verifyAuthJWT(token)
+  const token = request.cookies.get('user')
+  let accessGranted = await verifyAuthJWT(token.value)
   if(!accessGranted)
   {
     console.log("NO Access was granted please login")

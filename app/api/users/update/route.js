@@ -12,8 +12,10 @@ export async function PUT(req,res)
         const body = container.formData
         const id = container.userId
         await User.findByIdAndUpdate(id, body, {new: true});
-        return redirect("/users")
-      } catch (err) {
-       console.log("ouch")
-      }
+        return NextResponse.json({message: "Successful updated", status: 201})
+        } 
+    catch(err)
+    {
+       console.log(err)
+    }
 }
