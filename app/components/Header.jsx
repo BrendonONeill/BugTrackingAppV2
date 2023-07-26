@@ -22,7 +22,7 @@ function Header() {
       { loggedIn === true ? 
       <div className="login-box">
       <img className="login-box-img" src={"/user.svg"}></img>
-      <p>{LoginUser.fname + " " + LoginUser.lname}</p></div>: null}</header>
+      <p>{LoginUser.fname + " " + LoginUser.lname[0]}</p></div>: null}</header>
       
   )
 }

@@ -18,7 +18,7 @@ export default async function page() {
       <Nav />
       <div className="grid-container">
       <NonMobileAdminNav />
-      <div className="main-content-container">
+      <div className="user-main-content-container">
       <Suspense fallback={<h1>Loading...</h1>}>
       <UserContainer users={data} />
       </Suspense>

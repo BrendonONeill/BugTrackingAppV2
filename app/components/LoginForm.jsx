@@ -19,13 +19,10 @@ function LoginForm() {
         method: 'POST',
         body: JSON.stringify(loginData),
       });
-    if(g.status === 201)
-    {
       router.replace("/bugs")
-    }
-    
   }
   return (
+    <div className='login-container'>
     <form className='login-form' onSubmit={checkLogin}>
             <label className='login-label' htmlFor="">
                 Email
@@ -37,6 +34,7 @@ function LoginForm() {
             </label>
             <input className='login-button' type="submit" value="Login" />
     </form>
+    </div>
   )
 }
 
