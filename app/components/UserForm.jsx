@@ -45,8 +45,8 @@ function UserForm() {
         </label>
         <label className="form-label" htmlFor="">
             Role:
-            <select className="form-input" id='bugName' name='role' onChange={handleChange} >
-              <option selected value="User">User</option>
+            <select className="form-input" id='bugName' name='role' defaultValue={"User"} onChange={handleChange} >
+              <option value="User">User</option>
               <option value="Admin">Admin</option>
             </select>
         </label>

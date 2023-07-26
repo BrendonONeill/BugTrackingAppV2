@@ -57,13 +57,21 @@ function BugFilter() {
     
   return (
     <form onSubmit={test} className="bug-filter">
-        <label className="filter-text" htmlFor="filter"><p>Filter</p>
+        <label className="filter-text" htmlFor="filter">
+            <div className="bug-filter-flex">
+                <img src="/filter.svg" alt="" width={15} height={15} />
+                <p>Filter</p>
+            </div>
             <select className="bug-filter-select" name="filter" id="filter" value={filterForm.filter} onChange={handleChange}>
                 <option value="none">None</option>
                 <option value="user">User</option>
             </select>
         </label>
-        <label htmlFor="sort"><p>Sort</p>
+        <label htmlFor="sort">
+        <div className="bug-filter-flex">
+                <img src="/sort.svg" alt="" width={15} height={15} />
+                <p>Sort</p>
+            </div>
             <select className="bug-filter-select"  name="sort" id="sort" value={filterForm.sort} onChange={handleChange}>
                 <option value="none">None</option>
                 <option value="bugName">Name</option>

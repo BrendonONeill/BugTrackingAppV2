@@ -49,8 +49,8 @@ function Form() {
             </label>
             <label className='form-label' htmlFor="">
                 Importance
-                <select className='form-input' type="text" id='bugImportance'  name='bugImportance'  value={formData.bugImportance} onChange={handleChange} >
-                <option default value="low">Low</option>
+                <select className='form-input' type="text" id='bugImportance' defaultValue={"low"}  name='bugImportance'  value={formData.bugImportance} onChange={handleChange} >
+                <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
                 </select>

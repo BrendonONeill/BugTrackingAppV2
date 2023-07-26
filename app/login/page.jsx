@@ -1,9 +1,11 @@
 import LoginForm from '../components/LoginForm';
+import LoginHeader from '../components/LoginHeader';
 
 function page() {
   return (
     <main>
-        <LoginForm />
+      <LoginHeader />
+      <LoginForm />
     </main>
   )
 }

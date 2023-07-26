@@ -6,7 +6,7 @@ import MainContext from "@/app/components/MainContext";
 function UserContainer({users}) {
 
   return (
-    <div className="card-container">
+    <div className="user-card-container">
       {
         users.length > 0 ?
                 users.map((user) => (

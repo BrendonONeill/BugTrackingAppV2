@@ -23,7 +23,7 @@ function page() {
     <Nav />
     <div className="grid-container">
     <NonMobileAdminNav />
-    <div className="main-content-container">
+    <div className="form-content-container">
     
     {editBug !== null ?
         <><Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../../back.svg" alt="back arrow" /></Link>

@@ -6,9 +6,7 @@ import MainContext from "@/app/components/MainContext";
 export default function Profile() {
     let {LoginUser} = useContext(MainContext)
   return (
-    <main>
     <div className='profile-container'>
-      
         {LoginUser !== null ?
         <><div className='profile-image-container'>
         <img src="../user.svg" width={50} height={50} alt="" />
@@ -24,6 +22,5 @@ export default function Profile() {
         </div>
         <p><strong>Account Created: </strong>{LoginUser.dateCreated.slice(0,10)}</p></div></> : null}
     </div>
-    </main>
   )
 }
