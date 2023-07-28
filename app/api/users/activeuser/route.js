@@ -12,7 +12,7 @@ export async function GET(req, res){
     {
       await clientPromise();
       const session = await Session.findOne({sessionId: sessionid.value});
-      const payload = await verifyAuthJWT(session.jwt);
+      const payload = await verifyAuthJWT(session.jwt, "Session");
       const user = await User.findOne({_id : payload.user})
       return NextResponse.json({user});
     }

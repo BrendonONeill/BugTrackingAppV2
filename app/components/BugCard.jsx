@@ -19,7 +19,6 @@ export default function bugCard({post}) {
       let data = bugs.filter(bug => bug._id !== post._id)
       console.log(data)
       setBugs([...data])
-      push('../bugs')
     }
     if(e.target.classList.contains('edit-bug-button'))
     {

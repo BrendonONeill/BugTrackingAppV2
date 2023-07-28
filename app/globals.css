@@ -572,6 +572,7 @@ main {
   padding: 2rem;
   margin: 0 auto;
   background-color: white;
+  position: relative;
 }
 
 .login-label {
@@ -833,6 +834,20 @@ main {
 
 .non-mobile-nav {
   display: none;
+}
+
+
+.error-container-login {
+  background-color: #ef233c;
+  padding: 1rem;
+  border-radius: 5px;
+  position: absolute;
+  top: -60px;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+
 }
 
 @media only screen and (min-width: 490px) {
