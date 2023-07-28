@@ -5,13 +5,18 @@ export async function middleware(request) {
 try {
   console.log("MW ran")
   console.log('request', request.nextUrl.pathname)
+  if(request.nextUrl.pathname === "/")
+  {
+    console.log("redirected to /bugs")
+    return NextResponse.redirect(new URL('/bugs', request.url))
+  }
   if(!request.cookies.has('user'))
   {
     console.log("no Cookies found under that name")
     return NextResponse.rewrite(new URL('/login', request.url))
   }
   const token = request.cookies.get('user')
-  let accessGranted = await verifyAuthJWT(token.value)
+  let accessGranted = await verifyAuthJWT(token.value, "Auth")
   if(!accessGranted)
   {
     console.log("NO Access was granted please login")
@@ -25,7 +30,7 @@ try {
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/bugs/:path*','/users/:path*']
+  matcher: ['/bugs/:path*','/users/:path*', '/']
 }
 
 

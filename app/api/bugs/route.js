@@ -13,7 +13,7 @@ export async function GET(req){
     {
       await clientPromise();
       const session = await Session.findOne({sessionId: sessionid.value});
-      const payload = await verifyAuthJWT(session.jwt);
+      const payload = await verifyAuthJWT(session.jwt, "Session");
       const bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId");
       console.log("The database was called for users bugs")
       return NextResponse.json(bugs)
