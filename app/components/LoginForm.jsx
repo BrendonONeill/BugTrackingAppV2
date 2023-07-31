@@ -26,7 +26,6 @@ function LoginForm() {
         body: JSON.stringify(loginData),
       })
       const test = await res.json()
-      console.log(test)
       if(test.status === 401)
       {
         throw new Error(test.message)

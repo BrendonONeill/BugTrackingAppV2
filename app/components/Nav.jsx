@@ -10,8 +10,7 @@ function Nav() {
   return (
     <div className='mobile'>
     {
-    LoginUser?.role === "Admin" || LoginUser?.role === "Super-Admin"? 
-    <AdminNav /> : <UserNav />
+      LoginUser?.role === "User" ? <UserNav /> : LoginUser?.role === "Admin" || LoginUser?.role === "Super-Admin" ? <AdminNav /> : null
     }
 
     </div>

@@ -1,7 +1,12 @@
 "use client"
 import { useRouter} from 'next/navigation';
-function UserCard({user}) {
+import { useContext} from "react";
+import MainContext from "@/app/components/MainContext";
+
+function UserCard({user, setData, data}) {
     const { push } = useRouter();
+    const {LoginUser} = useContext(MainContext)
+    
 
     async function cardClicked(e, user)
   {
@@ -12,6 +17,8 @@ function UserCard({user}) {
         method: 'POST',
         body: JSON.stringify(user._id),
       });
+      let card = data.filter(selectedCard => selectedCard._id !== user._id)
+      setData([...card])
     }
     if(e.target.classList.contains('edit-user-button'))
     {
@@ -32,10 +39,12 @@ function UserCard({user}) {
         <p><strong>Access Level: </strong> {user.role}</p>
         <p><strong>Account Created: </strong> {user.dateCreated.slice(0,10)}</p>
         </div>
+        {(user.role !== "Super-Admin" && LoginUser?.role === "Admin" && LoginUser?.email !== user.email ) ||  LoginUser?.role === "Super-Admin" && LoginUser?.email !== user.email ? 
         <div className="user-card-buttons">
-            <button className="edit-user-button card-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
-            <button className="delete-user-button card-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
-          </div>
+        <button className="edit-user-button card-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
+        <button className="delete-user-button card-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
+        </div>
+        :null}
     </div>
   )
 }

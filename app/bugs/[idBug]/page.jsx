@@ -4,7 +4,8 @@ import { useParams } from 'next/navigation';
 import Nav from '@/app/components/Nav';
 import Link from 'next/link';
 import BugExpandInfo from '@/app/components/BugExpandInfo';
-import NonMobileAdminNav from "@/app/components/NonMobileAdminNav"
+
+import NonMobileNav from '@/app/components/NonMobileNav';
 
 function page() {
     const pathName = useParams()
@@ -24,7 +25,7 @@ function page() {
       <>
         <Nav />
         <div className="form-grid-container">
-        <NonMobileAdminNav />
+        <NonMobileNav />
         <div className="form-content-container">
         <Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../back.svg" alt="back arrow" /></Link>
         <BugExpandInfo infoBug={infoBug} />

@@ -1,16 +1,17 @@
 "use client"
 import UserCard from "../components/UserCard"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import MainContext from "@/app/components/MainContext";
 
 function UserContainer({users}) {
+  const [data, setData] = useState(users)
 
   return (
     <div className="user-card-container">
       {
         users.length > 0 ?
-                users.map((user) => (
-                <UserCard user={user} key={user._id} />
+                data.map((user) => (
+                <UserCard user={user} data={data} setData={setData} key={user._id} />
                 )) : null
             }
     </div>

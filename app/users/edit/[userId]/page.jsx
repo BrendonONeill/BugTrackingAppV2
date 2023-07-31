@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import UserFormEdit from '@/app/components/UserFormEdit'
 import Nav from '@/app/components/Nav';
 import Link from 'next/link';
-import NonMobileAdminNav from "@/app/components/NonMobileAdminNav"
+import NonMobileNav from "@/app/components/NonMobileNav"
 
 function page() {
     const pathName = useParams()
@@ -23,7 +23,7 @@ function page() {
     <main>
         <Nav />
         <div className="grid-container">
-        <NonMobileAdminNav />
+        <NonMobileNav />
         <div className="form-content-container">
         <Link className='back-link' href={{pathname: '/users'}} ><img width={30} height={30} src="../../back.svg" alt="back arrow" /></Link>
         {editUser !== null ?
