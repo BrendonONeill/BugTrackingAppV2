@@ -12,12 +12,19 @@ This UI will change as I clean up the app and it goes live.
  
 
 ## Working on
-- Working with middleware as it runs on the edge I can't contact my database with mongoose so creating a work around.
-- Cleaning up UI bugs.
-- Clean UI validation and error pop ups.
-- Cookie pop up.
-- Few UI changes i'm not satisfied with.
-- Force reload a page after action. 
+- Loading card UI when fetching info.
+- Auth levels for access to pages.
+- Re-Design card information.
+- Add cookie warning.
+- Middleware limit rate and cors.
+
+## Updated
+- Favicon updated
+- Cleaned up cusor on hover
+- Sorted out the wrong nav showing for admins and users.
+- Fixed a bug with login page.
+- Prevented Email dup's.
+- Delet user card feedback on UI.
 
 ## Researching
 - Comments on others bugs with a clean UI. 
