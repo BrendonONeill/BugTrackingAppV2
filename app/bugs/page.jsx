@@ -3,7 +3,7 @@ import BugContainer from "../components/BugContainer"
 import { Suspense } from "react"
 import BugFilter from "../components/BugFilter"
 import BugInfo from "../components/BugInfo"
-import NonMobileAdminNav from "../components/NonMobileAdminNav"
+import NonMobileNav from "../components/NonMobileNav"
 
 export default async function page() {
  
@@ -11,7 +11,7 @@ export default async function page() {
     <main>
       <Nav />
       <div className="grid-container">
-      <NonMobileAdminNav />
+      <NonMobileNav />
       <div className="main-content-container">
       <BugFilter />
       <BugInfo />

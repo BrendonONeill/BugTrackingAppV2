@@ -107,6 +107,8 @@ footer {
   align-items: center;
   justify-content: flex-start;
   gap: 0.5rem;
+  cursor: pointer;
+  width: 90%;
 
 
 }
@@ -432,6 +434,7 @@ main {
   align-items: center;
   gap: 0.5rem;
   width: 100px;
+  cursor: pointer;
 }
 
 .bug-card-buttons button img {
@@ -511,6 +514,7 @@ main {
   align-items: center;
   gap: 0.5rem;
   width: 100px;
+  cursor: pointer;
 }
 
 .delete-user-button.delete-user-button {
@@ -526,6 +530,7 @@ main {
 
 .form-container {
   border-radius: 5px;
+  position: relative;
   width: 90%;
   padding: 2rem;
   padding-top: 4rem;
@@ -545,6 +550,26 @@ main {
 .form-input {
   padding: 0.8rem;
   border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.form-error-container {
+  position: absolute;
+  background-color: var(--bug-high);
+  width: 80%;
+  text-align: center;
+  padding: 0.5rem;
+  top: 5px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+
+}
+
+.form-input-error {
+  padding: 0.8rem;
+  border: 2px solid var(--bug-high);
   width: 100%;
   border-radius: 5px;
 }
@@ -669,6 +694,7 @@ main {
   background-color: var(--UI-main);
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .bug-filter-select {
@@ -677,6 +703,7 @@ main {
   padding: 0.4rem;
   border-radius: 5px;
   border: 1px solid var(--UI-main);
+  cursor: pointer;
 }
 
 .bug-filter-select option {

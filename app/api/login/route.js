@@ -31,7 +31,7 @@ export async function POST(request,response)
 
 
     cookies().set({name: 'user', value: authToken, httpOnly: true, secure: process.env.LOCATION === "prod", maxAge: 20 * 5000}) // this will be deleted once everything runs on sessions
-   return NextResponse.json({message: "Successful", status: 401})
+   return NextResponse.json({message: "Successful", status: 201})
   }
   catch(err)
   {

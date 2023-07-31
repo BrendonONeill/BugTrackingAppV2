@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import EditForm from "@/app/components/EditForm"
 import Nav from '@/app/components/Nav';
 import Link from 'next/link';
-import NonMobileAdminNav from "@/app/components/NonMobileAdminNav"
+import NonMobileNav from '@/app/components/NonMobileNav';
 
 function page() {
    const pathName = useParams()
@@ -22,7 +22,7 @@ function page() {
     <main>
     <Nav />
     <div className="grid-container">
-    <NonMobileAdminNav />
+    <NonMobileNav />
     <div className="form-content-container">
     
     {editBug !== null ?
