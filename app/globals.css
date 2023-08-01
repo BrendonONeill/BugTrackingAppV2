@@ -877,6 +877,56 @@ main {
 
 }
 
+.cookie-banner {
+  background-color: white;
+  border: 2px solid var(--UI-main);
+  position: fixed;
+  bottom: 5px;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.cookie-banner p {
+  padding: 0.2rem;
+}
+
+.cookie-warning {
+  border: 2px solid var(--bug-high);
+  border-radius: 5px;
+}
+
+.cookie-buttons {
+  margin-block: 0.5rem 0.3rem;
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cookie-hide {
+  display: none;
+}
+
+.cookie-button {
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+
+#accept {
+  background-color: var(--UI-main);
+  color: white;
+}
+
+#decline {
+  background-color: var(--bug-high);
+  color: white;
+
+}
+
 @media only screen and (min-width: 490px) {
   .card-container {
     width: 480px;
