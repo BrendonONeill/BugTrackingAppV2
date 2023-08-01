@@ -4,9 +4,13 @@ import Session from "@/models/sessionSchema";
 import { cookies } from 'next/headers'
 import {NextResponse, NextRequest} from 'next/server'
 import { verifyAuthJWT  } from "@/lib/auth/auth";
+import { limiter } from "../../config/limiter";
 
 export async function GET(req, res){
   try{
+    const limit = await limiter.removeTokens(1)
+    if(limit > 0)
+    {
     const sessionid = cookies().get('session')
     if(sessionid)
     {
@@ -18,6 +22,11 @@ export async function GET(req, res){
     }
   
   }
+  else
+  {
+    return new NextResponse({},{status: 429, statusText: "Too Many Requests"})
+  }
+}
   catch(error)
   {
     console.log(error)
