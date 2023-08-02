@@ -6,6 +6,7 @@ import Bug from "../../../models/bugSchema"
 import { verifyAuthJWT } from "@/lib/auth/auth";
 import { limiter } from "../config/limiter";
 
+export const dynamic = "force-dynamic";
 export async function GET(req){
   try{
     const limit = await limiter.removeTokens(1)
