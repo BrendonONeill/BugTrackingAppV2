@@ -16,7 +16,7 @@ function CookieNotice() {
         if (e.target.id === "accept") 
         {
             localStorage.setItem("cookies", "accept")
-            setCookie("cookie-access", "accepted")
+            setCookie("cookie-access", "accepted",{secure: process.env.LOCATION === "prod", httpOnly: true, sameSite: true, maxAge: 1704085200})
             setShow(false)
         }
         if (e.target.id === "decline") 

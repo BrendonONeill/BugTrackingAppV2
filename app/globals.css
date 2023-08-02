@@ -106,7 +106,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.5rem;
+  gap: 0.3rem;
   cursor: pointer;
   width: 90%;
 
@@ -623,7 +623,7 @@ main {
 }
 
 
-/* Ghost Card */
+/* Loading Cards */
 
 .bug-ghost-header-inner {
   padding: 2rem 0.6rem;
@@ -637,7 +637,7 @@ main {
 .card-ghost {
   background-color: #efefef;
   border-radius: 5px;
-  height: 300px;
+  min-height: 300px;
   box-shadow: -2px 5px 10px var(--shadow);
   animation: ghost 2s infinite;
 }
@@ -831,16 +831,16 @@ main {
 }
 
 .bug-expanded-info-section {
-  border-top: 3px solid var(--UI-main);
+  border-top: 2px solid black;
   padding: 1rem;
   padding-bottom: 2rem;
 }
 
 .bug-expanded-info-label {
-  border: 2px solid var(--UI-main);
-  border-radius: 5px 5px 0 0;
+  background-color: var(--UI-main);
+  color: white;
+  border-radius: 0 5px 0 0;
   padding: 0.2rem;
-  margin-left: 0.2rem;
   text-align: center;
   border-bottom: none;
   width: 120px;
