@@ -1,5 +1,5 @@
 "use client"
-import BugCard from "@/app/components/bugCard"
+import BugCard from "@/app/components/BugCard"
 import { useContext, useEffect } from "react";
 import MainContext from "@/app/components/MainContext";
 import BugLoading from "./BugLoading";
