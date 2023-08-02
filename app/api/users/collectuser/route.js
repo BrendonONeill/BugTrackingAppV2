@@ -24,5 +24,6 @@ export async function GET(req){
   catch(error)
   {
     console.log(error)
+      return NextResponse.json({message: "Failed", status: 401})
   }
 };
