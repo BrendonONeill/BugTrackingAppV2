@@ -35,8 +35,8 @@ export async function POST(request,response)
     await Session.create( {sessionId, jwt: sessionToken});
 
    
-    cookies().set({name: 'session', value: sessionId, httpOnly: true, sameSite: true, maxAge: 172800})
-    cookies().set({name: 'user', value: authToken, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 20 * 5000})
+    cookies().set({name: 'session', value: sessionId, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
+    cookies().set({name: 'user', value: authToken, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
    return NextResponse.json({message: "Successful", status: 201})}
    else
    {
