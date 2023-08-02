@@ -14,7 +14,7 @@ export async function GET(){
     }
     else
     {
-      return new NextResponse({},{status: 429, statusText: "Too Many Requests"})
+      return NextResponse({},{status: 429, statusText: "Too Many Requests"})
     }
   }
   catch(error)
