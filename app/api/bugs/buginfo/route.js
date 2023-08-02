@@ -25,5 +25,6 @@ export async function GET(req){
   catch(error)
   {
     console.log(error)
+      return NextResponse.json({},{status: 401, statusText: "Too Many Requests"})
   }
 };
