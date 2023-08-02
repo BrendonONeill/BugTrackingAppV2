@@ -3,7 +3,7 @@ import { useRouter} from 'next/navigation';
 import { useContext} from "react";
 import MainContext from "@/app/components/MainContext";
 
-function UserCard({user, setData, data}) {
+function UserCard({user, setUsers, users}) {
     const { push } = useRouter();
     const {LoginUser} = useContext(MainContext)
     
@@ -17,8 +17,8 @@ function UserCard({user, setData, data}) {
         method: 'POST',
         body: JSON.stringify(user._id),
       });
-      let card = data.filter(selectedCard => selectedCard._id !== user._id)
-      setData([...card])
+      let card = users.filter(selectedCard => selectedCard._id !== user._id)
+      setUsers([...card])
     }
     if(e.target.classList.contains('edit-user-button'))
     {

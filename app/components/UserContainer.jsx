@@ -1,19 +1,28 @@
 "use client"
 import UserCard from "../components/UserCard"
-import { useContext, useState } from "react";
-import MainContext from "@/app/components/MainContext";
+import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
-function UserContainer({users}) {
-  const [data, setData] = useState(users)
+function UserContainer() {
+  const [users, setUsers] = useState([])
 
+  useEffect(() => {
+    async function test()
+  {
+    const res = await fetch("http://localhost:3000/api/users", {method: "GET", cache: 'no-store'})
+    const data = await res.json()
+    setUsers(data.users)
+  }
+  test()
+  },[]) 
   return (
     <div className="user-card-container">
       {
         users.length > 0 ?
-                data.map((user) => (
-                <UserCard user={user} data={data} setData={setData} key={user._id} />
-                )) : null
-            }
+                users.map((user) => (
+                <UserCard user={user} users={users} setUsers={setUsers} key={user._id} />
+                )) : <Loading />
+      }
     </div>
   )
 }

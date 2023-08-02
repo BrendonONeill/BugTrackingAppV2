@@ -1,12 +1,15 @@
 'use client'
 import Link from 'next/link'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import MainContext from "@/app/components/MainContext";
 import AdminNav from './AdminNav';
 import UserNav from './UserNav';
 
 function Nav() {
-  let {LoginUser} = useContext(MainContext)
+  let {LoginUser,setMobileNav} = useContext(MainContext)
+  useEffect(() => {
+    setMobileNav(false)
+  },[])
   return (
     <div className='mobile'>
     {

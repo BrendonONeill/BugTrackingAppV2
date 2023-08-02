@@ -40,8 +40,6 @@ function LoginForm() {
     
   }
   return (
-    <div className='login-container'>
-      
     <form className='login-form' onSubmit={checkLogin}>
     {errorActive ? <div className='error-container-login'><p>{error}</p></div>: null}
             <label className='login-label' htmlFor="">
@@ -54,7 +52,6 @@ function LoginForm() {
             </label>
             <input className='login-button' type="submit" value="Login" />
     </form>
-    </div>
   )
 }
 
