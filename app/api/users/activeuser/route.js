@@ -30,5 +30,6 @@ export async function GET(req, res){
   catch(error)
   {
     console.log(error)
+    return NextResponse.json({message: "failed", status: 401})
   }
 };
