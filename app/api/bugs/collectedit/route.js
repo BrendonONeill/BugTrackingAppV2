@@ -3,6 +3,7 @@ import {NextResponse} from 'next/server'
 import Bug from "@/models/bugSchema"
 import { limiter } from "../../config/limiter";
 
+export const dynamic = "force-dynamic";
 export async function GET(req){
     
   try{
