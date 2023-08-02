@@ -10,15 +10,16 @@ export async function GET(){
     {
       await clientPromise();
       const users = await User.find().select(' _id -password');
-      return NextResponse.json(users)
+      return NextResponse.json({users})
     }
     else
     {
-      return NextResponse({},{status: 429, statusText: "Too Many Requests"})
+      return NextResponse.json({},{status: 429, statusText: "Too Many Requests"})
     }
   }
   catch(error)
   {
       console.log(error)
+     return NextResponse.json({},{status: 401, statusText: "broken"})
   }
 };
