@@ -6,7 +6,7 @@ import NonMobileNav from "../components/NonMobileNav"
 
 async function fetchBugs()
 {
-  const res = await fetch("https://bug-tracking-4x3d14woj-brendononeill.vercel.app/api/users", {method: "GET", cache: 'no-store'})
+  const res = await fetch("/api/users", {method: "GET", cache: 'no-store'})
   const users = res.json()
   return users
 }
