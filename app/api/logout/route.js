@@ -15,5 +15,6 @@ try{
 catch(err)
 {
     console.error(err)
+  return NextResponse.json({message: "Failed", status: 401})
 }
 }
