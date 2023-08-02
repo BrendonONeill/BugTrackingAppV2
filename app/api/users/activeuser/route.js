@@ -6,6 +6,8 @@ import {NextResponse, NextRequest} from 'next/server'
 import { verifyAuthJWT  } from "@/lib/auth/auth";
 import { limiter } from "../../config/limiter";
 
+
+export const dynamic = "force-dynamic";
 export async function GET(req, res){
   try{
     const limit = await limiter.removeTokens(1)
