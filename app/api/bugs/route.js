@@ -30,6 +30,7 @@ export async function GET(req){
   catch(error)
   {
     console.log(error)
+    return NextResponse.json({},{status: 429, statusText: "Too Many Requests"})
   }
 };
 
