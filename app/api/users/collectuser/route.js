@@ -3,6 +3,7 @@ import {NextResponse} from 'next/server'
 import User from "@/models/userSchema"
 import { limiter } from "../../config/limiter";
 
+export const dynamic = "force-dynamic";
 export async function GET(req){
     
   try{
