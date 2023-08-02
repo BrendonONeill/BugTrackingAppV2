@@ -5,7 +5,9 @@ function page() {
   return (
     <main>
       <LoginHeader />
+      <div className='login-container'>
       <LoginForm />
+      </div>
     </main>
   )
 }

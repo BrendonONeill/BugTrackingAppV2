@@ -2,6 +2,7 @@
 import code from '@/public/code.svg'
 import { useContext } from "react";
 import MainContext from "@/app/components/MainContext";
+import Loading from './Loading';
 
 export default function Profile() {
     let {LoginUser} = useContext(MainContext)
@@ -20,7 +21,7 @@ export default function Profile() {
         <p className='profile-badge'>{LoginUser.role}</p>
         <p className='profile-badge'>{LoginUser.title}</p>
         </div>
-        <p><strong>Account Created: </strong>{LoginUser.dateCreated.slice(0,10)}</p></div></> : null}
+        <p><strong>Account Created: </strong>{LoginUser.dateCreated.slice(0,10)}</p></div></> : <Loading />}
     </div>
   )
 }

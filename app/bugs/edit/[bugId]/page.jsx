@@ -5,6 +5,7 @@ import EditForm from "@/app/components/EditForm"
 import Nav from '@/app/components/Nav';
 import Link from 'next/link';
 import NonMobileNav from '@/app/components/NonMobileNav';
+import Loading from '@/app/components/Loading';
 
 function page() {
    const pathName = useParams()
@@ -27,7 +28,7 @@ function page() {
     
     {editBug !== null ?
         <><Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../../back.svg" alt="back arrow" /></Link>
-        <EditForm data={editBug} id={pathName.bugId} /> </> : null
+        <EditForm data={editBug} id={pathName.bugId} /> </> : <Loading />
     }
     </div>
     </div>    
