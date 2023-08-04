@@ -11,9 +11,15 @@ export async function POST(request,response)
 {
   try
   {
+    const test = cookies().get("cookie-access");
+    if(!test)
+    {
+        throw new Error("Need Cookies enabled to login")
+    }
     const limit = await limiter.removeTokens(1)
     if(limit > 0)
     {
+      
     await clientPromise();
     const {email, password} = await request.json()
     if (!email || !password) {
