@@ -12,7 +12,7 @@ export function MainProvider({children})
     const [bugCards, setBugCards] = useState([])
 
     useEffect(() => {
-        
+        console.log("I have run again")
         fetch("/api/users/activeuser", {method: "GET"}).then(res => res.json()).then(data => {
         setLoginUser(data.user); setLoggedIn(true)}).catch(error => console.log(error))
        
@@ -23,7 +23,6 @@ export function MainProvider({children})
     },[bugs])
 
     useEffect(() => {
-        console.log("test")
     },[bugCards])
 
     const navbarMove = () =>

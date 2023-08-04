@@ -10,6 +10,10 @@ export async function GET(){
     {
       await clientPromise();
       const users = await User.find().select(' _id -password');
+      if(!users)
+      {
+        throw new Error("Failed to load data, please try again later")
+      }
       return NextResponse.json({users})
     }
     else
@@ -19,7 +23,7 @@ export async function GET(){
   }
   catch(error)
   {
-      console.log(error)
-     return NextResponse.json({},{status: 401, statusText: "broken"})
+    console.log(error.message)
+    return NextResponse.json({message: error.message},{status: 401, statusText: error.message})
   }
 };

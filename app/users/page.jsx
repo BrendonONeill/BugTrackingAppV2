@@ -3,7 +3,6 @@ import UserContainer from "../components/UserContainer"
 import { Suspense } from "react"
 import NonMobileNav from "../components/NonMobileNav"
 
-
 export default async function page() {
   return (
     <main>
