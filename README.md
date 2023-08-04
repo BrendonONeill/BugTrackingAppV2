@@ -12,11 +12,12 @@ This UI will change as I clean up the app and it goes live.
  
 
 ## Working on
-- Loading card UI when fetching info.
-- Auth levels for access to pages.
-- Re-Design card information.
-- Add cookie warning.
-- Middleware limit rate and cors.
+- Have a better way to display navbar and header so its not just popping in when switching between bugs and users.
+- Clean up accessablilty
+- Clean up error handling on all api routes.
+- Clean cookie notice UI
+- MainContext needs to move back to main layout too many reloads happening.
+- Need to rethink data fetching. 
 
 ## Updated
 - Favicon updated
