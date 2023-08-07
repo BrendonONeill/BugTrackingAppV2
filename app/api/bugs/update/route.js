@@ -14,7 +14,6 @@ export async function PUT(req,res)
           const container = await req.json()
           const body = container.formData
           await Bug.findByIdAndUpdate(container.bugId, body);
-          console.log("bug was updated")
           return NextResponse.json({message: "Bug was updated", status: 201})
       }
       else
@@ -24,6 +23,6 @@ export async function PUT(req,res)
     } 
     catch(err)
      {
-       console.log(err)
+      return NextResponse({},{status: 404, statusText: "Something went wrong"})
      }
 }

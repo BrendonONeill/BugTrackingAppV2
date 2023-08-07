@@ -21,6 +21,6 @@ export async function POST(req,res)
     } 
     catch (err) 
     {
-        err.message = "This Bug doesn't exist";
+        return NextResponse({},{status: 404, statusText: "Something went wrong"})
     }
 }

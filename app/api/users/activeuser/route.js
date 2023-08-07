@@ -20,7 +20,15 @@ export async function GET(req, res){
       const session = await Session.findOne({sessionId: sessionid.value});
       const payload = await verifyAuthJWT(session.jwt, "Session");
       const user = await User.findOne({_id : payload.user})
-      return NextResponse.json({user});
+      if(user != null)
+      {
+        return NextResponse.json({user});
+      }
+      else
+      {
+        throw new Error("Could get information from database")
+      }
+      
     }
   
   }
@@ -32,6 +40,6 @@ export async function GET(req, res){
   catch(error)
   {
     console.log(error)
-    return NextResponse.json({message: "failed", status: 401})
+    return NextResponse.json({message: "failed", status: 404}, {status: 404, statusText: "Something went wrong"})
   }
 };

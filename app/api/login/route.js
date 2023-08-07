@@ -52,7 +52,7 @@ export async function POST(request,response)
   catch(err)
   {
     console.error(err.message)
-    return NextResponse.json({message: err.message, status: 401})
+    return NextResponse.json({message: err.message, status: 401}, {status: 401, statusText: "something went wrong"})
   }
 }
 

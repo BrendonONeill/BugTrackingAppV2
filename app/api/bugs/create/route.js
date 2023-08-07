@@ -16,7 +16,6 @@ export async function POST(req,res)
       const user = await User.findById(body.user);
       body.formData.bugUserId = user
       await Bug.create(body.formData);
-      console.log("bug was created")
       return NextResponse.json({message: "Bug was created" , status: 201})
     }
     else
@@ -28,7 +27,6 @@ export async function POST(req,res)
   catch(error)
   {
     console.log(error)
+    return NextResponse({},{status: 404, statusText: "Something went wrong"})
   }
-  
-  
 }

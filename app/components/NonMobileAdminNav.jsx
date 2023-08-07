@@ -19,23 +19,23 @@ function NonMobileAdminNav() {
     <nav className="non-mobile-nav">
         <ul>
             <li>
-            <Link className='nav-link' href={{pathname: '/users/profile'}} replace> <img src="/nav-user.svg" width={20} height={20} alt="" /> Profile</Link>
+            <Link className='nav-link' href={{pathname: '/users/profile'}} replace> <img src="/nav-user.svg" width={20} height={20}  role="presentation" alt="" /> Profile</Link>
             </li>
             <li>
-            <Link className='nav-link' href={{pathname: '/users'}} replace><img src="/users.svg" width={20} height={20} alt="" /> View Users</Link>
+            <Link className='nav-link' href={{pathname: '/users'}} replace><img src="/users.svg" width={20} height={20}  role="presentation" alt="" /> View Users</Link>
             </li>
             <li>
-            <Link className='nav-link' href={{pathname: '/users/create'}} replace><img src="/createuser.svg" width={20} height={20} alt="" /> Create Users</Link>
+            <Link className='nav-link' href={{pathname: '/users/create'}} replace><img src="/createuser.svg" width={20} height={20}  role="presentation" alt="" /> Create Users</Link>
             </li>
             
             <li>
-            <Link className='nav-link' as='/bugs' href='/bugs' ><img src="/buglist.svg" width={20} height={20} alt="" /> View Bugs</Link>
+            <Link className='nav-link' as='/bugs' href='/bugs' ><img src="/buglist.svg" width={20} height={20}  role="presentation" alt="" /> View Bugs</Link>
             </li>
             <li>
-            <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20} alt="" /> Create Bugs</Link>
+            <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20}  role="presentation" alt="" /> Create Bugs</Link>
             </li>
             <li>
-            <a href="#" className='nav-link' onClick={test} > <img src="/logout.svg" width={20} height={20} alt="" /> Logout</a>
+            <a href="#" className='nav-link' onClick={test} > <img src="/logout.svg" width={20} height={20} alt=""  role="presentation" /> Logout</a>
             </li>
         </ul>
     </nav>

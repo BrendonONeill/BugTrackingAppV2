@@ -19,16 +19,16 @@ function NonMobileUserNav() {
     <nav className="non-mobile-nav">
         <ul>
             <li>
-            <Link className='nav-link' href={{pathname: '/users/profile'}} replace> <img src="/nav-user.svg" width={20} height={20} alt="" /> Profile</Link>
+            <Link className='nav-link' href={{pathname: '/users/profile'}} replace> <img src="/nav-user.svg"  role="presentation" width={20} height={20} alt="" /> Profile</Link>
             </li>
             <li>
-            <Link className='nav-link' as='/bugs' href='/bugs' ><img src="/buglist.svg" width={20} height={20} alt="" /> View Bugs</Link>
+            <Link className='nav-link' as='/bugs' href='/bugs' ><img src="/buglist.svg"  role="presentation" width={20} height={20} alt="" /> View Bugs</Link>
             </li>
             <li>
-            <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20} alt="" /> Create Bugs</Link>
+            <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg"  role="presentation" width={20} height={20} alt="" /> Create Bugs</Link>
             </li>
             <li>
-            <a href="#" className='nav-link' onClick={test} > <img src="/logout.svg" width={20} height={20} alt="" /> Logout</a>
+            <a href="#" className='nav-link' onClick={test} > <img src="/logout.svg"  role="presentation" width={20} height={20} alt="" /> Logout</a>
             </li>
         </ul>
     </nav>
