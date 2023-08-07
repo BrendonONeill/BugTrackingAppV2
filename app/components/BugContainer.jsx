@@ -10,7 +10,7 @@ const {LoginUser, setBugs, bugCards} = useContext(MainContext)
 useEffect(() => {
   async function test()
   {
-    const res = await fetch("http://localhost:3000/api/bugs", {method: "GET", cache: 'no-store'})
+    const res = await fetch("/api/bugs", {method: "GET", cache: 'no-store'})
     const data = await res.json()
     setBugs(data)
   }
