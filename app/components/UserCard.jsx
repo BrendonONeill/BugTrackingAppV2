@@ -41,8 +41,8 @@ function UserCard({user, setUsers, users}) {
         </div>
         {(user.role !== "Super-Admin" && LoginUser?.role === "Admin" && LoginUser?.email !== user.email ) ||  LoginUser?.role === "Super-Admin" && LoginUser?.email !== user.email ? 
         <div className="user-card-buttons">
-        <button className="edit-user-button card-button"><img src="edit.svg" width={15} height={15} alt="" />  Edit</button>
-        <button className="delete-user-button card-button" ><img src="bin.svg" width={15} height={15} alt="" /> Delete</button>
+        <button className="edit-user-button card-button"><img src="edit.svg"  role="presentation" width={15} height={15} alt="" />  Edit</button>
+        <button className="delete-user-button card-button" ><img src="bin.svg"  role="presentation" width={15} height={15} alt="" /> Delete</button>
         </div>
         :null}
     </div>

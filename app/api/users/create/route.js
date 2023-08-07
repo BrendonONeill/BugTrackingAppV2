@@ -28,6 +28,6 @@ export async function POST(req,res)
   }
   catch(error)
   {
-    return NextResponse.json({message: error.message, status: 401})
+    return NextResponse.json({message: error.message, status: 401},{status: 404, statusText: "Something went wrong" })
   }
 }

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import BugExpandInfo from '@/app/components/BugExpandInfo';
 
 import NonMobileNav from '@/app/components/NonMobileNav';
+import Loading from '@/app/components/Loading';
 
 function page() {
     const pathName = useParams()
@@ -19,21 +20,22 @@ function page() {
      }
      test()
     },[])
-  return (
+
+
+return (
     <main>
-      {infoBug !== null ?
-      <>
         <Nav />
-        <div className="form-grid-container">
+        <div className="grid-container">
         <NonMobileNav />
         <div className="form-content-container">
+        {infoBug !== null ?
+        <>
         <Link className='back-link' href={{pathname: '/bugs'}} ><img width={30} height={30} src="../back.svg" alt="back arrow" /></Link>
         <BugExpandInfo infoBug={infoBug} />
-        </div>
-        </div>
-
-      </> : null
-        }
+        </> 
+        : <Loading />}
+      </div>
+      </div>
     </main>
     
   )

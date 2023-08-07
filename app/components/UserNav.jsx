@@ -16,16 +16,16 @@ function UserNav() {
         </div>
         <ul>
             <li>
-            <Link className='nav-link' href={{pathname: '/users/profile'}} replace> <img src="/nav-user.svg" width={20} height={20} alt="" /> Profile</Link>
+            <Link className='nav-link' href={{pathname: '/users/profile'}} replace> <img src="/nav-user.svg" width={20} height={20} alt=""  role="presentation" /> Profile</Link>
             </li>
             <li>
-            <Link className='nav-link' as='/bugs' href='/bugs' ><img src="/buglist.svg" width={20} height={20} alt="" /> View Bugs</Link>
+            <Link className='nav-link' as='/bugs' href='/bugs' ><img src="/buglist.svg" width={20} height={20} alt=""  role="presentation" /> View Bugs</Link>
             </li>
             <li>
-            <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20} alt="" /> Create Bugs</Link>
+            <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20} alt=""  role="presentation" /> Create Bugs</Link>
             </li>
             <li>
-            <Link className='nav-link' href={{pathname: ''}} > <img src="/logout.svg" width={20} height={20} alt="" /> Logout</Link>
+            <Link className='nav-link' href={{pathname: ''}} > <img src="/logout.svg" width={20} height={20} alt=""  role="presentation" /> Logout</Link>
             </li>
         </ul>
     </nav>

@@ -1,9 +1,9 @@
 import Nav from "@/app/components/Nav"
-import BugContainer from "../components/BugContainer"
+import BugContainer from "@/app/components/BugContainer"
 import { Suspense } from "react"
-import BugFilter from "../components/BugFilter"
-import BugInfo from "../components/BugInfo"
-import NonMobileNav from "../components/NonMobileNav"
+import BugFilter from "@/app/components/BugFilter"
+import BugInfo from "@/app/components/BugInfo"
+import NonMobileNav from "@/app/components/NonMobileNav"
 
 export default async function page() {
  

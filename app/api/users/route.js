@@ -24,6 +24,6 @@ export async function GET(){
   catch(error)
   {
     console.log(error.message)
-    return NextResponse.json({message: error.message},{status: 401, statusText: error.message})
+    return NextResponse.json({message: error.message},{status: 404, statusText: error.message})
   }
 };

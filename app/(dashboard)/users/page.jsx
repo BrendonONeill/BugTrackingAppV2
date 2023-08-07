@@ -1,7 +1,7 @@
 import Nav from "@/app/components/Nav"
-import UserContainer from "../components/UserContainer"
+import UserContainer from "@/app/components/UserContainer"
 import { Suspense } from "react"
-import NonMobileNav from "../components/NonMobileNav"
+import NonMobileNav from "@/app/components/NonMobileNav"
 
 export default async function page() {
   return (

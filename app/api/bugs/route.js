@@ -19,8 +19,15 @@ export async function GET(req){
       const session = await Session.findOne({sessionId: sessionid.value});
       const payload = await verifyAuthJWT(session.jwt, "Session");
       const bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId");
-      console.log("The database was called for users bugs")
-      return NextResponse.json(bugs)
+      if(bugs != null)
+      {
+        return NextResponse.json(bugs, {status: 201, statusText: "Bugs were collected"})
+      }
+      else
+      {
+        throw new Error("Could not get information from database")
+      }
+     
     }
     }
     else
@@ -31,7 +38,7 @@ export async function GET(req){
   catch(error)
   {
     console.log(error)
-    return NextResponse.json({},{status: 429, statusText: "Too Many Requests"})
+    return NextResponse.json({},{status: 404, statusText: "Something went wrong"})
   }
 };
 

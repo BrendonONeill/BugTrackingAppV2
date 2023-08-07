@@ -15,7 +15,15 @@ export async function GET(req){
     const bugId = searchParams.get('q')
     await clientPromise();
     const bug = await Bug.findById(bugId).populate('bugUserId');
-    return NextResponse.json({bug,status: 201})
+    if(bug != null)
+    {
+      return NextResponse.json({bug,status: 201})
+    }
+    else
+    {
+      throw new Error("Information could not be received")
+    }
+    
     }
     else
     {
@@ -26,6 +34,6 @@ export async function GET(req){
   catch(error)
   {
     console.log(error)
-      return NextResponse.json({},{status: 401, statusText: "Too Many Requests"})
+      return NextResponse.json({},{status: 404, statusText: "Something went wrong"})
   }
 };

@@ -24,7 +24,6 @@ export async function POST(req,res)
     } 
     catch(err)
     {
-        err.message = "This page doesn't exist";
-        next(err);
+        return NextResponse({},{status: 404, statusText: "Something went wrong"})
     }
 }

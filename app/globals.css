@@ -20,10 +20,10 @@ body {
 
 
 :root {
-  --UI-main-dark: #006494;
+  --UI-main-dark: #0582ca;
   --Nav-link-bg: #0582ca;
-  --UI-main: #0582ca;
-  --action: #54A14D;
+  --UI-main: #035D91;
+  --action: #32602E;
   --delete: #8d0801;
   --BG-main: #1E3050;
   --shadow: #0b1424;
@@ -621,6 +621,7 @@ main {
   background-color: var(--UI-main);
   font-weight: bold;
   border-radius: 5px;
+  color: white;
 }
 
 
@@ -905,7 +906,9 @@ main {
 }
 
 .cookie-warning {
-  border: 2px solid var(--bug-high);
+  background-color: var(--delete);
+  color: white;
+  text-align: center;
   border-radius: 5px;
 }
 
@@ -928,15 +931,29 @@ main {
 }
 
 #accept {
-  background-color: var(--UI-main);
+  background-color: var(--action);
   color: white;
 }
 
 #decline {
-  background-color: var(--bug-high);
+  background-color: var(--delete);
   color: white;
 
 }
+
+/* custom scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--UI-main-dark);
+  border-radius: 520px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
 
 @media only screen and (min-width: 490px) {
   .card-container {
@@ -973,6 +990,18 @@ main {
     width: 480px;
     height: 950px;
   }
+
+  .cookie-banner {
+    width: 75%;
+  }
+
+  .cookie-buttons {
+    width: 30%;
+  }
+
+  .login-container {
+    padding-top: 10rem;
+  }
 }
 
 
@@ -999,7 +1028,9 @@ main {
     flex-basis: 25%;
   }
 
-
+  .cookie-buttons {
+    width: 30%;
+  }
 }
 
 
@@ -1077,6 +1108,14 @@ main {
     flex-flow: row;
   }
 
+  .cookie-banner {
+    width: 50%;
+  }
+
+  .cookie-buttons {
+    width: 50%;
+  }
+
 
 }
 
@@ -1091,6 +1130,19 @@ main {
   .card-container,
   .user-card-container {
     height: 100vh;
+  }
+
+  .login-container {
+    height: 90vh;
+    padding-top: 20rem;
+  }
+
+  .cookie-banner {
+    width: 30%;
+  }
+
+  .cookie-buttons {
+    width: 20%;
   }
 
 }

@@ -14,8 +14,15 @@ export async function GET(req){
     const userId = searchParams.get('q')
     await clientPromise();
     const user = await User.findById(userId);
-    console.log(user)
-    return NextResponse.json({user})
+    if(user != null)
+    {
+      return NextResponse.json({user})
+    }
+    else
+    {
+      throw new Error("Could not get information from database")
+    }
+    
     }
     else
     {
@@ -25,6 +32,6 @@ export async function GET(req){
   catch(error)
   {
     console.log(error)
-      return NextResponse.json({message: "Failed", status: 401})
+      return NextResponse.json({message: "Something went wrong", status: 404}, {status: 404, statusText: "Something went wrong"})
   }
 };

@@ -10,7 +10,7 @@ export default function Profile() {
     <div className='profile-container'>
         {LoginUser !== null ?
         <><div className='profile-image-container'>
-        <img src="../user.svg" width={50} height={50} alt="" />
+        <img src="../user.svg" width={50} height={50} alt="User icon" />
       </div>
         <div className='profile-text'>
         <div className='profile-name'>

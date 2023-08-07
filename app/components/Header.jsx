@@ -11,13 +11,13 @@ function Header() {
       <div className="burger-box">
       { loggedIn === true ?
         <button className="burger-button" onClick={navbarMove}>
-          <img src="/burger.svg"></img>
+          <img src="/burger.svg" alt="burger icon for menu"></img>
         </button> : null
       }
       </div>
       <div className="logo-box">
       <img className="logo" src=
-      {"/logo.png"} width="20" height="20"></img><h1>Bug Tracker</h1>
+      {"/logo.png"} width="20" height="20" alt="Bug Tracking Logo"></img><h1>Bug Tracker</h1>
       </div>
       { loggedIn === true ? 
       <div className="login-box">

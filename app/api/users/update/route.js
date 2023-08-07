@@ -25,5 +25,6 @@ export async function PUT(req,res)
     catch(err)
     {
        console.log(err)
+       return NextResponse({},{status: 404, statusText: "Something went wrong"}) 
     }
 }
