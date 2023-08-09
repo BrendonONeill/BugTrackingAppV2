@@ -29,5 +29,5 @@ This UI will change as I clean up the app and it goes live.
 - Bug with cookie notice. 
 
 ## Researching
-- Comments on others bugs with a clean UI. 
+- Write omments on others bugs with a clean UI that doesn't look out of place. 
 - Best way to deal with soft deleted bugs. 
