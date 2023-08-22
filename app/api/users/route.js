@@ -14,7 +14,7 @@ export async function GET(){
       {
         throw new Error("Failed to load data, please try again later")
       }
-      return NextResponse.json({users})
+      return NextResponse.json({users},{status: 201})
     }
     else
     {
