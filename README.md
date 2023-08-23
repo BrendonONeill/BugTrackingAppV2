@@ -30,4 +30,7 @@ This UI will change as I clean up the app and it goes live.
 
 ## Researching
 - Write omments on others bugs with a clean UI that doesn't look out of place. 
-- Best way to deal with soft deleted bugs. 
+- Best way to deal with soft deleted bugs.
+
+## Bugs
+- Need to fix a bug with getting users information when in production.
