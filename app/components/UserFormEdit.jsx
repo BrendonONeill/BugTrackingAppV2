@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useState } from "react"
+import { userValidation } from "@/lib/validation/userValidation";
 
 function UserFormEdit({user, id}) {
     const router = useRouter()
@@ -19,31 +20,12 @@ function UserFormEdit({user, id}) {
     }
 
     const validationCheck = () => {
-      console.log("called valid")
-      if(formData.fname.length < 2 || formData.fname.length > 15)
+      let valid = userValidation(formData)
+      if(valid.validation === false)
       {
-          setFormError("First Name is too short")
-          setFormValidation({...formValidation, fnameVal: false, lnameVal: true, emailVal: true, passwordVal: true, titleVal: true})
-          return false
-      }
-      if(formData.lname.length < 2 || formData.lname.length > 15)
-      {
-          setFormError("Last Name is too short")
-          setFormValidation({...formValidation, fnameVal: true, lnameVal: false, emailVal: true, passwordVal: true, titleVal: true})
-          return false
-      }
-      if(formData.email.length < 3 || formData.email.length > 20)
-      {
-          setFormError("Email is too short")
-          setFormValidation({...formValidation, fnameVal: true, lnameVal: true, emailVal: false, passwordVal: true, titleVal: true})
-          return false
-      }
-  
-      if(formData.title.length < 3)
-      {
-          setFormError("Title is too short")
-          setFormValidation({...formValidation, fnameVal: true, lnameVal: true, emailVal: true, passwordVal: true, titleVal: false})
-          return false
+        setFormValidation({...formValidation, fnameVal: valid.body.fnameVal, lnameVal: valid.body.lnameVal, emailVal: valid.body.emailVal, passwordVal: valid.body.passwordVal, titleVal: valid.body.titleVal })
+        setFormError(valid.errorMessage)
+        return false
       }
       return true
     }
