@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useState } from "react"
+import { bugValidation } from "@/lib/validation/bugValidation";
 
 function EditForm({data, id}) {
   const router = useRouter()
@@ -19,30 +20,12 @@ function EditForm({data, id}) {
   }    
 
   const validationCheck = () => {
-    console.log("called valid")
-    if(formData.bugName.length < 3 || formData.bugName.length > 30)
+    let valid = bugValidation(formData)
+    if(valid.validation === false)
     {
-        setFormError("Bug Name is too short")
-        setFormValidation({...formValidation, NameVal : false, DesVal: true, CodeVal: true, ProjectVal: true})
-        return false
-    }
-    if(formData.bugDes.length < 5 || formData.bugDes.length > 200)
-    {
-        setFormError("Description is too short")
-        setFormValidation({...formValidation, NameVal : true, DesVal: false, CodeVal: true, ProjectVal: true})
-        return false
-    }
-    if(formData.bugCode.length < 3 || formData.bugCode.length > 20)
-    {
-        setFormError("Code name is too short")
-        setFormValidation({...formValidation, NameVal : true, DesVal: true, CodeVal: false, ProjectVal: true})
-        return false
-    }
-    if(formData.bugProject.length < 3 || formData.bugProject.length > 30)
-    {
-        setFormError("Project Name is too short")
-        setFormValidation({...formValidation, NameVal : true, DesVal: true, CodeVal: true, ProjectVal: false})
-        return false
+      setFormValidation({...formValidation, NameVal : valid.body.NameVal, DesVal: valid.body.DesVal, CodeVal: valid.body.CodeVal, ProjectVal: valid.body.ProjectVal })
+      setFormError(valid.errorMessage)
+      return false
     }
     return true
   }

@@ -5,7 +5,7 @@ import MainContext from "@/app/components/MainContext";
 import BugLoading from "./BugLoading";
 
 function BugContainer(){
-const {LoginUser, setBugs, bugCards} = useContext(MainContext)
+const {LoginUser, setBugs, bugs, bugCards} = useContext(MainContext)
 
 useEffect(() => {
   async function test()
@@ -17,6 +17,10 @@ useEffect(() => {
   test()
 
 },[]) 
+
+useEffect(() => {
+  console.log("bugs updated")
+},[bugs])
 
   return (
     <div className="card-container">
