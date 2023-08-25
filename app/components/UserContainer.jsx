@@ -12,7 +12,8 @@ function UserContainer() {
   {
     try 
     {
-      const res = await fetch("http://localhost:3000/api/users", {method: "GET", cache: 'no-store'}).catch(error => console.log(error))
+      const res = await fetch("http://localhost:3000/api/users", {method: "GET", cache: 'no-store'}).catch(error => console.error(error))
+      console.info(res)
       if(res.status === 201)
       {
         const data = await res.json()
@@ -26,7 +27,7 @@ function UserContainer() {
     } 
     catch (error) 
     {
-      console.log(error)
+      console.error(error)
       setError(error.message)
     }
   }

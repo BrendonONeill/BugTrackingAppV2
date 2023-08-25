@@ -12,7 +12,6 @@ function UserCard({user, setUsers, users}) {
   {
     if(e.target.classList.contains('delete-user-button'))
     {
-      console.log("delete " + user._id)
       await fetch('/api/users/delete', {
         method: 'POST',
         body: JSON.stringify(user._id),
@@ -22,7 +21,6 @@ function UserCard({user, setUsers, users}) {
     }
     if(e.target.classList.contains('edit-user-button'))
     {
-      console.log("Edit " + user._id)
       push(`/users/edit/${user._id}`)
     }
   }

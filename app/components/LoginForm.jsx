@@ -19,7 +19,6 @@ function LoginForm() {
         
   const checkLogin = async (e) => {
     e.preventDefault()
-    console.log(loginData)
     try {
       const res = await fetch('/api/login', {
         method: 'POST',
@@ -48,7 +47,7 @@ function LoginForm() {
             </label>
             <label className='login-label' htmlFor="">
                 Password
-                <input className='login-input' type="password" name="password" value={loginData.password} onChange={handleChange} />
+                <input className='login-input' type="password" name="password" autocomplete="current-password" value={loginData.password} onChange={handleChange} />
             </label>
             <input className='login-button' type="submit" value="Login" />
     </form>

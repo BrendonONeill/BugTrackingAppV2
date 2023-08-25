@@ -19,7 +19,6 @@ useEffect(() => {
 },[]) 
 
 useEffect(() => {
-  console.log("bugs updated")
 },[bugs])
 
   return (

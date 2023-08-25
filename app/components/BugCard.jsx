@@ -11,25 +11,21 @@ export default function bugCard({post}) {
   {
     if(e.target.classList.contains('delete-bug-button'))
     {
-      console.log("delete " + post._id)
+      
       await fetch('/api/bugs/delete', {
         method: 'POST',
         body: JSON.stringify(post._id),
       });
       let data = bugs.filter(bug => bug._id !== post._id)
-      console.log(data)
       setBugs([...data])
     }
     if(e.target.classList.contains('edit-bug-button'))
     {
-      console.log("Edit " + post._id)
       push(`/bugs/edit/${post._id}`)
     }
     if(e.target.classList.contains('expand-bug-button'))
     {
-      console.log("Expand " + post._id)
       push(`/bugs/${post._id}`)
-     
     }
   }
   return (

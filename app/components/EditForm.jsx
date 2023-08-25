@@ -32,7 +32,6 @@ function EditForm({data, id}) {
 
   const submitForm = async (e) => {
     e.preventDefault()
-    console.log("called sumbit")
     const valid = validationCheck()
     if(valid)
     {
