@@ -39,7 +39,7 @@ function LoginForm() {
     
   }
   return (
-    <form className='login-form' onSubmit={checkLogin}>
+    <form className='login-form' onSubmit={checkLogin} autocomplete="off">
     {errorActive ? <div className='error-container-login'><p>{error}</p></div>: null}
             <label className='login-label' htmlFor="">
                 Email
@@ -47,7 +47,7 @@ function LoginForm() {
             </label>
             <label className='login-label' htmlFor="">
                 Password
-                <input className='login-input' type="password" name="password" autocomplete="current-password" value={loginData.password} onChange={handleChange} />
+                <input className='login-input' type="password" name="password" value={loginData.password} onChange={handleChange} />
             </label>
             <input className='login-button' type="submit" value="Login" />
     </form>
