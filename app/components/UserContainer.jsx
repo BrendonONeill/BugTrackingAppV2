@@ -13,8 +13,16 @@ function UserContainer() {
     try 
     {
       const res = await fetch("http://localhost:3000/api/users", {method: "GET", cache: 'no-store'}).catch(error => console.error(error))
-      const data = await res.json()
-      setUsers(data.users)
+      if(res.status === 201)
+      {
+        const data = await res.json()
+        setUsers(data.users)
+      }
+      else
+      {
+        throw new Error(res.statusText)
+      }
+      
     } 
     catch (error) 
     {
