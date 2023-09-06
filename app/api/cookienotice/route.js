@@ -5,7 +5,7 @@ export async function POST(request,response)
 {
   try
   {
-    cookies().set({name: 'cookie-access', value: "accepted", httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 2147483647})
+    cookies().set({name: 'cookie-access', value: "accepted", httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 1735707600})
     return NextResponse.json({message: "Successful", status: 201},{status: 201, statusText: "Cookie was created"})
   }
   catch(err)
