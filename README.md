@@ -12,23 +12,25 @@ This UI will change as I clean up the app and it goes live.
  
 
 ## Working on
-- Have a better way to display navbar and header so its not just popping in when switching between bugs and users.
-- Clean up accessablilty
-- Clean up error handling on all api routes.
+- Have a better way to display the navbar and header so it's not just popping in when switching between bugs and users.
+- Clean up accessibility
+- Clean up error handling on all API routes.
 - Clean cookie notice UI
-- MainContext needs to move back to main layout too many reloads happening.
+- MainContext needs to move back to the main layout too many reloads are happening.
 - Need to rethink data fetching. 
 
 ## Updated
 - Favicon updated
-- Cleaned up cusor on hover
+- Cleaned up cursor on hover
 - Sorted out the wrong nav showing for admins and users.
-- Fixed a bug with login page.
+- Fixed a bug with the login page.
 - Prevented Email dup's.
-- Delet user card feedback on UI.
-- Bug with cookie notice needed to fix the time to expire. 
+- Delete user card feedback on UI.
+- Bug with cookie notice needed to fix the time to expire.
 
-## Researching
-- Write omments on others bugs with a clean UI that doesn't look out of place. 
-- Best way to deal with soft deleted bugs.
+## working on
+- comments on bugs
+- fix ID on ideas
+- make deleting soft
+- temp deletion before soft delete
 
