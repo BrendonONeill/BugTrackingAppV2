@@ -30,7 +30,7 @@ This UI will change as I clean up the app and it goes live.
 
 ## working on
 - Comments on bugs
-- Fix ID on ideas
+- Fix ID on bugs where they are calling from a private key instead will call from ID
 - Make deleting soft
 - Temp deletion before soft delete
 - Cleaning up schema
