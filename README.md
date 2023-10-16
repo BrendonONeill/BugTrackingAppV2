@@ -29,8 +29,10 @@ This UI will change as I clean up the app and it goes live.
 - Bug with cookie notice needed to fix the time to expire.
 
 ## working on
-- comments on bugs
-- fix ID on ideas
-- make deleting soft
-- temp deletion before soft delete
+- Comments on bugs
+- Fix ID on ideas
+- Make deleting soft
+- Temp deletion before soft delete
+- Cleaning up schema
+- Re-design bug information
 
