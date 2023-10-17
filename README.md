@@ -29,10 +29,9 @@ This UI will change as I clean up the app and it goes live.
 - Bug with cookie notice needed to fix the time to expire.
 
 ## working on
-- Comments on bugs
-- Fix ID on bugs where they are calling from a private key instead will call from ID
-- Make deleting soft
-- Temp deletion before soft delete
-- Cleaning up schema
-- Re-design bug information
+- Cleaning up UI on bug expanded card and comment section
+- Sorting out comments under bugs where they can add edit and remove comments.
+- Adding a project section to create new projects and find bugs to do with that project.
+- Recycling bin-like function that soft deletions go to for 30 days after which they are removed completely.
+- More UI added and more fields of information to display.
 
