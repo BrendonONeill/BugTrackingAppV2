@@ -19,8 +19,11 @@ const bugSchema = new Schema({
     dateBugUpdated: Date,
     bugPrivate: {type: Boolean, required: true, default: true},
     Comments: [{
-        userName: {type: SchemaTypes.ObjectId, ref: "User"},
-        userComment: String
+        userID: {type: SchemaTypes.ObjectId, ref: "User", required: true},
+        userComment: {type: String, required: true},
+        commentCreated: {type: Date,
+            default: () => Date.now(),
+            immutable: true},
     }]
 })
 
