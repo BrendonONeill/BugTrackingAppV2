@@ -826,6 +826,76 @@ main {
   border-radius: 5px;
 }
 
+.comment-section {
+  background-color: white;
+  box-shadow: -2px 5px 10px var(--shadow);
+  border-radius: 5px;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.comment-card {
+  background-color: white;
+  box-shadow: -2px 5px 10px var(--shadow);
+  border-radius: 5px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.comment-form {
+  padding: 2rem;
+}
+
+.comment-form-header {
+  background-color: var(--UI-main);
+  padding: 1rem;
+  border-radius: 5px 5px 0 0;
+}
+
+.comment-name {
+  background-color: var(--UI-main);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.comment-text {
+  padding: 1rem;
+  background-color: #e5e6e4;
+  margin-block: 0.4rem;
+  border-radius: 5px;
+}
+
+.comment-date {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  border-top: 3px solid black;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.comment-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.5rem;
+}
+
+.comment-card-header img {
+  pointer-events: none;
+}
+
+
+
 
 /* test */
 
@@ -835,32 +905,83 @@ main {
   box-shadow: -2px 5px 10px var(--shadow);
   width: 90%;
   margin: 0 auto;
+  padding: 1rem;
 }
 
 .bug-expanded-info h2 {
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(--UI-main);
   text-align: center;
   color: white;
-  border-radius: 5px 5px 0 0;
-  margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 .bug-expanded-info-section {
-  border-top: 2px solid black;
+  border-radius: 5px;
   padding: 1rem;
+  background-color: #e5e6e4;
   padding-bottom: 2rem;
+  font-size: 18px;
+  font-weight: 500;
+
 }
 
-.bug-expanded-info-label {
-  background-color: var(--UI-main);
-  color: white;
-  border-radius: 0 5px 0 0;
-  padding: 0.2rem;
-  text-align: center;
-  border-bottom: none;
-  width: 120px;
+.bug-expanded-info-name {
+  padding: 0.4rem;
+  font-style: italic;
+  font-size: 16px;
 }
+
+.bug-expanded-info-importance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 45%;
+  border-radius: 5px;
+  border: 2px solid var(--UI-main);
+  flex-flow: column;
+}
+
+.importance {
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.bug-expanded-info-align {
+  padding-block: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bug-expanded-info-flex {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  flex-basis: 45%;
+}
+
+.bug-expanded-info-block {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  width: 180px;
+  font-weight: bold;
+  border-radius: 5px;
+  gap: 0.5rem;
+  padding-inline: 0.5rem;
+  background-color: var(--UI-main);
+}
+
+
+
+.bug-expanded-info-block img {
+  flex-basis: 10%;
+}
+
 
 
 .back-link {
@@ -1129,6 +1250,22 @@ main {
   .footer-social ul {
     flex-basis: 45%;
     flex-flow: row;
+  }
+
+  .bug-expanded-info-name {
+    padding-block: 1rem;
+  }
+
+  .bug-expanded-info-align {
+    justify-content: space-between;
+  }
+
+  .bug-expanded-info-importance {
+    flex-basis: 30%;
+  }
+
+  .comment-text {
+    min-height: 80px;
   }
 
   .cookie-banner {

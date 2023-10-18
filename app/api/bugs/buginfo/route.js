@@ -14,7 +14,7 @@ export async function GET(req){
     const {searchParams} = new URL(req.url)
     const bugId = searchParams.get('q')
     await clientPromise();
-    const bug = await Bug.findById(bugId).populate('bugUserId');
+    const bug = await Bug.findById(bugId).populate('bugUserId').populate("Comments.userID");
     if(bug != null)
     {
       return NextResponse.json({bug,status: 201})

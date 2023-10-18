@@ -18,7 +18,7 @@ export async function GET(req){
       await clientPromise();
       const session = await Session.findOne({sessionId: sessionid.value});
       const payload = await verifyAuthJWT(session.jwt, "Session");
-      const bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId");
+      const bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId")
       if(bugs != null)
       {
         return NextResponse.json(bugs, {status: 201, statusText: "Bugs were collected"})
