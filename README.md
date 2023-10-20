@@ -35,3 +35,6 @@ This UI will change as I clean up the app and it goes live.
 - Recycling bin-like function that soft deletions go to for 30 days after which they are removed completely.
 - More UI added and more fields of information to display.
 
+# Reminder 
+Update the delete timer back to 30 days.
+
