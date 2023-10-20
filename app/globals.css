@@ -945,8 +945,19 @@ main {
 .importance {
   width: 25px;
   height: 25px;
-  background-color: red;
   border-radius: 50%;
+}
+
+.i-high {
+  background-color: var(--bug-high);
+}
+
+.i-med {
+  background-color: var(--bug-med);
+}
+
+.i-low {
+  background-color: var(--bug-low);
 }
 
 .bug-expanded-info-align {

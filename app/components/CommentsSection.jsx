@@ -60,7 +60,7 @@ export default function CommentsSection({id, comments, setComments, setCommentsU
             comments.map((c, index) => (
                 <div className="comment-card" key={index}>
                 <div className="comment-card-header"><div className="comment-name"><p>{c.userID.fname[0]} {c.userID.lname[0]}</p></div>
-                <div><button className={c._id} onClick={removeComment} ><img src="../binBlack.svg" width={20} height={20} alt="" /></button></div></div>
+                <div>{c.userID._id === LoginUser._id? <button className={c._id} onClick={removeComment} ><img src="../binBlack.svg" width={20} height={20} alt="" /></button>: null}</div></div>
                 <div className="comment-text"><p>{c.userComment}</p></div>
                 <div className="comment-date">
                 <p>{c.commentCreated.slice(11,16)}</p>
