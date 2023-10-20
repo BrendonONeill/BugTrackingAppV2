@@ -14,7 +14,7 @@ export default function bugCard({post}) {
       
       await fetch('/api/bugs/delete', {
         method: 'POST',
-        body: JSON.stringify(post._id),
+        body: JSON.stringify({id:post._id, user: LoginUser}),
       });
       let data = bugs.filter(bug => bug._id !== post._id)
       setBugs([...data])

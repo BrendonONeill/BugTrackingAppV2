@@ -21,7 +21,7 @@ function BugExpandInfo({infoBug}) {
         </div>
         </div>
         <div className='bug-expanded-info-importance'>
-        <div className='importance'></div>
+        <div className={infoBug.bugImportance === "high" ? "importance i-high" : infoBug.bugImportance === "medium" ? "importance i-med" : infoBug.bugImportance === "low" ? "importance i-low" : null}></div>
         <p>{infoBug.bugImportance}</p>
         <p>Importance</p>
         </div>
