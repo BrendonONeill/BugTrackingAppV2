@@ -7,6 +7,7 @@ function LoginForm() {
   const [loginData, setLoginData] = useState({ email: "", password: ""});
   const [errorActive, setErrorActive] = useState(false)
   const [error, setError] = useState("")
+  const [logging, setLogging] = useState(false)
 
 
     const handleChange = (e) => {
@@ -19,6 +20,7 @@ function LoginForm() {
         
   const checkLogin = async (e) => {
     e.preventDefault()
+    setLogging(true)
     try {
       const res = await fetch('/api/login', {
         method: 'POST',
@@ -31,6 +33,7 @@ function LoginForm() {
       }
       router.replace("/bugs")
     } catch (error) {
+      setLogging(false)
       setErrorActive(true)
       setError(error.message)
     }
@@ -49,7 +52,7 @@ function LoginForm() {
                 Password
                 <input className='login-input' type="password" name="password" value={loginData.password} onChange={handleChange} />
             </label>
-            <input className='login-button' type="submit" value="Login" />
+            <input disabled={logging} className={logging === false ? "login-button" : "login-button-loading"} type="submit" value={logging === false ? "Login" : "Loading"}/>
     </form>
   )
 }

@@ -11,7 +11,6 @@ export default function bugCard({post}) {
   {
     if(e.target.classList.contains('delete-bug-button'))
     {
-      
       await fetch('/api/bugs/delete', {
         method: 'POST',
         body: JSON.stringify({id:post._id, user: LoginUser}),

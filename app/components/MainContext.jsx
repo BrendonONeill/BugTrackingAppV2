@@ -10,6 +10,7 @@ export function MainProvider({children})
     const [loggedIn, setLoggedIn] = useState(false)
     const [bugs, setBugs] = useState([])
     const [bugCards, setBugCards] = useState([])
+    const [recyclingBinBugs, setRecyclingBinBugs] = useState([])
 
     useEffect(() => {
         fetch("/api/users/activeuser", {method: "GET"}).then(res => res.json()).then(data => {
@@ -30,7 +31,7 @@ export function MainProvider({children})
     }
 
     return(
-        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn, bugs, setBugs, bugCards, setBugCards}}>
+        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn, bugs, setBugs, bugCards, setBugCards, recyclingBinBugs, setRecyclingBinBugs}}>
             {children}
         </MainContext.Provider>
     )
