@@ -28,6 +28,9 @@ function NonMobileUserNav() {
             <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg"  role="presentation" width={20} height={20} alt="" /> Create Bugs</Link>
             </li>
             <li>
+            <Link className='nav-link' href={{pathname: '/bugs/recyclingBin'}} replace><img src="/recycle.svg" width={20} height={20} alt=""  role="presentation" /> Recycling Bin</Link>
+            </li>
+            <li>
             <a href="#" className='nav-link' onClick={test} > <img src="/logout.svg"  role="presentation" width={20} height={20} alt="" /> Logout</a>
             </li>
         </ul>

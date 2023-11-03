@@ -35,6 +35,9 @@ function NonMobileAdminNav() {
             <Link className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20}  role="presentation" alt="" /> Create Bugs</Link>
             </li>
             <li>
+            <Link className='nav-link' href={{pathname: '/bugs/recyclingBin'}} replace><img src="/recycle.svg" width={20} height={20} alt=""  role="presentation" /> Recycling Bin</Link>
+            </li>
+            <li>
             <a href="#" className='nav-link' onClick={test} > <img src="/logout.svg" width={20} height={20} alt=""  role="presentation" /> Logout</a>
             </li>
         </ul>

@@ -16,7 +16,7 @@ const recycleBinSchema = new Schema({
     dateBugCreated: {   type: Date,
         immutable: true},
     dateBugDeleted: {type: Date,  default: () => Date.now()},
-    dateBugExpires: {type: Date,  default: () => Date.now() + 10*60*1000},
+    dateBugExpires: {type: Date,  default: () => Date.now() + 30*24*60*60*1000},
     bugPrivate: {type: Boolean, required: true, default: true},
     Comments: [{
         userID: {type: SchemaTypes.ObjectId, ref: "User", required: true},
@@ -26,7 +26,7 @@ const recycleBinSchema = new Schema({
             immutable: true},
     }]
 },{timestamps: true})
-recycleBinSchema.index({createdAt: 1}, {expireAfterSeconds: 120})
+recycleBinSchema.index({createdAt: 1}, {expireAfterSeconds: 2592000000})
 
 const RecycleBin =  mongoose.models.RecycleBin || model("RecycleBin", recycleBinSchema);
 export default RecycleBin

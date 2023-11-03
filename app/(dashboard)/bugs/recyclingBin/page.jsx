@@ -1,11 +1,22 @@
-"use client"
+import Nav from "@/app/components/Nav"
+import BugContainer from "@/app/components/BugContainer"
+import { Suspense } from "react"
+import NonMobileNav from "@/app/components/NonMobileNav"
+import RecyclingBin from "@/app/components/RecyclingBin"
 
-import { useContext, useEffect } from "react";
-import MainContext from "@/app/components/MainContext";
-
-export default function recycleBin() {
-    const {LoginUser, setBugs, bugs, bugCards} = useContext(MainContext)
+export default async function page() {
+    
   return (
-    <div>page</div>
+    <main>
+      <Nav />
+      <div className="grid-container">
+      <NonMobileNav />
+      <div className="main-content-container">
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <RecyclingBin />
+      </Suspense>
+      </div>
+      </div>
+    </main>
   )
 }
