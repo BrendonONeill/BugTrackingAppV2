@@ -31,6 +31,8 @@ This UI will change as I clean up the app and it goes live.
 - Adding a project section to create new projects and find bugs to do with that project.
 
 ## Bug
-(New) When recycling a bug the timer seems to hit 0 and enter the minus numbers. the data in the recycling bin should be removed after 30 days. 
+(New) When recycling a bug the timer seems to hit 0 and enter the minus numbers. the data in the recycling bin should be removed after 30 days.
+
+On first load there is an infinite loop on the card animation need to wait until a time then cancel animation. 
 
 
