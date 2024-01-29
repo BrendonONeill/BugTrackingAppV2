@@ -411,6 +411,14 @@ main {
   flex-basis: 10%;
 }
 
+.bugApiError {
+  background-color: var(--delete);
+  border-radius: 5px;
+  text-align: center;
+  padding: 1rem;
+  color: white;
+}
+
 
 .flex-badge {
   display: flex;
@@ -1056,9 +1064,17 @@ main {
 
 }
 
+.noticeblock {
+  background-color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
 .cookie-banner {
   background-color: white;
   border: 2px solid var(--UI-main);
+  border-top: 20px solid var(--UI-main);
   position: fixed;
   bottom: 5px;
   width: 90%;
@@ -1108,13 +1124,15 @@ main {
 }
 
 #accept {
-  border: 3px solid var(--action);
+  background-color: var(--UI-main);
+  color: white;
 }
 
 #decline {
-  border: 3px solid var(--delete);
+  background-color: #a8a8a8;
 
 }
+
 
 /* custom scrollbar */
 
@@ -1346,6 +1364,14 @@ main {
 
   .cookie-banner {
     width: 30%;
+  }
+
+  .cookie-banner h3 {
+    width: 40%;
+  }
+
+  .cookie-warning {
+    margin: 0.5rem 0;
   }
 
   .cookie-buttons {

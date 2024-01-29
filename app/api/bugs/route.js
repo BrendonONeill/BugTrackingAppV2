@@ -13,22 +13,21 @@ export async function GET(req){
     if(limit > 0)
     {
       const sessionid = cookies().get('session')
-    if(sessionid)
-    {
-      await clientPromise();
-      const session = await Session.findOne({sessionId: sessionid.value});
-      const payload = await verifyAuthJWT(session.jwt, "Session");
-      const bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId")
-      if(bugs != null)
+      if(sessionid)
       {
-        return NextResponse.json(bugs, {status: 201, statusText: "Bugs were collected"})
+        await clientPromise();
+        const session = await Session.findOne({sessionId: sessionid.value});
+        const payload = await verifyAuthJWT(session.jwt, "Session");
+        const bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId")
+        if(bugs != null)
+        {
+          return NextResponse.json(bugs, {status: 201, statusText: "Bugs were collected"})
+        }
+        else
+        {
+          throw new Error("Could not get information from database")
+        }
       }
-      else
-      {
-        throw new Error("Could not get information from database")
-      }
-     
-    }
     }
     else
     {
@@ -37,8 +36,7 @@ export async function GET(req){
   }
   catch(error)
   {
-    console.log(error)
-    return NextResponse.json({},{status: 404, statusText: "Something went wrong"})
+    return NextResponse.json({},{status: 404, statusText: error})
   }
 };
 
