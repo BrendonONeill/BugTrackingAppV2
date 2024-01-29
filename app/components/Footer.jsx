@@ -12,7 +12,7 @@ function Footer() {
     </ul>
       </div>
       <div className="footer-name">
-    <p>Brendon O'Neill &copy; 2023</p>
+    <p>Brendon O'Neill &copy; 2024</p>
       </div>
     </footer>
   )

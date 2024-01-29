@@ -26,7 +26,7 @@ const recycleBinSchema = new Schema({
             immutable: true},
     }]
 },{timestamps: true})
-recycleBinSchema.index({createdAt: 1}, {expireAfterSeconds: 2592000000})
+recycleBinSchema.index({createdAt: 1}, {expireAfterSeconds: 2592000})
 
 const RecycleBin =  mongoose.models.RecycleBin || model("RecycleBin", recycleBinSchema);
 export default RecycleBin
