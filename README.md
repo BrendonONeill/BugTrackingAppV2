@@ -26,13 +26,14 @@ This UI will change as I clean up the app and it goes live.
 - Updating nav with a new tab for recycling bin.
 - Added loading UI when logging in.
 - Recycling bin section where to restore bugs.
+- Need to speed up login time.
 
 ## Extra features to add
 - Adding a project section to create new projects and find bugs to do with that project.
 
 ## Bug
-(New) When recycling a bug the timer seems to hit 0 and enter the minus numbers. the data in the recycling bin should be removed after 30 days.
-
-On first load there is an infinite loop on the card animation need to wait until a time then cancel animation. 
+- (New) When recycling a bug the timer seems to hit 0 and enter the minus numbers. the data in the recycling bin should be removed after 30 days.
+- On first load there is an infinite loop on the card animation need to wait until a time then cancel animation.
+- On first login sometimes the bug cards will not load in without a refresh. 
 
 
