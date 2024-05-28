@@ -1149,6 +1149,105 @@ main {
   transform: translateX(-50%);
 }
 
+.recycle-card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recycle-card-button button {
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100px;
+  cursor: pointer;
+}
+
+.restore {
+  background-color: var(--action);
+}
+
+.delete {
+  background-color: var(--delete);
+}
+
+.delete-card-bg {
+  background-color: rgba(0, 0, 0, .6);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-card {
+  background-color: white;
+  border-radius: 5px;
+  width: 90%;
+  height: 240px;
+  box-shadow: -2px 5px 10px var(--shadow);
+  padding: 1rem;
+}
+
+.delete-card-close {
+  border: 2px solid var(--BG-main);
+  border-radius: 5px;
+  padding: 0.1rem 0.2rem;
+  background-color: var(--delete);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-card form {
+  padding-top: 0.4rem;
+  gap: 0.5rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-card-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem;
+  border-bottom: 3px solid black;
+  font-weight: bold;
+}
+
+.delete-card-input {
+  border: 2px solid var(--BG-main);
+  border-radius: 5px;
+  width: 100%;
+  padding: 0.5rem;
+  cursor: text;
+}
+
+.delete-card-button {
+  background-color: var(--delete);
+  color: white;
+  padding: 0.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-card-noButton {
+  background-color: grey;
+  color: black;
+  padding: 0.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 
 
 

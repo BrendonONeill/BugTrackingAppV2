@@ -28,7 +28,6 @@ function CookieNotice() {
         }
         else
         {
-            localStorage.setItem("cookies", "decline")
             setShow(false)
         }
         

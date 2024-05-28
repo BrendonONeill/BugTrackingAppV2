@@ -36,10 +36,9 @@ export async function POST(request,response)
       sessionId : sessionId,
       role: user.role
     }
-    const sessionToken = await createSessionToken(user, "Session");
-    const authToken = await createAuthToken(auth, "Auth");
-    await Session.create( {sessionId, jwt: sessionToken});
-
+    
+    const [a,authToken] = await Promise.all([Session.create( {sessionId, jwt: await createSessionToken(user, "Session")}),createAuthToken(auth, "Auth")]);
+    
    
     cookies().set({name: 'session', value: sessionId, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
     cookies().set({name: 'user', value: authToken, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
