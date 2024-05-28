@@ -5,7 +5,7 @@ import MainContext from "@/app/components/MainContext";
 import BugLoading from "./BugLoading";
 
 function BugContainer(){
-const {LoginUser, setBugs, bugs, bugCards} = useContext(MainContext)
+const {LoginUser, setBugs, bugs, bugCards, flashCard, setFlashCard} = useContext(MainContext)
 const [errorText,setErrorText] = useState("")
 const [emptyList,setEmptyList] = useState("")
 
@@ -35,13 +35,27 @@ useEffect(() => {
   console.log("Bugs updated on page")
 },[bugs])
 
+setTimeout(() => {
+  if(flashCard !== '')
+  {
+    setFlashCard('');
+  }
+}, 3000)
+
   return (
     <div className="card-container">
+      {
+      flashCard ? 
+        <div class="flashCard">
+          {flashCard}
+        </div>
+      : null
+      }
       {
       bugCards.length > 0 && LoginUser ?
       bugCards.map((post, index) => (
         <BugCard post={post} index={index} key={post._id} test={post._id} />
-      )) : errorText !== "" ? <div className="bugApiError"><p>{errorText}</p></div> : emptyList === true || bugCards.length === 0? <div className="noticeblock"><p>There is no cards to view.</p></div> : <> <BugLoading /> <BugLoading /> <BugLoading /> </>
+      )) : errorText !== ""  && bugCards.length === 0? <div className="bugApiError"><p>{errorText}</p></div> : emptyList === true || bugCards.length === 0? <div className="noticeblock"><p>There is no cards to view.</p></div> : <> <BugLoading /> <BugLoading /> <BugLoading /> </>
     }
       </div>
   )

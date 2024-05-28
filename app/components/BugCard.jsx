@@ -5,7 +5,7 @@ import MainContext from "@/app/components/MainContext";
 
 export default function bugCard({post}) {
   const { push } = useRouter();
-  const {LoginUser, setBugs, bugs} = useContext(MainContext)
+  const {LoginUser, setBugs, bugs, setFlashCard} = useContext(MainContext)
   
   async function cardClicked(e, post)
   {
@@ -16,6 +16,7 @@ export default function bugCard({post}) {
         body: JSON.stringify({id:post._id, user: LoginUser}),
       });
       let data = bugs.filter(bug => bug._id !== post._id)
+      setFlashCard('bug sent to Recycling Bin.');
       setBugs([...data])
     }
     if(e.target.classList.contains('edit-bug-button'))

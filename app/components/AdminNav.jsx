@@ -39,7 +39,7 @@ function AdminNav() {
             <Link prefetch={true} className='nav-link' as='/bugs' href='/bugs' ><img src="/buglist.svg" width={20} height={20} alt=""  role="presentation" /> View Bugs</Link>
             </li>
             <li>
-            <Link prefetch={true} className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20} alt=""  role="presentation" /> Create Bugs</Link>
+            <Link prefetch={true} className='nav-link' href={{pathname: '/bugs/create'}} replace><img src="/create.svg" width={20} height={20} alt=""  role="presentation" /> Create Bug</Link>
             </li>
             <li>
             <Link className='nav-link' href={{pathname: '/bugs/recyclingBin'}} replace><img src="/recycle.svg" width={20} height={20} alt=""  role="presentation" /> Recycling Bin</Link>

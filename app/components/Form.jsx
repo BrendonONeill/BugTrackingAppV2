@@ -7,7 +7,7 @@ import { bugValidation } from "@/lib/validation/bugValidation";
 
 function Form() {
   const router = useRouter()
-  const {LoginUser} = useContext(MainContext)
+  const {LoginUser, setFlashCard} = useContext(MainContext)
   const [formData, setFormData] = useState({ bugName: '', bugDes: '', bugCode: '', bugProject: '', bugImportance: 'low', bugPrivate: false});
   const [formValidation, setFormValidation] = useState({ NameVal: true, DesVal: true, CodeVal: true, ProjectVal: true});
   const [formError, setFormError] = useState("")
@@ -48,6 +48,7 @@ function Form() {
         method: 'POST',
         body: JSON.stringify(body),
       });
+    setFlashCard('Bug was created');
     router.replace("/bugs")
     }
   }

@@ -17,6 +17,7 @@ export async function POST(req,res)
         let recyceledBug = { bugName,bugUserId,bugDes,bugCode,bugProject,bugImportance,bugPrivate,dateBugCreated,Comments}
         recyceledBug.bugUserId = body.user
         await Bug.create(recyceledBug);
+        console.log('i am running the restore i should only run once')
         await RecycleBin.findByIdAndDelete(body.id);
         return NextResponse.json({message: "bug deleted", status : 201})
         }

@@ -1,10 +1,12 @@
 "use client"
 import { useRouter } from "next/navigation";
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { bugValidation } from "@/lib/validation/bugValidation";
+import MainContext from "@/app/components/MainContext";
 
 function EditForm({data, id}) {
   const router = useRouter()
+  const {flashCard, setFlashCard} = useContext(MainContext)
   const [formData, setFormData] = useState({ bugName: data.bugName, bugDes: data.bugDes, bugCode: data.bugCode, bugProject: data.bugProject, bugImportance: data.bugImportance, bugPrivate: data.bugPrivate});
   const [formValidation, setFormValidation] = useState({ NameVal: true, DesVal: true, CodeVal: true, ProjectVal: true});
   const [formError, setFormError] = useState("")
@@ -43,6 +45,7 @@ function EditForm({data, id}) {
             method: 'PUT',
             body: JSON.stringify(body),
           });
+        setFlashCard('Bug was updated.')
         router.replace("/bugs")
     }
   }

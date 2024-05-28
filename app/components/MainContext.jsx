@@ -11,6 +11,7 @@ export function MainProvider({children})
     const [bugs, setBugs] = useState([])
     const [bugCards, setBugCards] = useState([])
     const [recyclingBinBugs, setRecyclingBinBugs] = useState([])
+    const [flashCard, setFlashCard] = useState('');
 
     useEffect(() => {
         fetch("/api/users/activeuser", {method: "GET"}).then(res => res.json()).then(data => {
@@ -31,7 +32,7 @@ export function MainProvider({children})
     }
 
     return(
-        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn, bugs, setBugs, bugCards, setBugCards, recyclingBinBugs, setRecyclingBinBugs}}>
+        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn, bugs, setBugs, bugCards, setBugCards, recyclingBinBugs, setRecyclingBinBugs, flashCard, setFlashCard}}>
             {children}
         </MainContext.Provider>
     )

@@ -6,7 +6,7 @@ import BugLoading from "./BugLoading";
 
 
 function RecyclingBin() {
-    const {LoginUser, setRecyclingBinBugs, recyclingBinBugs} = useContext(MainContext)
+    const {LoginUser, setRecyclingBinBugs, recyclingBinBugs, flashCard, setFlashCard} = useContext(MainContext)
     const [emptyList,setEmptyList] = useState(false)
     useEffect(() => {
         async function test()
@@ -22,13 +22,28 @@ function RecyclingBin() {
         test()
       
       },[]) 
+
+      setTimeout(() => {
+        if(flashCard !== '')
+        {
+          setFlashCard('');
+        }
+      }, 3000)
+
   return (
    <>
    <div className="card-container"> 
     {
+      flashCard ? 
+        <div class="flashCard">
+          {flashCard}
+        </div>
+      : null
+    }
+    {
          recyclingBinBugs.length > 0 && LoginUser ?
          recyclingBinBugs.map((post, index) => (
-           <RecycleCard post={post} index={index} key={post._id} test={post._id} />
+           <RecycleCard post={post} index={index} key={post._id} test={post._id} setEmptyList={setEmptyList} />
          )) : emptyList === true ? <div className="noticeblock"><p>You have no cards in the recycling bin.</p></div> :<> <BugLoading /> <BugLoading /> <BugLoading /> </>
     }
    </div>

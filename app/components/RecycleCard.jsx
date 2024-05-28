@@ -1,11 +1,9 @@
 "use client"
 import { useContext } from "react";
-import { useRouter} from 'next/navigation';
 import MainContext from "@/app/components/MainContext";
 
-export default function RecycleCard({post}) {
-  const { push } = useRouter();
-  const {LoginUser, setRecyclingBinBugs, recyclingBinBugs} = useContext(MainContext)
+export default function RecycleCard({post, setEmptyList}) {
+  const {LoginUser, setRecyclingBinBugs, recyclingBinBugs, setFlashCard} = useContext(MainContext)
 
   async function cardClicked(e, post)
   {
@@ -16,7 +14,12 @@ export default function RecycleCard({post}) {
         body: JSON.stringify({id:post._id, user: LoginUser}),
       });
       let data = recyclingBinBugs.filter(bug => bug._id !== post._id)
+      setFlashCard('Bug was Restored')
       setRecyclingBinBugs([...data])
+      if(recyclingBinBugs.length <= 0)
+      {
+        setEmptyList(true);
+      }
     }
   }
 
