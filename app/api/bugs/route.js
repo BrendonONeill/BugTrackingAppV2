@@ -18,7 +18,14 @@ export async function GET(req,res){
         await clientPromise();
         const session = await Session.findOne({sessionId: sessionid.value});
         const payload = await verifyAuthJWT(session.jwt, "Session");
-        const bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId");
+        let bugs;
+        if(payload !== null)
+        {
+          bugs = await Bug.find().or([{bugUserId : { _id : payload.user} },{bugPrivate : false}]).populate("bugUserId");
+        }
+        else{
+          throw new Error("Could not find session")
+        }
         if(bugs != null)
         {
           return NextResponse.json(bugs, {status: 201, statusText: "Bugs were collected"})

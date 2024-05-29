@@ -11,7 +11,6 @@ export async function POST(req,res)
     const limit = await limiter.removeTokens(1)
     if(limit > 0)
     {
-    console.log("WE MADE IT THIS FAR")
       await clientPromise();
       const body = await req.json()
       const user = await User.findById(body.user);

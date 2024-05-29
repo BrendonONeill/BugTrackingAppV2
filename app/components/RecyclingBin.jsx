@@ -45,7 +45,7 @@ function RecyclingBin() {
     setDeleteCard(true);
   }
 
-  function popo(e)
+  function hide(e)
   {
     if(e.target.classList.contains("delete-card-bg") || e.target.classList.contains("delete-card-close"))
       {
@@ -82,10 +82,10 @@ function RecyclingBin() {
     }
     {
       deleteCard ?
-      <div className="delete-card-bg" onClick={(e) => popo(e)}>
+      <div className="delete-card-bg" onClick={(e) => hide(e)}>
         <div className="delete-card">
           <button className="delete-card-close">x</button>
-          <p>This will permanently delete this bug if you are sure re-type the below string into the input box and sumbit.</p>
+          <p>This will permanently delete this bug if you are sure re-type the below string into the input box and submit. ( Case Sensitive )</p>
           <p className="delete-card-text">{deleteString}</p>
           <form onSubmit={(e) => permanentlyDelete(e)} >
                 <input className="delete-card-input" type="text" onChange={(e) => deleteString === e.target.value ? setDeleteButton(true): null} />

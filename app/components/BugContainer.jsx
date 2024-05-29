@@ -14,7 +14,7 @@ useEffect(() => {
   {
     try {
       const res = await fetch("/api/bugs", {method: "GET", cache: 'no-store'})
-      if(res.ok === false){
+      if(!res.ok){
         throw new Error(res.statusText)
       }
       const data = await res.json()
@@ -25,15 +25,12 @@ useEffect(() => {
       setBugs(data)
 
       } catch (error) {
+        console.log(error)
         setErrorText("Something went wrong, there was an error please try again later");
       }
   }
   test()
 },[]) 
-
-useEffect(() => {
-  console.log("Bugs updated on page")
-},[bugs])
 
 setTimeout(() => {
   if(flashCard !== '')
