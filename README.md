@@ -2,6 +2,16 @@
 This is a demo bug-tracking app that a company can use to track bugs in development.
 This is an updated version of the bug tracking app, which I have moved over to next js from express. I wanted to update the backend and clean up the UI for the Bug Tracker.
 
+> [!NOTE]
+> To test out the app here are two accounts to check it out.
+>
+> Admin:
+> SarahK@gmail.com  pass:  k0hW[L]8
+>  
+> User:
+> ThomasK@gmail.com pass:  45[e!Ml@3
+> 
+
 ## UI update
 ### New UI in Next.js
 This UI will change as I clean up the app and it goes live. 
