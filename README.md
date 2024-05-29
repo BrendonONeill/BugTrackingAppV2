@@ -1,5 +1,6 @@
 # Bug Tracking App V2
-This is an updated version of the bug tracking app where I have moved over to next js from express. I wanted to update the backend and clean up the UI for the Bug Tracker.
+This is a demo bug-tracking app that a company can use to track bugs in development.
+This is an updated version of the bug tracking app, which I have moved over to next js from express. I wanted to update the backend and clean up the UI for the Bug Tracker.
 
 ## UI update
 ### New UI in Next.js
@@ -12,32 +13,17 @@ This UI will change as I clean up the app and it goes live.
  
 
 ## Updated
-- Favicon updated
-- Cleaned up cursor on hover
-- Sorted out the wrong nav showing for admins and users.
-- Fixed a bug with the login page.
-- Prevented Email dup's.
-- Delete user card feedback on UI.
-- Bug with cookie notice needed to fix the time to expire.
+- Flashcards added to notify users that things are working
+- Updated some performance
+- Updated how cookies are handled
+- Recycling Bin has a permanently delete function
 
 ## Working on
-- Comment section under bugs.
-- Fixing up Cookie UI.
-- Updating nav with a new tab for recycling bin.
-- Added loading UI when logging in.
-- Recycling bin section where to restore bugs.
-- Need to speed up login time.
+- Cleaning up backend code
+- Cleaning up some UI
 
 ## Extra features to add
 - Adding a project section to create new projects and find bugs to do with that project.
 
-## Bugs
-- When you first log in sometimes doesn't load in cards
-- Fix cookie notification
-
-## Bug
-- (New) When recycling a bug the timer seems to hit 0 and enter the minus numbers. the data in the recycling bin should be removed after 30 days.
-- On first load there is an infinite loop on the card animation need to wait until a time then cancel animation.
-- On first login sometimes the bug cards will not load in without a refresh. 
 
 
