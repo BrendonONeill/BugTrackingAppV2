@@ -2,6 +2,7 @@ import {NextRequest, NextResponse} from 'next/server'
 import clientPromise from "@/lib/mongo/index";
 import User from "@/models/userSchema"
 import Bug from '@/models/bugSchema';
+import RecycleBin from '@/models/recycleBinSchema';
 import { limiter } from "../../config/limiter";
 
 export async function POST(req,res)
@@ -14,7 +15,8 @@ export async function POST(req,res)
         await clientPromise();
         const body = await req.json()
         await User.findByIdAndDelete(body);
-        await Bug.deleteMany({bugUserId : {_id : body}})
+        await Bug.deleteMany({bugUserId : {_id : body}});
+        await RecycleBin.deleteMany({bugUserId : {_id: body}});
         return NextResponse.json({message: "bug deleted", status: 201})
     }
     else
