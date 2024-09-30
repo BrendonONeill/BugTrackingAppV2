@@ -68,6 +68,11 @@ function RecyclingBin() {
     setDeleteCard(false);
     setDeleteCardContent({});
     setDeleteButton(false);
+
+    if(data.length === 0)
+    {
+      setEmptyList(true);
+    }
   }
 
   return (
@@ -89,7 +94,7 @@ function RecyclingBin() {
           <p className="delete-card-text">{deleteString}</p>
           <form onSubmit={(e) => permanentlyDelete(e)} >
                 <input className="delete-card-input" type="text" onChange={(e) => deleteString === e.target.value ? setDeleteButton(true): null} />
-                <input className={deleteButton?"delete-card-button": "delete-card-noButton"}  type="submit" value="Permanently Delete" />
+                <input className={deleteButton?"delete-card-button": "delete-card-noButton"} disabled={!deleteButton}  type="submit" value="Permanently Delete" />
           </form>
         </div>
       </div>
@@ -99,7 +104,9 @@ function RecyclingBin() {
          recyclingBinBugs.length > 0 && LoginUser ?
          recyclingBinBugs.map((post, index) => (
            <RecycleCard post={post} index={index} key={post._id} test={post._id} setEmptyList={setEmptyList} deletionProcess={deletionProcess} />
-         )) : emptyList === true ? <div className="noticeblock"><p>You have no cards in the recycling bin.</p></div> :<> <BugLoading /> <BugLoading /> <BugLoading /> </>
+         )) 
+         : emptyList && recyclingBinBugs.length === 0 ? <div className="noticeblock"><p>You have no cards in the recycling bin.</p></div> 
+         :<> <BugLoading /> <BugLoading /> <BugLoading /> </>
     }
    </div>
    </>

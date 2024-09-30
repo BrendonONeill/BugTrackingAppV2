@@ -43,7 +43,7 @@ setTimeout(() => {
     <div className="card-container">
       {
       flashCard ? 
-        <div class="flashCard">
+        <div className="flashCard">
           {flashCard}
         </div>
       : null
