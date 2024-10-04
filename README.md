@@ -31,7 +31,8 @@ This UI will change as I clean up the app and it goes live.
 ## Working on
 - Cleaning up backend code
 - Cleaning up some UI
-- Re-writing the jwt tokens but need to research a way to deploy checks that is not on the middleware as I need to do a db check.
+- Re-writing the jwt tokens but I need to research a way to deploy checks that is not on the middleware as I need to do a db check.
+- Re-writing the jwt is a lot more complex than I was hoping but still working on it (react server components causing a problem with cookies).
 
 ## Extra features to add
 - Adding a project section to create new projects and find bugs to do with that project.
