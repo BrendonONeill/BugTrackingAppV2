@@ -12,11 +12,12 @@ export function MainProvider({children})
     const [bugCards, setBugCards] = useState([])
     const [recyclingBinBugs, setRecyclingBinBugs] = useState([])
     const [flashCard, setFlashCard] = useState('');
+    const [accessToken, setaccessToken] = useState(false);
 
     useEffect(() => {
         fetch("/api/users/activeuser", {method: "GET"}).then(res => res.json()).then(data => {
-        setLoginUser(data.user); setLoggedIn(true)}).catch(error => console.error(error))
-       
+        setLoginUser(data.activeUser); 
+        setLoggedIn(true)}).catch(error => console.error(error));
     },[])
 
     useEffect(() => {
@@ -32,7 +33,7 @@ export function MainProvider({children})
     }
 
     return(
-        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn, bugs, setBugs, bugCards, setBugCards, recyclingBinBugs, setRecyclingBinBugs, flashCard, setFlashCard}}>
+        <MainContext.Provider value={{mobileNav, setMobileNav, navbarMove, LoginUser, setLoginUser, loggedIn, setLoggedIn, bugs, setBugs, bugCards, setBugCards, recyclingBinBugs, setRecyclingBinBugs, flashCard, setFlashCard, accessToken, setaccessToken}}>
             {children}
         </MainContext.Provider>
     )

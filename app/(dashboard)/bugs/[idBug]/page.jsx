@@ -39,7 +39,8 @@ function page() {
      {
         console.log("I HAVE RUN AFTER UPDATE")
          fetch(`/api/bugs/buginfo?q=${pathName.idBug}`, {method: "GET"}).then(res => res.json()).then(data => {
-         setInfoBug(data.bug);setComments(data.bug.Comments);}).catch(error => console.log(error))
+         setInfoBug(data.bug);
+         setComments(data.bug.Comments);}).catch(error => console.log(error))
      }
      test()
      }

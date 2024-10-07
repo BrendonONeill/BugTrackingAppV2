@@ -1,6 +1,5 @@
 import clientPromise from "@/lib/mongo/index";
 import User from "@/models/userSchema"
-import Session from "@/models/sessionSchema";
 import { cookies } from 'next/headers'
 import {NextResponse, NextRequest} from 'next/server'
 import { verifyAuthJWT  } from "@/lib/auth/auth";
@@ -13,23 +12,23 @@ export async function GET(req, res){
     const limit = await limiter.removeTokens(1)
     if(limit > 0)
     {
-    const sessionid = cookies().get('session')
-    if(sessionid)
-    {
-      await clientPromise();
-      const session = await Session.findOne({sessionId: sessionid.value});
-      const payload = await verifyAuthJWT(session.jwt, "Session");
-      const user = await User.findOne({_id : payload.user})
-      if(user != null)
+      const refreshToken = cookies().get('refreshToken')
+      if(refreshToken)
       {
-        return NextResponse.json({user});
+        //change after bug
+        const {user} = await verifyAuthJWT(refreshToken.value, "Refresh");
+        await clientPromise();
+        const activeUser = await User.findOne({_id : user.userId})
+        if(activeUser != null)
+        {
+          console.log("completed")
+          return NextResponse.json({activeUser});
+        }
+        else
+        {
+          return NextResponse({},{status: 404, statusText: "ok...."})
+        }
       }
-      else
-      {
-        throw new Error("Could get information from database")
-      }
-      
-    }
   
   }
   else

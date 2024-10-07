@@ -5,7 +5,7 @@ import MainContext from "@/app/components/MainContext";
 import BugLoading from "./BugLoading";
 
 function BugContainer(){
-const {LoginUser, setBugs, bugs, bugCards, flashCard, setFlashCard} = useContext(MainContext)
+const {LoginUser, setBugs, bugs, bugCards, flashCard, setFlashCard, accessToken} = useContext(MainContext)
 const [errorText,setErrorText] = useState("")
 const [emptyList,setEmptyList] = useState("")
 
@@ -13,6 +13,7 @@ useEffect(() => {
   async function test()
   {
     try {
+      console.log("calling bug api")
       const res = await fetch("/api/bugs", {method: "GET", cache: 'no-store'})
       if(!res.ok){
         throw new Error(res.statusText)
@@ -26,11 +27,11 @@ useEffect(() => {
 
       } catch (error) {
         console.log(error)
-        setErrorText("Something went wrong, there was an error please try again later");
+        setErrorText("Something went wrong, there was an error please try again later.");
       }
   }
   test()
-},[]) 
+},[accessToken]) 
 
 setTimeout(() => {
   if(flashCard !== '')
