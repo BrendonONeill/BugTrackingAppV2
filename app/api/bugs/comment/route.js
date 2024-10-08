@@ -17,7 +17,7 @@ export async function POST(req,res)
       const bug  = await Bug.findById(body.id)
       bug.Comments.push({userID: user, userComment : body.comment})
       await bug.save()
-      return NextResponse.json({message: "Bug was created" , status: 201})
+      return NextResponse.json({},{statusText: "Bug was created" , status: 201})
     }
     else
     {

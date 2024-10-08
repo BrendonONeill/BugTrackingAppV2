@@ -15,7 +15,6 @@ function Nav() {
     {
       LoginUser?.role === "User" ? <UserNav /> : LoginUser?.role === "Admin" || LoginUser?.role === "Super-Admin" ? <AdminNav /> : null
     }
-
     </div>
   )
 }

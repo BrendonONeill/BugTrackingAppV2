@@ -1,11 +1,13 @@
 "use client"
 import { useRouter } from "next/navigation";
-import { useState } from "react"
+import { useContext, useState } from "react";
+import MainContext from "@/app/components/MainContext";
 import { userValidation } from "@/lib/validation/userValidation";
 
 function UserForm() {
 
   const router = useRouter()
+  const {setFlashCard} = useContext(MainContext)
   const [formData, setFormData] = useState({ fname: "", lname: "", email: "", password: "", passwordConfirm: "", role: "User", title: ""});
   const [formValidation, setFormValidation] = useState({ fnameVal: true, lnameVal: true, emailVal: true, passwordVal: true, titleVal: true});
   const [formError, setFormError] = useState("")
@@ -43,11 +45,12 @@ function UserForm() {
           method: 'POST',
           body: JSON.stringify(body),
         });
-      const test = await res.json()
-      if(test.status === 401)
+      const data = await res.json()
+      if(data.status === 404)
       {
-        throw new Error(test.message)
+        throw new Error(data.message)
       }
+      setFlashCard("User was created")
       router.replace("/users")
     }
     } catch (error) {

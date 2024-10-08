@@ -3,7 +3,7 @@ import Bug from "@/models/bugSchema"
 import {NextResponse} from 'next/server'
 import { limiter } from "../../config/limiter";
 
-export async function PUT(req,res)
+export async function PUT(req)
 {
   try
   {
@@ -13,7 +13,6 @@ export async function PUT(req,res)
       await clientPromise();
       const body = await req.json()
       const bug  = await Bug.findById(body.id)
-      console.log(bug)
       bug.Comments = bug.Comments.filter((obj) => obj._id.toString() !== body.commentid)
       await bug.save()
       console.log("bug deleted sucessful")

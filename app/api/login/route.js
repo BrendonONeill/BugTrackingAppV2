@@ -1,18 +1,18 @@
 import clientPromise from "@/lib/mongo/index";
 import User from "@/models/userSchema"
-import Session from "@/models/sessionSchema";
+import Refresh from "@/models/refreshSchema";
 import {NextResponse} from 'next/server'
 import { cookies } from 'next/headers'
-import { createSessionToken, createAuthToken } from "@/lib/auth/auth";
-import { v4 as uuidv4 } from 'uuid';
+import { createAccessToken, createRefreshToken } from "@/lib/auth/auth";
 import { limiter } from "../config/limiter";
+import { v4 as uuidv4 } from 'uuid';
 
 export async function POST(request,response)
 {
   try
   {
-    const test = cookies().get("cookie-access");
-    if(!test)
+    const acceptCookies = cookies().get("cookie-access");
+    if(!acceptCookies)
     {
         throw new Error("Need Cookies enabled to login")
     }
@@ -20,30 +20,35 @@ export async function POST(request,response)
     if(limit > 0)
     {
       
-    await clientPromise();
-    const {email, password} = await request.json()
-    if (!email || !password) {
-      throw new Error("Please Enter Email/Password");
-    }
-    const user = await User.findOne({ email }).select("+password");
-    if (!user || !(await user.correctPassword(password, user.password))) {
-      throw new Error("Email or Password not valid");
-    }
+      await clientPromise();
+      const {email, password} = await request.json()
+      if (!email || !password) {
+        throw new Error("Please Enter Email/Password");
+      }
+
+      const user = await User.findOne({ email }).select("+password");
+      if (!user || !(await user.correctPassword(password, user.password))) {
+        throw new Error("Email or Password not valid");
+      }
+
 
     // Here I am creating an id for the session then I create a jwt token to store the logged in users info in the db. 
-    const sessionId = uuidv4()
-    const auth = {
-      sessionId : sessionId,
-      role: user.role
+    const loginUser = {
+      userId: user.id,
+      role: user.role,
+      name: user.name,
+      email: user.email,
     }
-    
-    const [a,authToken] = await Promise.all([Session.create( {sessionId, jwt: await createSessionToken(user, "Session")}),createAuthToken(auth, "Auth")]);
-    
+    const [refreshToken, accessToken] = await Promise.all([Refresh.create( {id:uuidv4(), jwt: await createRefreshToken(loginUser, "Refresh")}),createAccessToken(loginUser, "Access")]);
+
+
+    cookies().set({name: 'refreshToken', value: refreshToken.jwt, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 1209600000})
+    cookies().set({name: 'accessToken', value: accessToken, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 3600000})
+
+
+    return NextResponse.json({message: "Successful", status: 201})}
    
-    cookies().set({name: 'session', value: sessionId, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
-    cookies().set({name: 'user', value: authToken, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
-   return NextResponse.json({message: "Successful", status: 201})}
-   else
+    else
    {
     return NextResponse({},{status: 429, statusText: "Too Many Requests"})
    }

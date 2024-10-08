@@ -9,10 +9,10 @@ export async function POST(req,res)
         const limit = await limiter.removeTokens(1)
         if(limit > 0)
         {
-        await clientPromise();
-        const body = await req.json()
-        await RecycleBin.findByIdAndDelete(body.id);
-        return NextResponse.json({message: "bug deleted", status : 201})
+            await clientPromise();
+            const body = await req.json()
+            await RecycleBin.findByIdAndDelete(body.id);
+            return NextResponse.json({},{message: "bug deleted", status : 201})
         }
         else
         {

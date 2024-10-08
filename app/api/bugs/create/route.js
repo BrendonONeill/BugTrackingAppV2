@@ -4,7 +4,7 @@ import User from "@/models/userSchema"
 import {NextResponse} from 'next/server'
 import { limiter } from "../../config/limiter";
 
-export async function POST(req,res)
+export async function POST(req)
 {
   try
   {
@@ -16,7 +16,7 @@ export async function POST(req,res)
       const user = await User.findById(body.user);
       body.formData.bugUserId = user
       let a = await Bug.create(body.formData);
-      return NextResponse.json({message: "Bug was created" , status: 201})
+      return NextResponse.json({},{statusText: "Bug was created" , status: 201})
     }
     else
     {

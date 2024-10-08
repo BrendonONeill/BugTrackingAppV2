@@ -16,7 +16,7 @@ export default function RecycleCard({post, setEmptyList, deletionProcess}) {
       let data = recyclingBinBugs.filter(bug => bug._id !== post._id)
       setFlashCard('Bug was Restored')
       setRecyclingBinBugs([...data])
-      if(recyclingBinBugs.length <= 0)
+      if(data.length <= 0)
       {
         setEmptyList(true);
       }
@@ -65,10 +65,10 @@ export default function RecycleCard({post, setEmptyList, deletionProcess}) {
           </div>
           <div className="recycle-card-buttons">
           <div className="recycle-card-button">
-            <button className="restore"><img  role="presentation" src="../restore.svg" width={15} height={15} alt="" />  Restore</button>
+            <button className="restore"><img  role="presentation" className="none-pointer" src="../restore.svg" width={15} height={15} alt="" />  Restore</button>
           </div>
           <div className="recycle-card-button">
-            <button className="delete"><img  role="presentation" src="../bin.svg" width={15} height={15} alt="" />  Delete</button>
+            <button className="delete"><img  role="presentation" className="none-pointer" src="../bin.svg" width={15} height={15} alt="" />  Delete</button>
           </div>
           </div>
           </div>

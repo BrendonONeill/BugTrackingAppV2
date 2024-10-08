@@ -1,13 +1,19 @@
 import Nav from "@/app/components/Nav"
 import BugContainer from "@/app/components/BugContainer"
-import { Suspense } from "react"
 import BugFilter from "@/app/components/BugFilter"
 import BugInfo from "@/app/components/BugInfo"
 import NonMobileNav from "@/app/components/NonMobileNav"
+import AppContainer from "@/app/components/AppContainer"
+import { headers } from 'next/headers'
+
+
+
 
 export default async function page() {
- 
+
+      const checkAccess = headers().get('x-noaccesstoken')
   return (
+    <AppContainer checkAccess={checkAccess}>
     <main>
       <Nav />
       <div className="grid-container">
@@ -15,11 +21,11 @@ export default async function page() {
       <div className="main-content-container">
       <BugFilter />
       <BugInfo />
-      <Suspense fallback={<h1>Loading...</h1>}>
       <BugContainer />
-      </Suspense>
       </div>
       </div>
     </main>
+    </AppContainer>
+    
   )
 }

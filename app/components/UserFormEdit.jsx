@@ -3,8 +3,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react"
 import { userValidation } from "@/lib/validation/userValidation";
 
-function UserFormEdit({user, id}) {
+function UserFormEdit({user, id, setFlashCard}) {
     const router = useRouter()
+    const userEmail = user.email 
     const [formData, setFormData] = useState({ fname: user.fname, lname: user.lname, email: user.email, role: user.role, title: user.title});
     const [formValidation, setFormValidation] = useState({ fnameVal: true, lnameVal: true, emailVal: true, passwordVal: true, titleVal: true});
     const [formError, setFormError] = useState("")
@@ -34,18 +35,32 @@ function UserFormEdit({user, id}) {
     const submitform = async (e) => {
       e.preventDefault()
       const valid = validationCheck()
-    if(valid)
-    {
-      const body = {
-        formData,
-        userId: id
-    }
-      await fetch('/api/users/update', {
-          method: 'PUT',
-          body: JSON.stringify(body),
-        });
-      router.replace("/users")
-    }
+      if(valid)
+      {
+        try {
+          const body = {
+            formData,
+            userId: id,
+            checkEmail : userEmail
+          }
+          const res = await fetch('/api/users/update', {
+              method: 'PUT',
+              body: JSON.stringify(body),
+          });
+          const data = await res.json()
+          if(data.status === 404)
+          {
+            throw new Error(data.message)
+          }
+          setFlashCard("User was edited")
+          router.replace("/users")
+          
+        } catch (error) {
+          setFormError(error.message)
+          setFormValidation({...formValidation, fnameVal: true, lnameVal: true, emailVal: false, titleVal: true})
+        }
+        
+      }
     }
   return (
     <form className="form-container" onSubmit={submitform} onReset={resetForm}>

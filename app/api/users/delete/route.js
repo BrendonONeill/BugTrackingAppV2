@@ -15,7 +15,7 @@ export async function POST(req,res)
         const body = await req.json()
         await User.findByIdAndDelete(body);
         await Bug.deleteMany({bugUserId : {_id : body}})
-        return NextResponse.json({message: "bug deleted", status: 201})
+        return NextResponse.json({}, {statusText: "bug deleted", status: 201})
     }
     else
     {

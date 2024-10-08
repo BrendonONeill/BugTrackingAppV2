@@ -1,9 +1,11 @@
 "use client"
 import UserCard from "../components/UserCard"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import MainContext from "@/app/components/MainContext";
 import Loading from "./Loading";
 
 function UserContainer() {
+  const {accessToken, flashCard, setFlashCard} = useContext(MainContext)
   const [users, setUsers] = useState([])
   const [error, setError] = useState("")
 
@@ -17,6 +19,7 @@ function UserContainer() {
       {
         const data = await res.json()
         setUsers(data.users)
+        setError("")
       }
       else
       {
@@ -31,9 +34,24 @@ function UserContainer() {
     }
   }
   test()
-  },[]) 
+  },[accessToken])
+
+  setTimeout(() => {
+    if(flashCard !== '')
+    {
+      setFlashCard('');
+    }
+  }, 3000)  
+
   return (
     <div className="user-card-container">
+      {
+      flashCard ? 
+        <div className="flashCard">
+          {flashCard}
+        </div>
+      : null
+      }
       {
         error ? 
         <div>
