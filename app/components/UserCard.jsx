@@ -5,7 +5,7 @@ import MainContext from "@/app/components/MainContext";
 
 function UserCard({user, setUsers, users}) {
     const { push } = useRouter();
-    const {LoginUser} = useContext(MainContext)
+    const {LoginUser, setFlashCard} = useContext(MainContext)
     
 
     async function cardClicked(e, user)
@@ -18,6 +18,7 @@ function UserCard({user, setUsers, users}) {
       });
       let card = users.filter(selectedCard => selectedCard._id !== user._id)
       setUsers([...card])
+      setFlashCard("User was deleted")
     }
     if(e.target.classList.contains('edit-user-button'))
     {

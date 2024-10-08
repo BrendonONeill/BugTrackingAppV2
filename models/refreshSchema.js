@@ -7,7 +7,7 @@ const refreshSchema = new Schema({
     id: {type: String, required: true},
     jwt: {type: String, required: true}
 },{timestamps: true})
-refreshSchema.index({createdAt: 1}, {expireAfterSeconds: 86400000})
+refreshSchema.index({createdAt: 1}, {expireAfterSeconds: 1209600})
 
 const Refresh =  mongoose.models.Refresh || model("Refresh", refreshSchema);
 module.exports = Refresh;

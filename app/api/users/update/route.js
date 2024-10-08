@@ -14,8 +14,17 @@ export async function PUT(req,res)
             const container = await req.json()
             const body = container.formData
             const id = container.userId
+            const checkEmail = container.checkEmail
+            if(checkEmail !== body.email)
+            {
+                const user = await User.findOne({email : body.email})
+                if(user)
+                {
+                    throw new Error("Email already Exists")
+                }
+            }
             await User.findByIdAndUpdate(id, body, {new: true});
-            return NextResponse.json({message: "Successful updated", status: 201})
+            return NextResponse.json({},{statusText: "Successful updated", status: 201})
         }
         else
         {
@@ -25,6 +34,6 @@ export async function PUT(req,res)
     catch(err)
     {
        console.log(err)
-       return NextResponse({},{status: 404, statusText: "Something went wrong"}) 
+       return NextResponse.json({message: err.message, status: 404},{status: 404, statusText: "Something went wrong"}) 
     }
 }

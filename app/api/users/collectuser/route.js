@@ -2,6 +2,7 @@ import clientPromise from "@/lib/mongo/index";
 import {NextResponse} from 'next/server'
 import User from "@/models/userSchema"
 import { limiter } from "../../config/limiter";
+import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
 export async function GET(req){
@@ -10,18 +11,26 @@ export async function GET(req){
     const limit = await limiter.removeTokens(1)
     if(limit > 0)
     {
-    const {searchParams} = new URL(req.url)
-    const userId = searchParams.get('q')
-    await clientPromise();
-    const user = await User.findById(userId);
-    if(user != null)
-    {
-      return NextResponse.json({user})
-    }
-    else
-    {
-      throw new Error("Could not get information from database")
-    }
+      const accessToken = cookies().get('accessToken')
+      if(accessToken)
+      {
+        const {searchParams} = new URL(req.url)
+        const userId = searchParams.get('q')
+        await clientPromise();
+        const user = await User.findById(userId);
+        if(user != null)
+        {
+          return NextResponse.json({user},{status : 201})
+        }
+        else
+        {
+          throw new Error("Could not get information from database")
+        }
+      }
+      else
+      {
+        throw new Error("Checking Access Token")
+      }
     
     }
     else

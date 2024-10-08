@@ -26,7 +26,10 @@ export async function GET(req){
         throw new Error("Could not get information from database")
       }
      
-    }
+      }else
+      {
+        throw new Error("Access key not found")
+      }
     }
     else
     {

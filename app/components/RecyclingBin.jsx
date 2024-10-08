@@ -6,7 +6,7 @@ import BugLoading from "./BugLoading";
 
 
 function RecyclingBin() {
-    const {LoginUser, setRecyclingBinBugs, recyclingBinBugs, flashCard, setFlashCard} = useContext(MainContext)
+    const {LoginUser, setRecyclingBinBugs, recyclingBinBugs, flashCard, setFlashCard, accessToken} = useContext(MainContext)
     const [emptyList,setEmptyList] = useState(false)
     const [deleteCard, setDeleteCard] = useState(false);
     const [deleteCardContent, setDeleteCardContent] = useState({});
@@ -25,7 +25,7 @@ function RecyclingBin() {
         }
         test()
       
-      },[]) 
+      },[accessToken]) 
 
       setTimeout(() => {
         if(flashCard !== '')

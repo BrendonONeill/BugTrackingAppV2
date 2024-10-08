@@ -1,17 +1,17 @@
 import clientPromise from "@/lib/mongo/index";
-import Session from "@/models/sessionSchema";
 import {NextResponse} from 'next/server'
 import { cookies } from 'next/headers'
+import Refresh from "@/models/refreshSchema"
 
 export const dynamic = "force-dynamic";
 export async function GET(req,res)
 {
 try{
-  const sessionid = cookies().get('session')
+  const {value : jwt} = cookies().get('refreshToken')
   await clientPromise();
-  await Session.findOneAndDelete({sessionId: sessionid.value})
-  cookies().set({name: 'session', value: '', httpOnly: true, secure: true, maxAge: 5})
-  cookies().set({name: 'user', value: '', httpOnly: true, secure: true, maxAge: 5})
+  await Refresh.findOneAndDelete({jwt})
+  cookies().set({name: 'refreshToken', value: '', httpOnly: true, secure: true, maxAge: 5})
+  cookies().set({name: 'accessToken', value: '', httpOnly: true, secure: true, maxAge: 5})
   return NextResponse.json({message: "logged out", status: 201},{status: 201, statusText: "Successful"})
 }
 catch(err)

@@ -30,7 +30,7 @@ export async function GET(req,res){
       }
       else
       {
-        throw new Error("OH NO.. there was an error.")
+        throw new Error("Checking for Access Key")
       }
     }
     else

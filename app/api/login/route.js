@@ -41,14 +41,9 @@ export async function POST(request,response)
     }
     const [refreshToken, accessToken] = await Promise.all([Refresh.create( {id:uuidv4(), jwt: await createRefreshToken(loginUser, "Refresh")}),createAccessToken(loginUser, "Access")]);
 
-    
-   // prod version
-   // cookies().set({name: 'session', value: sessionId, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
-   // cookies().set({name: 'user', value: authToken, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 172800})
 
-
-    cookies().set({name: 'refreshToken', value: refreshToken.jwt, sameSite: true, maxAge: 86400000})
-    cookies().set({name: 'accessToken', value: accessToken,  sameSite: true,  maxAge: 86400000})
+    cookies().set({name: 'refreshToken', value: refreshToken.jwt, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 1209600000})
+    cookies().set({name: 'accessToken', value: accessToken, httpOnly: true, sameSite: true, secure: process.env.LOCATION === "prod", maxAge: 3600000})
 
 
     return NextResponse.json({message: "Successful", status: 201})}

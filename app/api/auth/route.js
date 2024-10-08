@@ -1,33 +1,27 @@
-
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-
 import clientPromise from "@/lib/mongo/index";
 import Refresh from "@/models/refreshSchema"
 import { createAccessToken, verifyAuthJWT } from '@/lib/auth/auth';
 
 
-export async function GET(request)
+export async function GET()
 {
     try {
-        cookies().set("man","cat")
-    const {value : jwt} = cookies().get("refreshToken")
-
-    await clientPromise();
-    const b = await verifyAuthJWT(jwt, "Refresh")
-    if(b)
-    {
-        const a = await Refresh.findOne({jwt})
-        if(a)
+        const {value : jwt} = cookies().get("refreshToken")
+        await clientPromise();
+        const verified = await verifyAuthJWT(jwt, "Refresh")
+        if(verified)
         {
-            const accessToken = await createAccessToken(b.user, "Access")
-            cookies().set({name: 'accessToken', value: accessToken,  sameSite: true,  maxAge: 86400000})
+            const dbRefresh = await Refresh.findOne({jwt})
+            if(dbRefresh)
+            {
+                const accessToken = await createAccessToken(verified.user, "Access")
+                cookies().set({name: 'accessToken', value: accessToken,  sameSite: true,  maxAge: 86400000})
+            }
         }
-    }
-
-    console.log("Access Key reactivated")
-    return NextResponse.json({status: 200})
+    return NextResponse.json({},{status: 201})
     } catch (error) {
-        return NextResponse.json({error: "couldn't access db", status: 500})
+        return NextResponse.json({},{status: 500, statusText: "Couldn't access database"})
     }
 }

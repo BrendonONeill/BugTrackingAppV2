@@ -9,9 +9,11 @@ function AppContainer({checkAccess,children}) {
    useEffect(() => {
         if(checkAccess)
         {
+            a()   
+        }
+        else
+        {
             setaccessToken(false)
-            a()
-            
         }
         
         async function a()
@@ -20,7 +22,6 @@ function AppContainer({checkAccess,children}) {
                 const res = await fetch('/api/auth')
                 if(res.status === 200)
                 {
-                    console.log("access was done")
                     setaccessToken(true)
                 }
             } catch (error) {

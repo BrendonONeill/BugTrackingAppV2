@@ -2,10 +2,14 @@ import Nav from '@/app/components/Nav';
 import UserForm from '@/app/components/UserForm';
 import Link from 'next/link';
 import NonMobileNav from "@/app/components/NonMobileNav"
+import AppContainer from "@/app/components/AppContainer"
+import { headers } from 'next/headers'
 
 function page() {
 
+  const checkAccess = headers().get('x-noaccesstoken')
   return (
+    <AppContainer checkAccess={checkAccess}>
     <main>
         <Nav />
         <div className="form-grid-container">
@@ -16,6 +20,7 @@ function page() {
         </div>
         </div>  
     </main>
+    </AppContainer>
   )
 }
 

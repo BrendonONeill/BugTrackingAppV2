@@ -13,7 +13,6 @@ useEffect(() => {
   async function test()
   {
     try {
-      console.log("calling bug api")
       const res = await fetch("/api/bugs", {method: "GET", cache: 'no-store'})
       if(!res.ok){
         throw new Error(res.statusText)

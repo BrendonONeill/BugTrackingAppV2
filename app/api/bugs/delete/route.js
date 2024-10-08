@@ -4,7 +4,7 @@ import Bug from "@/models/bugSchema"
 import RecycleBin from '@/models/recycleBinSchema';
 import { limiter } from "../../config/limiter";
 
-export async function POST(req,res)
+export async function POST(req)
 {
     try {
         const limit = await limiter.removeTokens(1)
@@ -18,7 +18,7 @@ export async function POST(req,res)
         recyceledBug.bugUserId = body.user
         await RecycleBin.create(recyceledBug);
         await Bug.findByIdAndDelete(body.id);
-        return NextResponse.json({message: "bug deleted", status : 201})
+        return NextResponse.json({},{statusText: "bug deleted", status : 200})
         }
         else
         {

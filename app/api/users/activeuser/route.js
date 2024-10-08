@@ -15,18 +15,16 @@ export async function GET(req, res){
       const refreshToken = cookies().get('refreshToken')
       if(refreshToken)
       {
-        //change after bug
         const {user} = await verifyAuthJWT(refreshToken.value, "Refresh");
         await clientPromise();
         const activeUser = await User.findOne({_id : user.userId})
         if(activeUser != null)
         {
-          console.log("completed")
-          return NextResponse.json({activeUser});
+          return NextResponse.json({activeUser},{status: 201});
         }
         else
         {
-          return NextResponse({},{status: 404, statusText: "ok...."})
+          return NextResponse({},{status: 404, statusText: "something went wrong"})
         }
       }
   
