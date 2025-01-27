@@ -52,7 +52,7 @@ function LoginForm() {
                 Password
                 <input className='login-input' type="password" name="password" value={loginData.password} onChange={handleChange} />
             </label>
-            <input disabled={logging} className={logging === false ? "login-button" : "login-button-loading"} type="submit" value={logging === false ? "Login" : "Loading"}/>
+            {logging ? <div className='login-button-loading'><img src='/tadpole.svg' width={40} height={20} /></div>: <input disabled={logging} className="login-button" type="submit" value="Login"/>}
     </form>
   )
 }

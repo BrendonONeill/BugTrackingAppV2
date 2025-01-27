@@ -655,6 +655,8 @@ main {
   font-weight: bold;
   border-radius: 5px;
   color: white;
+  width: 100px;
+  height: 50px;
 }
 
 .login-button-loading {
@@ -663,6 +665,8 @@ main {
   font-weight: bold;
   border-radius: 5px;
   color: white;
+  width: 100px;
+  height: 50px;
 }
 
 
