@@ -6,7 +6,7 @@ This is an updated version of the bug tracking app, which I have moved over to n
 > To test out the app here are two accounts to check it out.
 >
 > Admin:
-> SarahK@gmail.com  pass:  k0hW[L]8
+> ShaneK@gmail.com  pass:  rty9[0]q
 >  
 > User:
 > ThomasK@gmail.com pass:  45[e!Ml@3
