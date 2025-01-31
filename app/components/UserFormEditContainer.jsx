@@ -16,6 +16,7 @@ function UserFormEditContainer() {
      {
         fetch(`/api/users/collectuser?q=${pathName.userId}`, {method: "GET"}).then(res => res.json()).then(data => {
         setEditUser(data.user)}).catch(error => console.log(error))
+
      }
      test()
     },[accessToken])
@@ -25,7 +26,7 @@ function UserFormEditContainer() {
     {editUser ?
         <>
         <Link className='back-link' href={{pathname: '/users'}} ><img width={30} height={30} src="../../back.svg" alt="back arrow" /></Link>
-        <UserFormEdit user={editUser} id={pathName.userId} setFlashCard={setFlashCard}  /> 
+        <UserFormEdit user={editUser} id={pathName.userId} setFlashCard={setFlashCard} /> 
         </>
         : <Loading /> 
         

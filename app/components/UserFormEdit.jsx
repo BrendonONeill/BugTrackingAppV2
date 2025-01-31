@@ -5,7 +5,8 @@ import { userValidation } from "@/lib/validation/userValidation";
 
 function UserFormEdit({user, id, setFlashCard}) {
     const router = useRouter()
-    const userEmail = user.email 
+    const userEmail = user.email
+    const userRole = user.role
     const [formData, setFormData] = useState({ fname: user.fname, lname: user.lname, email: user.email, role: user.role, title: user.title});
     const [formValidation, setFormValidation] = useState({ fnameVal: true, lnameVal: true, emailVal: true, passwordVal: true, titleVal: true});
     const [formError, setFormError] = useState("")
@@ -69,27 +70,31 @@ function UserFormEdit({user, id, setFlashCard}) {
                 <p>{formError}</p>
             </div>: null}
         <label className="form-label" htmlFor="bugName">
+        <p className="input-counter">{formData.fname.length}/15</p>
             First Name:
-            <input className={formValidation.fnameVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='fname'  value={formData.fname} onChange={handleChange}  />
+            <input className={formValidation.fnameVal ? "form-input" : "form-input-error"} maxLength={15} type="text" id='bugName' name='fname'  value={formData.fname} onChange={handleChange}  />
         </label>
         <label className="form-label" htmlFor="">
+        <p className="input-counter">{formData.lname.length}/15</p>
             Last Name:
-            <input className={formValidation.lnameVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='lname'  value={formData.lname} onChange={handleChange}  />
+            <input className={formValidation.lnameVal ? "form-input" : "form-input-error"} maxLength={15} type="text" id='bugName' name='lname'  value={formData.lname} onChange={handleChange}  />
         </label>
         <label className="form-label" htmlFor="">
+        <p className="input-counter">{formData.email.length}/35</p>
             Email:
-            <input className={formValidation.emailVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='email'  value={formData.email} onChange={handleChange}  />
+            <input className={formValidation.emailVal ? "form-input" : "form-input-error"} maxLength={35} type="text" id='bugName' name='email'  value={formData.email} onChange={handleChange}  />
         </label>
         <label className="form-label" htmlFor="">
             Role:
-            <select className="form-input" id='bugName' defaultValue={"User"} name='role' onChange={handleChange} >
+            <select className="form-input" id='bugName' value={userRole} name='role' onChange={handleChange} >
               <option value="User">User</option>
               <option value="Admin">Admin</option>
             </select>
         </label>
         <label className="form-label" htmlFor="">
+        <p className="input-counter">{formData.title.length}/25</p>
             Title:
-            <input className={formValidation.titleVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='title'  value={formData.title} onChange={handleChange} />
+            <input className={formValidation.titleVal ? "form-input" : "form-input-error"} maxLength={25} type="text" id='bugName' name='title'  value={formData.title} onChange={handleChange} />
         </label>
         <div className='form-buttons'>
             <input className='form-button' type="submit" value="Submit" />

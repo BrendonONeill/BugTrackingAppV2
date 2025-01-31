@@ -59,23 +59,27 @@ function EditForm({data, id}) {
                 <p>{formError}</p>
             </div>: null}
             <label className="form-label" htmlFor="bugName">
-                Bug Name
-                <input className={formValidation.NameVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='bugName'  value={formData.bugName} onChange={handleChange} required />
+                <p className="input-counter">{formData.bugName.length}/30</p>
+                <p>Bug Name:</p>
+                <input className={formValidation.NameVal ? "form-input" : "form-input-error"} maxLength={30} type="text" id='bugName' name='bugName'  value={formData.bugName} onChange={handleChange} required />
             </label>
             <label className="form-label" htmlFor="">
-                Description
-                <textarea className={formValidation.DesVal ? "form-input form-area" : "form-input-error form-area"} type="text" name="bugDes" id="bugDes" value={formData.bugDes} onChange={handleChange} required ></textarea>
+            <p className="input-counter">{formData.bugDes.length}/200</p>
+            <p>Description:</p>
+                <textarea className={formValidation.DesVal ? "form-input form-area" : "form-input-error form-area"} maxLength={200} type="text" name="bugDes" id="bugDes" value={formData.bugDes} onChange={handleChange} required ></textarea>
             </label>
             <label className="form-label" htmlFor="">
-                Code: 
-                <input className={formValidation.CodeVal ? "form-input" : "form-input-error"} type="text" id='bugCode' name='bugCode'  value={formData.bugCode} onChange={handleChange} required  />
+            <p className="input-counter">{formData.bugCode.length}/20</p>
+            <p>Code:</p> 
+                <input className={formValidation.CodeVal ? "form-input" : "form-input-error"} maxLength={20} type="text" id='bugCode' name='bugCode'  value={formData.bugCode} onChange={handleChange} required  />
             </label>
             <label className="form-label" htmlFor="">
-                Project name:
-                <input className={formValidation.ProjectVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='bugProject'  value={formData.bugProject} onChange={handleChange} required />
+            <p className="input-counter">{formData.bugProject.length}/30</p>
+            <p>Project name:</p>
+                <input className={formValidation.ProjectVal ? "form-input" : "form-input-error"} maxLength={30} type="text" id='bugName' name='bugProject'  value={formData.bugProject} onChange={handleChange} required />
             </label>
             <label className='form-label' htmlFor="">
-                Importance
+                <p>Importance</p>
                 <select className='form-input' type="text" id='bugImportance'  name='bugImportance'  value={formData.bugImportance} onChange={handleChange} >
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -83,7 +87,7 @@ function EditForm({data, id}) {
                 </select>
             </label>
             <label className='form-label' htmlFor="">
-                Private Card
+                <p>Private Card</p>
                 <select className='form-input' type="text" id='bugPrivate'  name='bugPrivate'  value={formData.bugPrivate} onChange={handleChange}>
                 <option value={true}>true</option>
                 <option value={false}>false</option>

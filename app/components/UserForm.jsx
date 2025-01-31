@@ -66,36 +66,42 @@ function UserForm() {
             <div className="form-error-container">
                 <p>{formError}</p>
             </div>: null}
-        <label className="form-label" htmlFor="bugName">
+        <label className="form-label" htmlFor="fname">
+        <p className="input-counter">{formData.fname.length}/15</p>
             First Name:
-            <input className={formValidation.fnameVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='fname'  value={formData.fname} onChange={handleChange}  />
+            <input className={formValidation.fnameVal ? "form-input" : "form-input-error"} maxLength={15} type="text" id='fName' name='fname'  value={formData.fname} onChange={handleChange}  />
         </label>
-        <label className="form-label" htmlFor="">
+        <label className="form-label" htmlFor="lname">
+        <p className="input-counter">{formData.lname.length}/15</p>
             Last Name:
-            <input className={formValidation.lnameVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='lname'  value={formData.lname} onChange={handleChange}  />
+            <input className={formValidation.lnameVal ? "form-input" : "form-input-error"} maxLength={15} type="text" id='lName' name='lname'  value={formData.lname} onChange={handleChange}  />
         </label>
-        <label className="form-label" htmlFor="">
+        <label className="form-label" htmlFor="email">
+        <p className="input-counter">{formData.email.length}/35</p>
             Email:
-            <input className={formValidation.emailVal ? "form-input" : "form-input-error"} type="email" id='bugName' name='email'  value={formData.email} onChange={handleChange}  />
+            <input className={formValidation.emailVal ? "form-input" : "form-input-error"} maxLength={35} type="email" id='email' name='email'  value={formData.email} onChange={handleChange}  />
         </label>
-        <label className="form-label" htmlFor="">
+        <label className="form-label" htmlFor="password">
+        <p className="input-counter">{formData.password.length}/50</p>
             Password:
-            <input className={formValidation.passwordVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='password'  value={formData.password} onChange={handleChange} />
+            <input className={formValidation.passwordVal ? "form-input" : "form-input-error"} maxLength={50} type="text" id='password' name='password'  value={formData.password} onChange={handleChange} />
         </label>
-        <label className="form-label" htmlFor="">
+        <label className="form-label" htmlFor="passwordconfirm">
+        <p className="input-counter">{formData.passwordConfirm.length}/50</p>
             Confirm password:
-            <input className={formValidation.passwordVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='passwordConfirm'  value={formData.passwordConfirm} onChange={handleChange} />
+            <input className={formValidation.passwordVal ? "form-input" : "form-input-error"} maxLength={50} type="text" id='passwordConfirm' name='passwordConfirm'  value={formData.passwordConfirm} onChange={handleChange} />
         </label>
-        <label className="form-label" htmlFor="">
+        <label className="form-label" htmlFor="role">
             Role:
-            <select className="form-input" id='bugName' name='role' defaultValue={"User"} onChange={handleChange} >
+            <select className="form-input" id='role' name='role' defaultValue={"User"} onChange={handleChange} >
               <option value="User">User</option>
               <option value="Admin">Admin</option>
             </select>
         </label>
-        <label className="form-label" htmlFor="">
+        <label className="form-label" htmlFor="title">
+        <p className="input-counter">{formData.title.length}/25</p>
             Title:
-            <input className={formValidation.titleVal ? "form-input" : "form-input-error"} type="text" id='bugName' name='title'  value={formData.title} onChange={handleChange} />
+            <input className={formValidation.titleVal ? "form-input" : "form-input-error"} maxLength={25} type="text" id='title' name='title'  value={formData.title} onChange={handleChange} />
         </label>
         <div className='form-buttons'>
             <input className='form-button' type="submit" value="Submit" />

@@ -14,6 +14,7 @@ export async function POST(req,res)
         await clientPromise();
         const body = await req.json()
         await User.findByIdAndDelete(body);
+        await Bug.updateMany({},{$pull : {Comments: {userID : body}}})
         await Bug.deleteMany({bugUserId : {_id : body}})
         return NextResponse.json({}, {statusText: "bug deleted", status: 201})
     }

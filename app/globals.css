@@ -151,7 +151,12 @@ main {
 .login-container {
   height: 80vh;
   padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
 
 .login-box {
 
@@ -572,11 +577,20 @@ main {
 }
 
 .form-label {
+  position: relative;
   font-weight: bold;
   display: flex;
   flex-flow: column;
   margin-bottom: 1rem;
   gap: 0.5rem;
+}
+
+.input-counter {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  font-size: 12px;
+  color: hsl(0, 0%, 31%);
 }
 
 .form-input {
@@ -649,6 +663,12 @@ main {
   border-radius: 5px;
 }
 
+.login-forgot {
+  padding: 0.2rem 1rem;
+  position: absolute;
+  bottom: 42px;
+}
+
 .login-button {
   padding: 1rem;
   background-color: var(--UI-main);
@@ -667,7 +687,60 @@ main {
   color: white;
   width: 100px;
   height: 50px;
+  display: inline-block;
 }
+
+
+.forgot-form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  width: 90%;
+  gap: 2rem;
+}
+
+.forgot-form-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.forgot-input {
+  padding: 0.5rem;
+  border: 1px solid var(--UI-main);
+  width: 80%;
+  border-radius: 5px;
+}
+
+.forgot-input-password {
+  padding: 0.5rem;
+  border: 1px solid var(--UI-main);
+  width: 100%;
+  border-radius: 5px;
+}
+
+.forgot-button {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: var(--UI-main);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.forgot-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
 
 
 /* Loading Cards */
@@ -1068,6 +1141,20 @@ main {
 
 }
 
+.error-flashcard {
+  position: absolute;
+  top: -65px;
+  padding: 1rem;
+  background-color: #ef233c;
+  border-radius: 5px;
+  width: 85%;
+  text-align: center;
+}
+
+.error-hide {
+  display: none;
+}
+
 .noticeblock {
   background-color: white;
   text-align: center;
@@ -1152,6 +1239,8 @@ main {
   left: 50%;
   transform: translateX(-50%);
 }
+
+
 
 .recycle-card-buttons {
   display: flex;
@@ -1477,6 +1566,12 @@ main {
     width: 35%;
     height: 300px;
     margin-left: 18rem;
+  }
+
+  .forgot-form {
+
+    width: 40%;
+    gap: 2rem;
   }
 
 
