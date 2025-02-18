@@ -1348,6 +1348,15 @@ main {
 }
 
 
+.confirm-card-user-bg {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, .8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 
 /* custom scrollbar */
