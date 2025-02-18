@@ -3,6 +3,7 @@ import RecycleCard from "@/app/components/RecycleCard";
 import { useContext, useEffect, useState } from "react";
 import MainContext from "@/app/components/MainContext";
 import BugLoading from "./BugLoading";
+import ConfirmCard from "./ConfirmCard";
 
 
 function RecyclingBin() {
@@ -12,6 +13,7 @@ function RecyclingBin() {
     const [deleteCardContent, setDeleteCardContent] = useState({});
     const [deleteString, setDeleteString] = useState("");
     const [deleteButton, setDeleteButton] = useState(false);
+
     useEffect(() => {
         async function test()
         {
@@ -88,15 +90,7 @@ function RecyclingBin() {
     {
       deleteCard ?
       <div className="delete-card-bg" onClick={(e) => hide(e)}>
-        <div className="delete-card">
-          <button className="delete-card-close">x</button>
-          <p>This will permanently delete this bug if you are sure re-type the below string into the input box and submit. ( Case Sensitive )</p>
-          <p className="delete-card-text">{deleteString}</p>
-          <form onSubmit={(e) => permanentlyDelete(e)} >
-                <input className="delete-card-input" type="text" onChange={(e) => deleteString === e.target.value ? setDeleteButton(true): null} />
-                <input className={deleteButton?"delete-card-button": "delete-card-noButton"} disabled={!deleteButton}  type="submit" value="Permanently Delete" />
-          </form>
-        </div>
+        <ConfirmCard text={'This will permanently delete this bug if you are sure re-type the below string into the input box and submit. ( Case Sensitive )'} permanentlyDelete={permanentlyDelete} deleteString={deleteString} deleteButton={deleteButton} setDeleteButton={setDeleteButton} />
       </div>
       : null
     }

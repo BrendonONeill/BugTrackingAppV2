@@ -3,22 +3,16 @@ import { useRouter} from 'next/navigation';
 import { useContext} from "react";
 import MainContext from "@/app/components/MainContext";
 
-function UserCard({user, setUsers, users}) {
+function UserCard({user, setUsers, users, deletionProcess}) {
     const { push } = useRouter();
     const {LoginUser, setFlashCard} = useContext(MainContext)
     
 
-    async function cardClicked(e, user)
+  async function cardClicked(e, user)
   {
     if(e.target.classList.contains('delete-user-button'))
     {
-      await fetch('/api/users/delete', {
-        method: 'POST',
-        body: JSON.stringify(user._id),
-      });
-      let card = users.filter(selectedCard => selectedCard._id !== user._id)
-      setUsers([...card])
-      setFlashCard("User was deleted")
+      deletionProcess(user)
     }
     if(e.target.classList.contains('edit-user-button'))
     {
