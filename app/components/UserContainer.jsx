@@ -61,6 +61,15 @@ function UserContainer() {
     setDeleteButton(false);
   }
 
+  function hide(e)
+  {
+    if(e.target.classList.contains("confirm-card-user-bg") || e.target.classList.contains("delete-card-close"))
+      {
+        setDeleteCard(false);
+        setDeleteButton(false);
+      }
+  }
+
   function deletionProcess(information)
   {
     let a = information.fname.trim();
@@ -83,8 +92,8 @@ function UserContainer() {
     <div className="user-card-container">
       {
         deleteCard ?
-        <div className="confirm-card-user-bg">
-        <ConfirmCard text={'This will permanently delete this user if you are sure re-type the below string into the input box and submit. ( Case Sensitive )'} permanentlyDelete={permanentlyDelete} deleteString={deleteString} deleteButton={deleteButton} setDeleteButton={setDeleteButton} />
+        <div className="confirm-card-user-bg" onClick={(e) => hide(e)}>
+        <ConfirmCard text={'This will permanently delete this user if you are sure re-type the below string into the input box and submit.(Case Sensitive)'} permanentlyDelete={permanentlyDelete} deleteString={deleteString} deleteButton={deleteButton} setDeleteButton={setDeleteButton} />
         </div> : null
       }
       {

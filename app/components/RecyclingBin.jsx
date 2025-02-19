@@ -51,7 +51,8 @@ function RecyclingBin() {
   {
     if(e.target.classList.contains("delete-card-bg") || e.target.classList.contains("delete-card-close"))
       {
-        setDeleteCard(false)
+        setDeleteCard(false);
+        setDeleteButton(false);
       }
   }
 
