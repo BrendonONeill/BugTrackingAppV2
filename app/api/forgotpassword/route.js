@@ -15,7 +15,7 @@ export async function POST(request,response)
         let data = await request.json()
         await clientPromise();
         const alreadySent = await ResetPassword.findOne({email : data.email})
-        if(alreadysent)
+        if(alreadySent)
         {
             return NextResponse.json({link:alreadysent.link, status: 201})
         }
