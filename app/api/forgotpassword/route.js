@@ -24,6 +24,7 @@ export async function POST(request,response)
             let codeHashed = await bcrypt.hash(code, 12);
             await ResetPassword.create({link:string,code: codeHashed,email: data.email})
             let res = await fetch('https://yko8kw06tyklhyhrgtrg.brendon-projects.blog/bugtracking', {
+                credentials: "include",
                 headers: {
                     'Content-Type': 'application/json'
                 },
