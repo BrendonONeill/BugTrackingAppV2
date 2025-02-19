@@ -1,6 +1,6 @@
 # Bug Tracking App V2
-This is a demo bug-tracking app that a company can use to track bugs in development.
-This is an updated version of the bug tracking app, which I have moved over to next js from express. I wanted to update the backend and clean up the UI for the Bug Tracker.
+This is a demo bug-tracking app designed for companies to track and manage development bugs efficiently. This latest version has been upgraded from Express to Next.js, featuring an improved backend and a cleaner, more streamlined UI for a better bug-tracking experience.
+
 
 > [!NOTE]
 > To test out the app here are two accounts to check it out.
@@ -12,27 +12,34 @@ This is an updated version of the bug tracking app, which I have moved over to n
 > ThomasK@gmail.com pass:  45[e!Ml@3
 > 
 
+
+## Features
+- Easy sign-in to access your dashboard.
+- Bug Tracking System – Create, update, and delete bug reports effortlessly.
+- Collaborative Bug Comments – Comment on public bugs or keep discussions private for your reports.
+- Filtering & Sorting – Organize bugs by priority, date, or other preferences.
+- Recycling Bin for Deleted Bugs – Deleted bugs are stored for 30 days before permanent removal or remove them permanently yourself.
+- User Management – Admins can create, update, or remove user accounts.
+- Password Recovery System – Reset forgotten passwords securely.
+
 ## UI update
 ### New UI in Next.js
 This UI will change as I clean up the app and it goes live. 
 
-<img src="public/new-bug-1.png" height="500"> <img src="public/new-bug-2.png" height="500">
+<img src="public/bugtracking-ui-1.JPG" height="500"> <img src="public/bugtracking-ui-2.JPG" height="500">
 
 ### Old UI in EJS
 <img src="public/old-bug-1.png" height="500"> <img src="public/old-bug-2.png" height="500">
  
 
 ## Updated
-- Flashcards added to notify users that things are working
-- Updated some performance
-- Updated how cookies are handled
-- Recycling Bin has a permanently delete function
+- Password Recovery
+- Updated some old features
+- Cleaned up backend code
 
 ## Working on
 - Cleaning up backend code
 - Cleaning up some UI
-- Re-writing the jwt tokens but I need to research a way to deploy checks that is not on the middleware as I need to do a db check.
-- Re-writing the jwt is a lot more complex than I was hoping but still working on it (react server components causing a problem with cookies).
 
 ## Extra features to add
 - Adding a project section to create new projects and find bugs to do with that project.
