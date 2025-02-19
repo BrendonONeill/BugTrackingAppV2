@@ -17,7 +17,7 @@ export async function POST(request,response)
         const alreadySent = await ResetPassword.findOne({email : data.email})
         if(alreadySent)
         {
-            return NextResponse.json({link:alreadysent.link, status: 201})
+            return NextResponse.json({link:alreadySent.link, status: 201})
         }
         const user = await User.findOne({email : data.email})
         const nanoidCode = customAlphabet('ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxzy?@[]', 8)
