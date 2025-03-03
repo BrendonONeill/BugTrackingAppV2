@@ -34,7 +34,7 @@ export async function POST(request,response)
                     "Origin": "https://bug-tracking-app.vercel.app"
                 },
                 method: 'POST',
-                body: JSON.stringify({link:`http://localhost:3000/login/forgotpassword/${string}`,code, email: data.email.toLowerCase()}),
+                body: JSON.stringify({link:`https://bug-tracking-app.vercel.app/login/forgotpassword/${string}`,code, email: data.email.toLowerCase()}),
             });
             if(res.ok)
             {
