@@ -28,7 +28,7 @@ export async function POST(request,response)
             let code = nanoidCode()
             let codeHashed = await bcrypt.hash(code, 12);
             await ResetPassword.create({link:string,code: codeHashed,email: data.email})
-            let res = await fetch('https://yko8kw06tyklhyhrgtrg.brendon-projects.blog/bugtracking', {
+            let res = await fetch('https://prox.ko-do.dev/bugtracking', {
                 headers: {
                     'Content-Type': 'application/json',
                     "Origin": "https://bug-tracking-app.vercel.app"
